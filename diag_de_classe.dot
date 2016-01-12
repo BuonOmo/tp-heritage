@@ -1,0 +1,18 @@
+digraph diagramme {
+    rankdir=LR;
+    splines=ortho;
+    /* Entities */
+    Commande  [label="Commande|+ undo()\l+ redo()\l+ clear()\l+ save()\l+ load()\l", shape="record"]
+    Objet [label="Objet|+ originX :int\l+ originY :int\l+ name :string\l|+ has(point) :bool\l+ shift()\l", shape="record"]
+    Union [label="Union||", shape="record"]
+    Intersection [label="Intersection||", shape="record"]
+    Rectangle [label="Rectangle||", shape="record"]
+    Segment [label="Segment||", shape="record"]
+    Historique [label="Historique||", shape="record"]
+    Controleur [label="Controleur||", shape="record"]
+    /* Relationships */
+    Union -> Objet [arrowhead=empty]
+    Intersection -> Objet [arrowhead=empty]
+    Rectangle -> Objet [arrowhead=empty]
+    Segment -> Objet [arrowhead=empty]
+}
