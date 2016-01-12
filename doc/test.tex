@@ -1,0 +1,344 @@
+% The following two lines are added in case arara is
+% used to build this document:
+% arara: pdflatex: { synctex: on }
+% arara: pdflatex: { synctex: on }
+\documentclass[oneside]{book}
+
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amssymb} 
+\usepackage{xfrac}
+\usepackage{amsbsy,amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{verbatim}
+\usepackage{footnote}
+\usepackage{enumitem}
+\usepackage[gen]{eurosym}
+%\usepackage{fancyheadings}
+\usepackage{hyperref}
+\usepackage{hypcap}
+%\usepackage{glossaries}
+%\usepackage{paralist}
+
+\newfloat{program}{thpb!H}{lop}
+\floatname{program}{Listing}
+
+\newcommand{\confidence}{Confidence}
+\newcommand{\fox}{{\bf Foxstream}}
+\newcommand{\casa}{{\bf Milan}}
+\newcommand{\algo}{TEDDY}
+\newtheorem{definition}{Definition}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\renewcommand*\contentsname{Table des matières}
+\renewcommand{\bibname}{Bibliographie}
+
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+%\renewcommand*\listfigurename{List of figures}
+
+
+\begin{document} 
+%\pagestyle{empty}
+
+\chapter*{TP Héritage, polymorphisme}
+\textbf{Objectif} : Familiarisation avec les notions d'héritage entre classes C++, polymorphisme, méthodes virtuelles, classe abstraite, opérations d'entrée/sortie. D'autres notions seront revisitées dans ce TP : l'utilisation des "design patterns", la mise au point d'un logiciel, l'évaluation des performances d'un logiciel, respecter un cahier des charges, intégration avec des modules existants.
+
+\section*{Problème}
+Vous devez implémenter un éditeur de formes géométriques et de les manipuler simplement. Nous ne vous demandons pas de réaliser une interface graphique, l'interaction avec l'éditeur se fera en mode console.
+L'éditeur doit permettre la gestion de formes géométriques suivantes :
+\begin{itemize}
+  \item Segment
+  \item Rectangle
+  \item Polygone convexe
+\end{itemize}
+Il permet également d'effectuer :
+\begin{itemize}
+  \item L'ajout d'un nouvel objet (avec l'une de formes présentées précédemment)~;
+  \item La création d'un nouveau objet comme résultat d'une opération sur des objets existants (réunion, intersection)~;
+  \item La suppression d'un objet~;
+  \item Le déplacement d'un objet~;
+  \item Vérifier si un point se trouve à l'intérieur d'un objet~;
+  \item La persistance d'un ensemble d'objets construit de cette manière~; le fichier de sauvegarde est un fichier de format texte~;
+\end{itemize}
+
+Pour des raisons d'intégration avec d'autres modules existants, votre application doit implémenter d'une manière très stricte l'interface en mode console en respectant la syntaxe illustrée dans l'annexe A. 
+
+\section*{Méthode de travail}
+D'une manière très schématique, nous vous conseillons de diviser votre travail de la façon suivante~:
+\begin{itemize}
+  \item Compréhension du cahier des charges (CdC)~; éclaircissement des points ambigüs~; vous devez produire un CdC détaillé à partir du CdC initial~;
+  \item Concevoir une solution~; identifier les classes, les méthodes et les attributs~; Produire un document qui spécifie votre future solution, incluant un diagramme de classes~;
+  \item Préparer vos données de test~; éventuelle mise en place d'une procédure de non-régression~;
+  \item Implémenter votre solution~; Documentation de votre code~; Respect d'un guide de style~; Réaliser des tests unitaires pour vos classes~; Paralléliser éventuellement votre travail~; un planning très schématique peut vous aider~;
+  \item Tester votre solution via des tests fonctionnels~;
+  \item Évaluer les performances de votre solution~;
+  \item Préparer correctement les livrables à rendre avant la date limite qui vous sera communiqué en séance.
+\end{itemize}
+
+N'oubliez pas de :
+\begin{itemize}
+  \item Relire vos documents d'une manière croisée~;
+  \item Vérifier la validité de votre solution.
+\end{itemize}
+
+\section*{Livrables}
+Tous les livrables seront déposés dans un fichier .zip sur moodle2.insa-lyon.fr, dans l'activité associée au cours \textit{Algorithmique, Programmation Orientée Objet - C++}. Le fichier aura le nom B3XYY.zip, où X est votre groupe, YY votre numéro de binôme.
+
+Le fichier B3XYY sera organisé de la manière suivante :
+\begin{itemize}
+	\item Exécutable avec le nom B3XYY, dans le répertoire racine (/B3XYY)~;
+	\item Sources de votre projet, permettant de reconstruire l'exécutable (sur une machine Linux du département), dans le sous-répertoire src/
+	\item Document de conception ($\leq 4$ pages) : Conception\_B3XYY.pdf, dans le sous-répertoire doc/
+	\item Cahier des charges détaillé ($\leq 6$ pages) : CDC\_B3XYY.pdf, dans le sous-répertoire doc/
+	\item Procédure de non-régression : fichiers de données + script dans le sous-répertoire tests/
+	\item Document évaluant les performances de votre application, en principal le temps de lecture/écriture d'un fichier : Perfs\_B3XYY.pdf, dans le sous-répertoire doc/
+	\item Toute autre information utile : dans un fichier readme.txt situé dans le répertoire racine.
+\end{itemize}
+
+\pagebreak
+
+\section*{Notation}
+Pour simplifier la validation de votre application, vous allez recevoir quelques données pour tester le format des entrées/sorties. Après avoir livré votre solution, vous allez recevoir les tests "officiels" que vous pouvez exécuter vous-mêmes sur votre solution.
+La notation se fait de la manière suivante :
+\begin{enumerate}
+	\item(0 pt) Votre livrable est arrivé à temps, en s'exécutant correctement (sans erreur de compilation etc.) :
+	\begin{enumerate}
+		\item OUI : goto 2
+		\item NON : le TP n'est pas validé~;
+	\end{enumerate}
+	\item(10 pts) Une batterie de tests est appliquée à votre application. 
+	\begin{enumerate}
+		\item Plus de 75\% de tests sont passés avec succès pour les objets de type rectangle et segment~: goto 3
+		\item Sinon : le TP n'est pas validé~;
+	\end{enumerate}
+	\item(3 pts) Respect d'un guide de style, qualité du code, gestion correcte de la mémoire etc.~;
+	\item(2 pts) Le cahier des charges détaillé~;
+	\item(2 pts) Document décrivant la conception de votre application~;
+	\item(1 pt) Document (1 page) décrivant l'évaluation des performances~;
+	\item(2 pts) Procédure de non-régression via des tests fonctionnels~;
+\end{enumerate}
+
+\chapter*{Annexe A}
+L'interaction avec cette application se fait en mode console. L'application reçoit des commandes en entrée (commande = chaine des caractères terminée avec le symbole de fin de ligne). Après la réception d'une commande, l'application peut répondre avec un texte (qui peut être vide).
+L'application peut afficher à tout instant (console) de lignes des caractères qui commencent avec le caractère \#. Ces lignes sont considérées comme des commentaires, et n'ont pas d'influence sur le fonctionnement des entrées/sorties.
+
+\section*{Commandes possibles}
+\subsection*{Ajouter un segment}
+Commande : 
+\begin{lstlisting}
+	S Name X1 Y1 X2 Y2
+\end{lstlisting}
+Réponse : 
+\begin{lstlisting}
+	[OK|ERR]
+\end{lstlisting}
+Description : Ajoute un segment entre les points $(X_1,Y_1)$, $(X_2,Y_2)$. L'objet à un nom (\textit{Name}), qui est un mot composé de lettres et/ou chiffres, sans séparateurs à l'intérieur. Toutes ces valeurs sont des entiers. Dans ce document tous les paramètres sont des entiers, sauf si nous spécifions explicitement un autre type. La réponse est \textit{OK} si la commande s'est bien exécutée, \textit{ERR} dans le cas contraire. La réponse peut s'accompagner d'un commentaire (ligne qui commence avec le caractère \#). 
+\newline
+Exemple :
+\begin{lstlisting}
+	C: S c11 12 15 45 20
+	R: OK
+	R: #New object: c11 
+\end{lstlisting}
+Exemple :
+\begin{lstlisting}
+	C: S 12 15
+	R: ERR
+	R: #invalid parameters
+\end{lstlisting}
+
+\subsection*{Ajouter un rectangle}
+Commande : 
+\begin{lstlisting}
+	R Name X1 Y1 X2 Y2
+\end{lstlisting}
+Réponse : voir le point précédent.\newline
+Description : Ajoute un rectangle défini par les deux points gauche-haut = (X1, Y1) et droite-bas = (X2, Y2).\newline
+Exemple :
+\begin{lstlisting}
+	C: R rectangle1 56 46 108 4536
+	R: OK
+\end{lstlisting}
+
+\subsection*{Ajouter un polygone convexe}
+Commande : 
+\begin{lstlisting}
+	PC Name X1 Y1 X2 Y2 ... Xn Yn
+\end{lstlisting}
+Description : Ajoute un polygone défini par les points : $(X_1,Y_1), (X_2,Y_2), (X_3,Y_3) \ldots (X_n,Y_n)$, avec $n \geq 3$. Si le polygone n'est pas convexe, une erreur sera générée.\newline
+Exemple :
+\begin{lstlisting}
+	C: PC Name12 56 46 108 4536 80 100
+	R: OK
+\end{lstlisting}
+
+\subsection*{Opération de réunion}
+Commande : 
+\begin{lstlisting}
+	OR Name Name1 Name2 ... NameN
+\end{lstlisting}
+Description : Permet de construire un nouveau objet Name comme la réunion de la liste d'objets existants $Name_1$ \ldots $Name_n$. \newline
+Exemple :
+\begin{lstlisting}
+	C: PC Name12 56 46 108 4536 80 100
+	R: OK
+	C: S seg1 56 46 108 4536
+	R: OK
+	C: OR re1 seg1 Name12
+	R: OK
+\end{lstlisting}
+
+\subsection*{Opération d'intersection}
+Commande : 
+\begin{lstlisting}
+	OI Name Name1 Name2 ... NameN
+\end{lstlisting}
+Description : Permet de construire un nouveau objet Name via l'intersection de la liste d'objets existants $Name_1$ \ldots $Name_n$. \newline
+Exemple :
+\begin{lstlisting}
+	C: PC Name12 56 46 108 4536 80 100
+	R: OK
+	C: S seg1 56 46 108 4536
+	R: OK
+	C: OI int1 seg1 Name12
+	R: OK
+\end{lstlisting}
+
+\subsection*{Opération d'appartenance}
+Commande : 
+\begin{lstlisting}
+	HIT Name X Y
+\end{lstlisting}
+Réponse : 
+\begin{lstlisting}
+	[YES|NO]
+\end{lstlisting}
+Description : Permet de vérifier si le point $(X, Y)$ se trouve à l'intérieur de l'objet $Name$.\newline
+Exemple :
+\begin{lstlisting}
+	C: R rectangle1 56 46 108 4536
+	R: OK
+	C: HIT rectangle1 57 50
+	R: YES
+\end{lstlisting}
+
+\subsection*{Suppression}
+Commande :
+\begin{lstlisting}
+	DELETE Name1 Name2 ... NameN
+\end{lstlisting}
+Description : Supprime les objets identifiés. Si un nom est invalide, aucun objet n'est supprimé, et une erreur est renvoyé. \newline
+Exemple : 
+\begin{lstlisting}
+	C: DELETE Name12 l172v
+	R: OK
+\end{lstlisting}
+
+\subsection*{Déplacement}
+Commande : 
+\begin{lstlisting}
+	MOVE Name dX dY
+\end{lstlisting}
+Description : Déplace l'objet \textit{Name} avec dX sur l'axe x et dY sur l'axe y.\newline
+Exemple : 
+\begin{lstlisting}
+	C: MOVE Name12 100 -25
+	R: OK
+\end{lstlisting}
+
+\subsection*{Énumération}
+Commande : 
+\begin{lstlisting}
+	LIST
+\end{lstlisting}
+Réponse : 
+\begin{lstlisting}
+	Desc1
+	Desc2
+	...
+	DescN
+\end{lstlisting}
+Description : Affiche les descripteurs d'objets existants, dans un format à définir.\newline
+
+\subsection*{Annuler la dernière opération}
+Commande : 
+\begin{lstlisting}
+	UNDO
+\end{lstlisting}
+Description : Annuler la dernière opération qui a eu un effet sur le modèle (déplacement, suppression, insertion d'un objet, chargement d'un fichier).\newline
+Exemple : 
+\begin{lstlisting}
+	C: UNDO
+	R: OK
+\end{lstlisting}
+
+\subsection*{Reprendre la dernière modification}
+Commande : 
+\begin{lstlisting}
+	REDO
+\end{lstlisting}
+Description : Refaire la dernière opération annulée qui a eu un effet sur le modèle. La commande REDO a un effet sur le modèle s'il y a eu une commande UNDO précédemment et entre cette commande UNDO et le moment d'exécution de la commande REDO il n'y a pas eu d'autres commandes qui changent le modèle.\newline
+Exemple :
+\begin{lstlisting}
+	C: REDO
+	R: OK
+\end{lstlisting}
+
+\subsection*{Charger en mémoire un modèle}
+ Commande : 
+\begin{lstlisting}
+	LOAD filename
+\end{lstlisting}
+Description : charge un ensemble d'objets à partir d'un fichier texte~; le format du fichier est à définir.\newline
+Exemple :
+\begin{lstlisting}
+	C: LOAD a.txt
+	R: OK
+\end{lstlisting}
+
+\subsection*{Sauvegarder le modèle courant}
+Commande : 
+\begin{lstlisting}
+	SAVE filename
+\end{lstlisting}
+Description : sauvegarde le modèle courant dans un fichier~; le format du fichier est décrit au point précédent (LOAD).\newline
+Exemple :
+\begin{lstlisting}
+	C: SAVE a.txt
+	R: OK
+\end{lstlisting}
+
+\subsection*{Vider le modèle actuel}
+Commande : 
+\begin{lstlisting}
+	CLEAR
+\end{lstlisting}
+Description : supprime tous les objets composant le modèle actuel.\newline
+Exemple : 
+\begin{lstlisting}
+	C: CLEAR
+	R: OK
+\end{lstlisting}
+
+\subsection*{Fermer l'application}
+Commande : 
+\begin{lstlisting}
+	EXIT
+\end{lstlisting}
+Description : ferme l'application.\newline
+Exemple :
+\begin{lstlisting}
+	C: EXIT
+	R: 
+\end{lstlisting}
+
+
+\end{document}
