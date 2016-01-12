@@ -1,55 +1,63 @@
 /*************************************************************************
                                     Objet
                              -------------------
-    d�but                : 12 janvier 2016
+    début                : 12 janvier 2016
     copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-///---------- R�alisation de la classe <Objet> (fichier Objet.cpp) --
+//---------- Réalisation de la classe <Objet> (fichier Objet.cpp) --
 
-///---------------------------------------------------------------- INCLUDE
+//---------------------------------------------------------------- INCLUDE
 
-///-------------------------------------------------------- Include syst�me
+//-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
 
-///------------------------------------------------------ Include personnel
+//------------------------------------------------------ Include personnel
 #include "Objet.h"
 
-///------------------------------------------------------------- Constantes
+//------------------------------------------------------------- Constantes
 
-///---------------------------------------------------- Variables de classe
+//---------------------------------------------------- Variables de classe
 
-///----------------------------------------------------------- Types priv�s
+//----------------------------------------------------------- Types privés
 
 
-///----------------------------------------------------------------- PUBLIC
-///-------------------------------------------------------- Fonctions amies
+//----------------------------------------------------------------- PUBLIC
+//-------------------------------------------------------- Fonctions amies
 
-///----------------------------------------------------- M�thodes publiques
-// type Objet::M�thode ( liste de param�tres )
+//----------------------------------------------------- Méthodes publiques
+// type Objet::Méthode ( liste de paramètres )
 // Algorithme :
 //
 //{
-//} //----- Fin de M�thode
+//} //----- Fin de Méthode
 
 
-///------------------------------------------------- Surcharge d'op�rateurs
+//------------------------------------------------- Surcharge d'opérateurs
 Objet & Objet::operator = ( const Objet & unObjet )
 // Algorithme :
 //
 {
+    if (this != &unObjet)
+    {
+        *(this -> name) = *(unObjet.name);
+    }
+    return *this;
 } //----- Fin de operator =
 
 
-///-------------------------------------------- Constructeurs - destructeur
+//-------------------------------------------- Constructeurs - destructeur
 Objet::Objet ( const Objet & unObjet )
 // Algorithme :
 //
 {
+    c++;
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Objet>" << endl;
+    cout << "#Appel au constructeur de copie de <Objet>" << endl;
+    cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
+    *this = unObjet;
 } //----- Fin de Objet (constructeur de copie)
 
 
@@ -57,8 +65,10 @@ Objet::Objet ( )
 // Algorithme :
 //
 {
+    c=1;
 #ifdef MAP
-    cout << "Appel au constructeur de <Objet>" << endl;
+    cout << "#Appel au constructeur de <Objet>" << endl;
+    cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
 
 } //----- Fin de Objet
@@ -68,14 +78,20 @@ Objet::~Objet ( )
 // Algorithme :
 //
 {
+    c--;
+    if (!c)
+    {
+        //TODO suppression du contenu;
+    }
 #ifdef MAP
-    cout << "Appel au destructeur de <Objet>" << endl;
+    cout << "#Appel au destructeur de <Objet>" << endl;
+    cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
 } //----- Fin de ~Objet
 
 
-///------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PRIVE
 
-///----------------------------------------------------- M�thodes prot�g�es
+//----------------------------------------------------- Méthodes protégées
 
-///------------------------------------------------------- M�thodes priv�es
+//------------------------------------------------------- Méthodes privées

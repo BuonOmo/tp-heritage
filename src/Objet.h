@@ -5,12 +5,12 @@
     copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-//---------- Interface de la classe <Objet> (fichier Objet.h) ------
-#ifndef ( OBJET_H )
+//---------------- Interface de la classe <Objet> (fichier Objet.h) ------
+#ifndef OBJET_H
 #define OBJET_H
 
-//--------------------------------------------------- Interfaces utilis�es
-
+//--------------------------------------------------- Interfaces utilisées
+#include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -74,7 +74,8 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-
+    int c;
+    string * name;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes priv�es
