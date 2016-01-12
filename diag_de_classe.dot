@@ -2,17 +2,25 @@ digraph diagramme {
     rankdir=LR;
     splines=ortho;
     /* Entities */
-    Commande  [label="Commande|+ undo()\l+ redo()\l+ clear()\l+ save()\l+ load()\l", shape="record"]
-    Objet [label="Objet|+ originX :int\l+ originY :int\l+ name :string\l|+ has(point) :bool\l+ shift()\l", shape="record"]
-    Union [label="Union||", shape="record"]
-    Intersection [label="Intersection||", shape="record"]
-    Rectangle [label="Rectangle||", shape="record"]
-    Segment [label="Segment||", shape="record"]
-    Historique [label="Historique||", shape="record"]
-    Controleur [label="Controleur||", shape="record"]
+    subgraph cluster_obj
+    {
+        Objet [label="Objet|+ originX :int\l+ originY :int\l+ name :string\l|+ has(int x, int y) :bool\l+ shift()\l", shape="record"]
+        Union [label="Union||", shape="record"]
+        Intersection [label="Intersection||", shape="record"]
+        Rectangle [label="Rectangle||", shape="record"]
+        Segment [label="Segment||", shape="record"]
+        Commande  [label="Commande|+ undo()\l+ redo()\l+ clear()\l+ save(string name)\l+ load(string name)\l", shape="record"]
+    }
+    Historique [label="Historique|+commandes :file(Commande)|", shape="record"]
+    Main [label="Main|+ objets :hashmap(string,Objet)|", shape="record"]
     /* Relationships */
+    rank = same {Main, Commande, Objet}
+    rank = same {Union, Intersection, Rectangle, Segment}
     Union -> Objet [arrowhead=empty]
     Intersection -> Objet [arrowhead=empty]
     Rectangle -> Objet [arrowhead=empty]
     Segment -> Objet [arrowhead=empty]
+    Objet -> Main [arrowhead=ediamond, taillabel=N, headlabel=1]
+    Historique -> Main [arrowhead=ediamond, taillabel=1, headlabel=1]
+    Main -> Commande [arrowhead=vee, style=dashed]
 }
