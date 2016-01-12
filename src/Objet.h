@@ -49,7 +49,7 @@ public:
     // Contrat :
     //
 
-    Objet ( );
+    Objet ( string aName = "" );
     // Mode d'emploi :
     //
     // Contrat :
