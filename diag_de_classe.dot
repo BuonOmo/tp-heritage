@@ -6,10 +6,11 @@ digraph diagramme {
         label="Objet";
         style=filled;
         bgcolor=gray;
-        "Objet" [label="Objet|+ name :string\l|+ has(int x, int y) :bool\l+ shift()\l", shape="record"]
-        "Union" [label="Union|+ objets :liste(Objet)|", shape="record"]
+        "Objet" [label="Objet|+ name :string\l+ description :string\l|+ has(int x, int y) :bool\l+ shift() :void\l+toString() :string\l", shape="record"]
+        "Union" [label="Union||", shape="record"]
         "Intersection" [label="Intersection||", shape="record"]
         "ObjetSimple" [label="ObjetSimple|+ X :int[]\l+ Y :int[]\l|",shape=record]
+        "ObjetComplexe" [label="ObjetComplexe|+ objets :liste(Objet)\l+ sous-descriptions :liste(string)|",shape=record]
         "Rectangle" [label="Rectangle||", shape="record"]
         "Segment" [label="Segment||", shape="record"]
         "Polygone" [label="Polygone||",shape=record]
@@ -20,8 +21,9 @@ digraph diagramme {
     "Main" [label="Main|+ objets :hashmap(string,Objet)|", shape="record"]
     /* Relationships */
     rank = same {"Main", "Commande", "Historique"}
-    "Union" -> "Objet" [arrowhead=empty]
-    "Intersection" -> "Objet" [arrowhead=empty]
+    "Union" -> "ObjetComplexe" [arrowhead=empty]
+    "Intersection" -> "ObjetComplexe" [arrowhead=empty]
+    "ObjetComplexe" -> "Objet" [arrowhead=empty]
     "Rectangle" -> "ObjetSimple" [arrowhead=empty]
     "Polygone" -> "ObjetSimple" [arrowhead=empty]
     "Segment" -> "ObjetSimple" [arrowhead=empty]
