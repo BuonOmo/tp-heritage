@@ -27,11 +27,6 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Point::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -41,12 +36,16 @@ Point & Point::operator = ( const Point & aPoint )
 {
     if (this != &aPoint)
     {
-        X = aPoint.X;
-			Y = aPoint.Y;
+        x = aPoint.x;
+			y = aPoint.y;
     }
     return *this;
 } //----- Fin de operator =
 
+Point & Point::operator + ( const Point &unPoint )
+{
+    return *(new Point( this -> x + unPoint.x, this -> y + unPoint.y));
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 Point::Point ( const Point & aPoint )
@@ -61,7 +60,7 @@ Point::Point ( const Point & aPoint )
 
 
 Point::Point ( int aX, int aY )
-    : X (aX), Y (aY)
+    : x (aX), y (aY)
 // Algorithme :
 //
 {

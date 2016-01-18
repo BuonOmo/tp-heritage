@@ -27,11 +27,8 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Objet::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+void shift ( Point p )
+{ } //----- Fin de shift
 
 
 //------------------------------------------------- Surcharge d'opérateurs

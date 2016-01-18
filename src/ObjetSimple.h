@@ -29,11 +29,12 @@ class ObjetSimple : public Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
+    virtual void shift ( Point p );
     // Mode d'emploi :
+    // Déplace l’objet selon le vecteur correspondant à p.
     //
     // Contrat :
-    //
+    // -
 
 
 //------------------------------------------------- Surcharge d'opérateurs

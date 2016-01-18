@@ -27,11 +27,13 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ObjetSimple::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+void ObjetSimple::shift ( Point p )
+{
+    for (Point i : points)
+    {
+        i = i + p;
+    }
+} //----- Fin de shift
 
 
 //------------------------------------------------- Surcharge d'opérateurs

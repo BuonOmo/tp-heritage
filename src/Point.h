@@ -41,6 +41,11 @@ public:
     // Contrat :
     //
 
+    Point & operator + ( const Point & unPoint );
+    // Mode d’emploi :
+    //
+    // Contrat :
+    // ajoute les x et les y separement et renvoi le résultat
 
 //-------------------------------------------- Constructeurs - destructeur
     Point ( const Point & aPoint );
@@ -74,8 +79,8 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-int X;
-	int Y;
+    int x;
+    int y;
 
 //---------------------------------------------------------- Classes amies
 

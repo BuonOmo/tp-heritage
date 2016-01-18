@@ -9,7 +9,7 @@ INT      = Objet.h ObjetComplexe.h ObjetSimple.h Point.h
 INTPATH  =../src/
 REAL     = $(REALPATH)$(INT:.h=.cpp)
 REALPATH =../src/
-OBJ      = $(OBJPATH)$(INT:.h=.o) main.o
+OBJ      = $(OBJPATH)$(INT:.h=.o) Main.o
 OBJPATH  =
 LIBPATH  = #-L
 INCPATH  = #-I
