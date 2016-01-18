@@ -164,42 +164,112 @@ int main () {
 		
 		else if(commande == "DELETE")
 		{
-
+			vector<string> names;
+			
+			while(!iss.eof())
+		    {
+		        string nameObjet;
+		        iss >> nameObjet;		        
+		        names.push_back(nameObjet);
+		    }
+		    
+			if (names.size() == 0) {
+				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
+				
+			}
+			else
+				cout << "OK" << endl;
 		}
 		
 		else if(commande == "MOVE")
 		{
-
+			string name = "";
+			iss >> name;
+			int dx;
+			int dy;
+			
+			if ((!(iss >> dx && iss >> dy) || name == "") || !iss.eof()) {
+				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
+				
+			}
+			else
+				cout << name << " " << dx << " " << dy << " OK" << endl;
 		}
 		
 		else if(commande == "LIST")
 		{
-
+			if(!iss.eof())
+			{
+				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste LIST." << endl;
+			}
+			else
+			{
+				cout << "OK" << endl;
+			}
 		}
 		
 		else if(commande == "UNDO")
 		{
-
+			if(!iss.eof())
+			{
+				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste UNDO." << endl;
+			}
+			else
+			{
+				cout << "OK" << endl;
+			}
 		}
 		
 		else if(commande == "REDO")
 		{
-
+			if(!iss.eof())
+			{
+				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste REDO." << endl;
+			}
+			else
+			{
+				cout << "OK" << endl;
+			}
 		}
 		
 		else if(commande == "LOAD")
 		{
-
+			string filename;
+			iss >> filename;
+			if(!iss.eof() || filename == "")
+			{
+				cout << "ERR" << endl << "#Pas le bon nombre d'arguments." << endl;
+			}
+			else
+			{
+				cout << "OK" << endl;
+			}
 		}
 		
 		else if(commande == "SAVE")
 		{
-
+			string filename;
+			iss >> filename;
+			if(!iss.eof() || filename == "")
+			{
+				cout << "ERR" << endl << "#Pas le bon nombre d'arguments." << endl;
+			}
+			else
+			{
+				cout << "OK" << endl;
+			}
 		}
 		
 		else if(commande == "CLEAR")
 		{
-
+			if(!iss.eof())
+			{
+				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste CLEAR." << endl;
+			}
+			else
+			{
+				cout << "OK" << endl;
+			}
 		}
 		
 		else if(commande == "EXIT")
