@@ -48,7 +48,13 @@ Point & Point::operator + ( const Point &unPoint )
 int Point::operator * ( const Point &unPoint )
 {
     return x*unPoint.x + y*unPoint.y;
-}
+} //----- Fin de operator *
+
+int Point::operator ^ ( const Point &unPoint )
+{
+    return x*unPoint.y - y*unPoint.x;
+} //----- Fin de operator ^
+
 //-------------------------------------------- Constructeurs - destructeur
 Point::Point ( const Point & aPoint )
 {

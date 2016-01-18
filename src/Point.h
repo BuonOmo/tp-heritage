@@ -45,6 +45,10 @@ public:
     // Contrat :
     // Renvoi le produit scalaire de deux vecteurs.
 
+    int operator ^ ( const Point & unPoint);
+    // Contrat :
+    // Renvoi le produit vectoriel de deux vecteurs coplanaires.
+
 //-------------------------------------------- Constructeurs - destructeur
     Point ( const Point & aPoint );
     // Mode d'emploi (constructeur de copie) :
