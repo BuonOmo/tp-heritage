@@ -1,41 +1,41 @@
 /*************************************************************************
-                                    Objet
+                    ObjetSimple  -  Segments, rectangles et polygones
                              -------------------
-    d�but                : 12 janvier 2016
-    copyright            : (C) 2016 par Pierre et Ulysse
+    début                : 18/01/2016
+    copyright            : (C) 2016 par pierre et ulysse
 *************************************************************************/
 
-//---------------- Interface de la classe <Objet> (fichier Objet.h) ------
-#ifndef OBJET_H
-#define OBJET_H
+//---------- Interface de la classe <ObjetSimple> (fichier ObjetSimple) --
+#ifndef OBJETSIMPLE_H
+#define OBJETSIMPLE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// R�le de la classe <Objet>
+// Rôle de la classe <ObjetSimple>
 //
 //
 //------------------------------------------------------------------------
 
-class Objet
+class ObjetSimple : public Objet
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- M�thodes publiques
-    // type M�thode ( liste de param�tres );
+//----------------------------------------------------- Méthodes publiques
+    // type Méthode ( liste de paramètres );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
 
-//------------------------------------------------- Surcharge d'op�rateurs
-    Objet & operator = ( const Objet & unObjet );
+//------------------------------------------------- Surcharge d'opérateurs
+    ObjetSimple & operator = ( const ObjetSimple & aObjetSimple );
     // Mode d'emploi :
     //
     // Contrat :
@@ -43,19 +43,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Objet ( const Objet & unObjet );
+    ObjetSimple ( const ObjetSimple & aObjetSimple );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Objet ( string aName = "" );
+    ObjetSimple ( const Point &aPoints = new Point (2), int unNombrePoints = 2 );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Objet ( );
+    virtual ~ObjetSimple ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -64,26 +64,27 @@ public:
 //------------------------------------------------------------------ PRIVE
 
 protected:
-//----------------------------------------------------- M�thodes prot�g�es
+//----------------------------------------------------- Méthodes protégées
 
 private:
-//------------------------------------------------------- Méthodes priv�es
+//------------------------------------------------------- Méthodes privées
 
 protected:
 //----------------------------------------------------- Attributs protégés
 
 private:
 //------------------------------------------------------- Attributs privés
-    int c;
-    string name;
+Point points;
+int nombrePoints;
+
 //---------------------------------------------------------- Classes amies
 
-//-------------------------------------------------------- Classes priv�es
+//-------------------------------------------------------- Classes privées
 
-//----------------------------------------------------------- Types priv�s
+//----------------------------------------------------------- Types privés
 
 };
 
-//----------------------------------------- Types d�pendants de <Objet>
+//----------------------------------------- Types dépendants de <ObjetSimple>
 
-#endif // OBJET_H
+#endif // OBJETSIMPLE_H

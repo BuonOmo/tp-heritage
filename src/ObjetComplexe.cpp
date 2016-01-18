@@ -1,11 +1,11 @@
 /*************************************************************************
-                                    Objet
+                        ObjetComplexe  -  liste d’objets
                              -------------------
-    début                : 12 janvier 2016
-    copyright            : (C) 2016 par Pierre et Ulysse
+    début                : 18/01/2016
+    copyright            : (C) 2016 par pierre et ulysse
 *************************************************************************/
 
-//------------ Réalisation de la classe <Objet> (fichier Objet.cpp) ------
+//---- Réalisation de la classe <ObjetComplexe> (fichier ObjetComplexe) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Objet.h"
+#include "ObjetComplexe.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Objet::Méthode ( liste de paramètres )
+// type ObjetComplexe::Méthode ( liste de paramètres )
 // Algorithme :
 //
 //{
@@ -35,60 +35,50 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Objet & Objet::operator = ( const Objet & unObjet )
+ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplexe )
 // Algorithme :
 //
 {
-    if (this != &unObjet)
+    if (this != &unObjetComplexe)
     {
-        this -> name = unObjet.name;
+        objets = unObjetComplexe.objets;
+		sous-descriptions = unObjetComplexe.sous-descriptions;
     }
     return *this;
 } //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Objet::Objet ( const Objet & unObjet )
+ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 // Algorithme :
 //
 {
-    c++;
 #ifdef MAP
-    cout << "#Appel au constructeur de copie de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au constructeur de copie de <ObjetComplexe>" << endl;
 #endif
-    *this = unObjet;
-} //----- Fin de Objet (constructeur de copie)
+    *this = unObjetComplexe;
+} //----- Fin de ObjetComplexe (constructeur de copie)
 
 
-Objet::Objet ( string &aName)
-    : name(aName)
+ObjetComplexe::ObjetComplexe ( const Objet &desObjets, const string &desSous-Descriptions )
+    : objets (desObjets), sous-descriptions (desSous-Descriptions);
 // Algorithme :
 //
 {
-    c=1;
 #ifdef MAP
-    cout << "#Appel au constructeur de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au constructeur de <ObjetComplexe>" << endl;
 #endif
+} //----- Fin de ObjetComplexe
 
-} //----- Fin de Objet
 
-
-Objet::~Objet ( )
+ObjetComplexe::~ObjetComplexe ( )
 // Algorithme :
 //
 {
-    c--;
-    if (!c)
-    {
-        //TODO suppression du contenu;
-    }
 #ifdef MAP
-    cout << "#Appel au destructeur de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au destructeur de <ObjetComplexe>" << endl;
 #endif
-} //----- Fin de ~Objet
+} //----- Fin de ~ObjetComplexe
 
 
 //------------------------------------------------------------------ PRIVE
