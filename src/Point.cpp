@@ -31,26 +31,26 @@ using namespace std;
 
 //------------------------------------------------- Surcharge d'opérateurs
 Point & Point::operator = ( const Point & aPoint )
-// Algorithme :
-//
 {
     if (this != &aPoint)
     {
         x = aPoint.x;
-			y = aPoint.y;
+		y = aPoint.y;
     }
     return *this;
 } //----- Fin de operator =
 
 Point & Point::operator + ( const Point &unPoint )
 {
-    return *(new Point( this -> x + unPoint.x, this -> y + unPoint.y));
-}
+    return *(new Point( x + unPoint.x, y + unPoint.y));
+} //----- Fin de operator +
 
+int Point::operator * ( const Point &unPoint )
+{
+    return x*unPoint.x + y*unPoint.y;
+}
 //-------------------------------------------- Constructeurs - destructeur
 Point::Point ( const Point & aPoint )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Point>" << endl;
@@ -61,8 +61,6 @@ Point::Point ( const Point & aPoint )
 
 Point::Point ( int aX, int aY )
     : x (aX), y (aY)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Point>" << endl;
@@ -71,8 +69,6 @@ Point::Point ( int aX, int aY )
 
 
 Point::~Point ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <Point>" << endl;

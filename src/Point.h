@@ -36,16 +36,14 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
     Point & operator = ( const Point & aPoint );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     Point & operator + ( const Point & unPoint );
-    // Mode d’emploi :
-    //
     // Contrat :
     // ajoute les x et les y separement et renvoi le résultat
+
+    int operator * ( const Point & unPoint);
+    // Contrat :
+    // Renvoi le produit scalaire de deux vecteurs.
 
 //-------------------------------------------- Constructeurs - destructeur
     Point ( const Point & aPoint );
