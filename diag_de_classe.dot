@@ -6,29 +6,30 @@ digraph diagramme {
         label="Objet";
         style=filled;
         bgcolor=gray;
-        "Objet" [label="Objet|+ name :string\l+ description :string\l|+ has(int x, int y) :bool\l+ shift() :void\l+toString() :string\l", shape="record"]
+        "Objet" [label="Objet|+ name :string\l+ description :string\l|+ has(point p) :bool\l+ shift() :void\l+toString() :string\l", shape="record"]
         "Union" [label="Union||", shape="record"]
         "Intersection" [label="Intersection||", shape="record"]
-        "ObjetSimple" [label="ObjetSimple|+ X :int[]\l+ Y :int[]\l|",shape=record]
+        "ObjetSimple" [label="ObjetSimple|+ points :Point[]\l+ nombrePoints :int\l|",shape=record]
         "ObjetComplexe" [label="ObjetComplexe|+ objets :liste(Objet)\l+ sous-descriptions :liste(string)|",shape=record]
         "Rectangle" [label="Rectangle||", shape="record"]
         "Segment" [label="Segment||", shape="record"]
         "Polygone" [label="Polygone||",shape=record]
         rank = same {"Union", "Intersection", "Rectangle", "Segment"}
     }
+    "Point" [label="Point|+ produit vect() :int\l+ produit scal() :int\l|+ X :int\l+Y :int\l",shape=record]
     "Commande"  [label="Commande|+ undo()\l+ redo()\l+ clear()\l+ save(string name)\l+ load(string name)\l", shape="record"]
     "Historique" [label="Historique|+commandes :file(Commande)|", shape="record"]
     "Main" [label="Main|+ objets :hashmap(string,Objet)|", shape="record"]
     /* Relationships */
     rank = same {"Main", "Commande", "Historique"}
-    "Union" -> "ObjetComplexe" [arrowhead=empty]
-    "Intersection" -> "ObjetComplexe" [arrowhead=empty]
+    "Union"         -> "ObjetComplexe" [arrowhead=empty]
+    "Intersection"  -> "ObjetComplexe" [arrowhead=empty]
     "ObjetComplexe" -> "Objet" [arrowhead=empty]
-    "Rectangle" -> "ObjetSimple" [arrowhead=empty]
-    "Polygone" -> "ObjetSimple" [arrowhead=empty]
-    "Segment" -> "ObjetSimple" [arrowhead=empty]
-    "ObjetSimple" -> "Objet" [arrowhead=empty]
-    "Objet" -> "Main" [arrowhead=ediamond, taillabel=N, headlabel=1]
-    "Historique" -> "Main" [arrowhead=ediamond, taillabel=1, headlabel=1]
-    "Main" -> "Commande" [arrowhead=vee, style=dashed]
+    "Rectangle"     -> "ObjetSimple" [arrowhead=empty]
+    "Polygone"      -> "ObjetSimple" [arrowhead=empty]
+    "Segment"       -> "ObjetSimple" [arrowhead=empty]
+    "ObjetSimple"   -> "Objet" [arrowhead=empty]
+    "Objet"         -> "Main" [arrowhead=ediamond, taillabel=N, headlabel=1]
+    "Historique"    -> "Main" [arrowhead=ediamond, taillabel=1, headlabel=1]
+    "Main"          -> "Commande" [arrowhead=vee, style=dashed]
 }
