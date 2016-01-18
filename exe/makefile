@@ -5,11 +5,11 @@ RMFLAGS  = -f
 OUTPUT   = -o
 CPPFLAGS = -Wall # -DMAP
 INTPATH  = ../src/
-INT      = Objet.h
+INT      = Objet.h ObjetComplexe.h ObjetSimple.h Point.h
 INTPATH  =../src/
 REAL     = $(REALPATH)$(INT:.h=.cpp)
 REALPATH =../src/
-OBJ      = $(OBJPATH)$(INT:.h=.o)
+OBJ      = $(OBJPATH)$(INT:.h=.o) main.o
 OBJPATH  =
 LIBPATH  = #-L
 INCPATH  = #-I
@@ -28,7 +28,10 @@ $(EXE) : $(OBJ)
 	$(ECHO) "compilation de <$<>"
 	$(COMP) $(CPPFLAGS) $(INCPATH) -c $<
 
+Point.o : $(INTPATH)Point.h
 Objet.o : $(INTPATH)Objet.h
+ObjetComplexe.o : $(INTPATH)ObjetComplexe.h $(INTPATH)Objet.h
+ObjetSimple.o : $(INTPATH)ObjetSimple.h $(INTPATH)Objet.h $(INTPATH)Point.h
 
 
 Clean :
