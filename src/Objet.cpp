@@ -27,9 +27,16 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void shift ( Point p )
+void Shift ( Point p )
 { } //----- Fin de shift
 
+string Objet::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Objet>" << endl;
+#endif
+    return description;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 Objet & Objet::operator = ( const Objet & unObjet )
@@ -38,7 +45,8 @@ Objet & Objet::operator = ( const Objet & unObjet )
 {
     if (this != &unObjet)
     {
-        this -> name = unObjet.name;
+        name = unObjet.name;
+        description = unObjet.description;
     }
     return *this;
 } //----- Fin de operator =
@@ -58,8 +66,8 @@ Objet::Objet ( const Objet & unObjet )
 } //----- Fin de Objet (constructeur de copie)
 
 
-Objet::Objet ( const string &aName )
-    : name(aName)
+Objet::Objet ( const string &uneDescription )
+    : description(uneDescription)
 // Algorithme :
 //
 {

@@ -28,20 +28,20 @@ class Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void shift ( Point p );
+    virtual void Shift ( Point p );
     // Mode d'emploi :
-    // Déplace l’objet selon le vecteur correspondant à p.
+    // p correspond à un vecteur de déplacement et non un point.
     //
     // Contrat :
-    // -
+    // Déplace l’objet selon le vecteur correspondant à p.
 
+    string ToString () const;
+    // Contrat :
+    // Renvoi la ligne de commande correspondant à la création de l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
     Objet & operator = ( const Objet & unObjet );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+
 
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -51,7 +51,7 @@ public:
     // Contrat :
     //
 
-    Objet ( const string & aName = "null");
+    Objet ( const string & aDescription = "null" );
     // Mode d'emploi :
     //
     // Contrat :
@@ -78,6 +78,7 @@ private:
 //------------------------------------------------------- Attributs privés
     int c;
     string name;
+    string description;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

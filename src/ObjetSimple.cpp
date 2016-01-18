@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void ObjetSimple::shift ( Point p )
+void ObjetSimple::Shift ( Point p )
 {
     for (Point i : points)
     {

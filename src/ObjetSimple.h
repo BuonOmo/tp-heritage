@@ -29,7 +29,7 @@ class ObjetSimple : public Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void shift ( Point p );
+    void Shift ( Point p );
     // Mode d'emploi :
     // Déplace l’objet selon le vecteur correspondant à p.
     //
