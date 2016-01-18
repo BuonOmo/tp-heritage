@@ -29,7 +29,7 @@ $(EXE) : $(OBJ)
 	$(COMP) $(CPPFLAGS) $(INCPATH) -c $<
 
 Point.o : $(INTPATH)Point.h
-Objet.o : $(INTPATH)Objet.h
+Objet.o : $(INTPATH)Objet.h $(INTPATH)Point.h
 ObjetComplexe.o : $(INTPATH)ObjetComplexe.h $(INTPATH)Objet.h
 ObjetSimple.o : $(INTPATH)ObjetSimple.h $(INTPATH)Objet.h $(INTPATH)Point.h
 
