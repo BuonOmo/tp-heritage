@@ -1,11 +1,11 @@
 /*************************************************************************
-                                    Objet
+                    ObjetSimple  -  Segments, rectangles et polygones
                              -------------------
-    début                : 12 janvier 2016
-    copyright            : (C) 2016 par Pierre et Ulysse
+    début                : 18/01/2016
+    copyright            : (C) 2016 par pierre et ulysse
 *************************************************************************/
 
-//------------ Réalisation de la classe <Objet> (fichier Objet.cpp) ------
+//-------- Réalisation de la classe <ObjetSimple> (fichier ObjetSimple) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Objet.h"
+#include "ObjetSimple.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Objet::Méthode ( liste de paramètres )
+// type ObjetSimple::Méthode ( liste de paramètres )
 // Algorithme :
 //
 //{
@@ -35,60 +35,50 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Objet & Objet::operator = ( const Objet & unObjet )
+ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
 // Algorithme :
 //
 {
-    if (this != &unObjet)
+    if (this != &unObjetSimple)
     {
-        this -> name = unObjet.name;
+        points = unObjetSimple.points; //TODO copie des elements du tableau
+		nombrePoints = unObjetSimple.nombrePoints;
     }
     return *this;
 } //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Objet::Objet ( const Objet & unObjet )
+ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 // Algorithme :
 //
 {
-    c++;
 #ifdef MAP
-    cout << "#Appel au constructeur de copie de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au constructeur de copie de <ObjetSimple>" << endl;
 #endif
-    *this = unObjet;
-} //----- Fin de Objet (constructeur de copie)
+    *this = unObjetSimple;
+} //----- Fin de ObjetSimple (constructeur de copie)
 
 
-Objet::Objet ( string &aName)
-    : name(aName)
+ObjetSimple::ObjetSimple ( const Point * desPoints, int unNombrePoints )
+    : points (desPoints), nombrePoints (unNombrePoints); // TODO copie du tableau de points
 // Algorithme :
 //
 {
-    c=1;
 #ifdef MAP
-    cout << "#Appel au constructeur de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au constructeur de <ObjetSimple>" << endl;
 #endif
+} //----- Fin de ObjetSimple
 
-} //----- Fin de Objet
 
-
-Objet::~Objet ( )
+ObjetSimple::~ObjetSimple ( )
 // Algorithme :
 //
 {
-    c--;
-    if (!c)
-    {
-        //TODO suppression du contenu;
-    }
 #ifdef MAP
-    cout << "#Appel au destructeur de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au destructeur de <ObjetSimple>" << endl;
 #endif
-} //----- Fin de ~Objet
+} //----- Fin de ~ObjetSimple
 
 
 //------------------------------------------------------------------ PRIVE
