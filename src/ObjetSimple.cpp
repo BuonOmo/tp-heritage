@@ -41,7 +41,7 @@ ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
 {
     if (this != &unObjetSimple)
     {
-        points = unObjetSimple.points; //TODO copie des elements du tableau
+        points = unObjetSimple.points;
 		nombrePoints = unObjetSimple.nombrePoints;
     }
     return *this;
@@ -60,8 +60,8 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 } //----- Fin de ObjetSimple (constructeur de copie)
 
 
-ObjetSimple::ObjetSimple ( const Point * desPoints, int unNombrePoints )
-    : points (desPoints), nombrePoints (unNombrePoints); // TODO copie du tableau de points
+ObjetSimple::ObjetSimple ( const list<Point> & desPoints )
+    : points (desPoints)
 // Algorithme :
 //
 {

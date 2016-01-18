@@ -10,7 +10,8 @@
 #define OBJETCOMPLEXE_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Objet.h"
+#include <list>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -49,7 +50,7 @@ public:
     // Contrat :
     //
 
-    ObjetComplexe ( const Objet &desObjets = new Objet(1), const string &aSous-Descriptions = new string (10) );
+    ObjetComplexe ( const std::list<Objet> &desObjets, const std::list<string> &aSousDescriptions );
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,8 +75,8 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-Objet * objets;
-string * sous-descriptions;
+std::list<Objet> objets;
+std::list<string> sousDescriptions;
 
 //---------------------------------------------------------- Classes amies
 

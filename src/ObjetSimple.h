@@ -10,7 +10,9 @@
 #define OBJETSIMPLE_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "Objet.h"
+#include "Point.h"
+#include <list>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -35,7 +37,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    ObjetSimple & operator = ( const ObjetSimple & aObjetSimple );
+    ObjetSimple & operator = ( const ObjetSimple & unObjetSimple );
     // Mode d'emploi :
     //
     // Contrat :
@@ -43,13 +45,13 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    ObjetSimple ( const ObjetSimple & aObjetSimple );
+    ObjetSimple ( const ObjetSimple & unObjetSimple );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    ObjetSimple ( const Point &aPoints = new Point (2), int unNombrePoints = 2 );
+    ObjetSimple ( const std::list<Point> & desPoints );
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,7 +76,7 @@ protected:
 
 private:
 //------------------------------------------------------- Attributs privés
-Point points;
+std::list<Point> points;
 int nombrePoints;
 
 //---------------------------------------------------------- Classes amies

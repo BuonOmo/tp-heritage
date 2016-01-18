@@ -42,7 +42,7 @@ ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplex
     if (this != &unObjetComplexe)
     {
         objets = unObjetComplexe.objets;
-		sous-descriptions = unObjetComplexe.sous-descriptions;
+		sousDescriptions = unObjetComplexe.sousDescriptions;
     }
     return *this;
 } //----- Fin de operator =
@@ -60,8 +60,9 @@ ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 } //----- Fin de ObjetComplexe (constructeur de copie)
 
 
-ObjetComplexe::ObjetComplexe ( const Objet &desObjets, const string &desSous-Descriptions )
-    : objets (desObjets), sous-descriptions (desSous-Descriptions);
+ObjetComplexe::ObjetComplexe
+    (  const list<Objet> &desObjets, const list<string> &desSousDescriptions )
+    : objets (desObjets), sousDescriptions (desSousDescriptions)
 // Algorithme :
 //
 {

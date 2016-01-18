@@ -61,7 +61,7 @@ Objet::Objet ( const Objet & unObjet )
 } //----- Fin de Objet (constructeur de copie)
 
 
-Objet::Objet ( string &aName)
+Objet::Objet ( const string &aName )
     : name(aName)
 // Algorithme :
 //
