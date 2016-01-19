@@ -43,7 +43,10 @@ public:
     // Contrat :
     //
 
-    Rectangle ( );
+    Rectangle ( const string & unNom = "",
+                const string & uneDescription = "",
+                const Point & p1 = *(new Point),
+                const Point & p2 = *(new Point));
     // Mode d'emploi :
     //
     // Contrat :

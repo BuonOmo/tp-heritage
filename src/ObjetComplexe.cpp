@@ -27,11 +27,18 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type ObjetComplexe::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+string ObjetComplexe::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <ObjetComplexe>" << endl;
+#endif
+    string toReturn = description;
+    for (string str : sousDescriptions)
+    {
+        toReturn+="\n\t"+str;
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 
 //------------------------------------------------- Surcharge d'opérateurs

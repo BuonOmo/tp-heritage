@@ -17,7 +17,7 @@ LIBS     = #-lm
 
 ECHO  = @echo
 EXE   = exe
-CLEAN = Clean
+CLEAN = clean
 #.SILENT:
 .PHONY: $(CLEAN)
 
