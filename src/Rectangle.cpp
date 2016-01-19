@@ -27,10 +27,11 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool Segment::Contient ( Point p ) const
+
+bool Rectangle::Contient ( Point p ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Contient de <Segment>" << endl;
+    cout << "Appel à la méthode Contient de <Rectangle>" << endl;
 #endif
     return p.XIn(points[0], points[1])
            &&
