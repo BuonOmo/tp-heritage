@@ -68,8 +68,10 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 } //----- Fin de ObjetSimple (constructeur de copie)
 
 
-ObjetSimple::ObjetSimple ( const list<Point> & desPoints )
-    : points (desPoints)
+ObjetSimple::ObjetSimple ( const string & nom,
+                           const string & description,
+                           const list<Point> & desPoints )
+    : points (desPoints), Objet(nom, description)
 // Algorithme :
 //
 {

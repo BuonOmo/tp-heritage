@@ -55,7 +55,7 @@ public:
     // Contrat :
     //
 
-    Objet ( const string & aDescription = "null" );
+    Objet ( const string & unNom = "", const string & uneDescription = "" );
     // Mode d'emploi :
     //
     // Contrat :
@@ -77,7 +77,7 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    string name;
+    string nom;
     string description;
 
 private:

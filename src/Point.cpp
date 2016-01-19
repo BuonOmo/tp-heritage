@@ -40,6 +40,12 @@ Point & Point::operator = ( const Point & aPoint )
     return *this;
 } //----- Fin de operator =
 
+ostream & operator << ( ostream & os, const Point & unPoint)
+{
+    os << "( " << unPoint.x << " : " << unPoint.y << " )";
+    return os;
+} //----- Fin de operator <<
+
 Point & Point::operator + ( const Point &unPoint )
 {
     return *(new Point( x + unPoint.x, y + unPoint.y));

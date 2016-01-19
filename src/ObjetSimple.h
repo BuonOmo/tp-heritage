@@ -97,6 +97,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <ObjetSimple>
+//-------------------------------------- Types dépendants de <ObjetSimple>
 
 #endif // OBJETSIMPLE_H

@@ -60,9 +60,13 @@ ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 } //----- Fin de ObjetComplexe (constructeur de copie)
 
 
-ObjetComplexe::ObjetComplexe
-    (  const list<Objet *> &desObjets, const list<string> &desSousDescriptions )
-    : objets (desObjets), sousDescriptions (desSousDescriptions)
+ObjetComplexe::ObjetComplexe (  const string & unNom,
+                                const string & uneDescription,
+                                const list<Objet *> &desObjets,
+                                const list<string> &desSousDescriptions )
+    : Objet(unNom, uneDescription),
+      objets (desObjets),
+      sousDescriptions (desSousDescriptions)
 // Algorithme :
 //
 {

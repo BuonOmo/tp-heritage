@@ -10,7 +10,7 @@
 #define POINT_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include <iostream>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -35,7 +35,11 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Point & operator = ( const Point & aPoint );
+    Point & operator = ( const Point & unPoint );
+
+    friend std::ostream & operator << ( std::ostream & os, const Point & unPoint);
+    // Contrat :
+    // Affiche ( x : y )
 
     Point & operator + ( const Point & unPoint );
     // Contrat :

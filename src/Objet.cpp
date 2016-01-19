@@ -58,7 +58,7 @@ Objet & Objet::operator = ( const Objet & unObjet )
 {
     if (this != &unObjet)
     {
-        name = unObjet.name;
+        nom = unObjet.nom;
         description = unObjet.description;
     }
     return *this;
@@ -79,8 +79,8 @@ Objet::Objet ( const Objet & unObjet )
 } //----- Fin de Objet (constructeur de copie)
 
 
-Objet::Objet ( const string &uneDescription )
-    : description(uneDescription)
+Objet::Objet ( const string & unNom, const string & uneDescription )
+    : nom(unNom), description(uneDescription)
 // Algorithme :
 //
 {
