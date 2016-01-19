@@ -28,7 +28,7 @@ class Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void Shift ( Point p );
+    virtual void Deplacer ( Point p ) = 0;
     // Mode d'emploi :
     // p correspond à un vecteur de déplacement et non un point.
     //
@@ -39,7 +39,7 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
-    string ToString () const;
+    virtual string ToString () const;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 

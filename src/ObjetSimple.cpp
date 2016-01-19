@@ -26,13 +26,13 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void ObjetSimple::Shift ( Point p )
+void ObjetSimple::Deplacer ( Point p )
 {
     for (Point i : points)
     {
         i = i + p;
     }
-} //----- Fin de Shift
+} //----- Fin de Deplacer
 
 /*
 bool ObjetSimple::Contient (Point p) const
@@ -51,6 +51,8 @@ ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
     if (this != &unObjetSimple)
     {
         points = unObjetSimple.points;
+        nom = unObjetSimple.nom;
+        description = unObjetSimple.description;
         // TODO gerer l’appel à l’operateur = de la classe mere
     }
     return *this;
