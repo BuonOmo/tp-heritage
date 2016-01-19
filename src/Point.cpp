@@ -27,7 +27,47 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+int Point::GetX ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode GetX de <Point>" << endl;
+#endif
+    return x;
+} //----- Fin de GetX
 
+int Point::GetY ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode GetY de <Point>" << endl;
+#endif
+    return y;
+} //----- Fin de GetY
+
+bool Point::XIn ( Point p1, Point p2 ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode XIn de <Point>" << endl;
+#endif
+
+    if (p1.GetX() > p2.GetX())
+    {
+        return x >= p2.GetX() && x <= p1.GetX();
+    }
+    return x >= p1.GetX() && x <= p2.GetX();
+} //----- Fin de XIn
+
+bool Point::YIn ( Point p1, Point p2 ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode YIn de <Point>" << endl;
+#endif
+
+    if (p1.GetY() > p2.GetY())
+    {
+        return y >= p2.GetY() && y <= p1.GetY();
+    }
+    return y >= p1.GetY() && y <= p2.GetY();
+} //----- Fin de YIn
 
 //------------------------------------------------- Surcharge d'opérateurs
 Point & Point::operator = ( const Point & aPoint )

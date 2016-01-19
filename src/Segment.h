@@ -1,40 +1,39 @@
 /*************************************************************************
-                        ObjetComplexe  -  liste d’objets
+                                    Segment
                              -------------------
-    début                : 18/01/2016
-    copyright            : (C) 2016 par pierre et ulysse
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-//------ Interface de la classe <ObjetComplexe> (fichier ObjetComplexe) --
-#ifndef OBJETCOMPLEXE_H
-#define OBJETCOMPLEXE_H
+//-------------- Interface de la classe <Segment> (fichier Segment.h) ----
+#ifndef SEGMENT_H
+#define SEGMENT_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Objet.h"
-#include <list>
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <ObjetComplexe>
+// Rôle de la classe <Segment>
 //
 //
 //------------------------------------------------------------------------
 
-class ObjetComplexe : public Objet
+class Segment : public ObjetSimple
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual bool Contient ( Point p ) const = 0;
+    bool Contient (Point p) const;
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
+    Segment & operator = ( const Segment & unSegment );
     // Mode d'emploi :
     //
     // Contrat :
@@ -42,22 +41,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    ObjetComplexe ( const ObjetComplexe & unObjetComplexe );
+    Segment ( const Segment & unSegment );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    ObjetComplexe ( const string & unNom,
-                    const string & uneDescription,
-                    const std::list<Objet *> &desObjets,
-                    const std::list<string> &aSousDescriptions );
+    Segment ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~ObjetComplexe ( );
+    virtual ~Segment ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -73,8 +69,6 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    std::list<Objet *> objets;
-    std::list<string> sousDescriptions;
 
 private:
 //------------------------------------------------------- Attributs privés
@@ -87,6 +81,6 @@ private:
 
 };
 
-//------------------------------------ Types dépendants de <ObjetComplexe>
+//----------------------------------------- Types dépendants de <Segment>
 
-#endif // OBJETCOMPLEXE_H
+#endif // SEGMENT_H

@@ -1,40 +1,38 @@
 /*************************************************************************
-                        ObjetComplexe  -  liste d’objets
+                                    Union
                              -------------------
-    début                : 18/01/2016
-    copyright            : (C) 2016 par pierre et ulysse
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-//------ Interface de la classe <ObjetComplexe> (fichier ObjetComplexe) --
-#ifndef OBJETCOMPLEXE_H
-#define OBJETCOMPLEXE_H
+//-------------- Interface de la classe <Union> (fichier Union.h) --------
+#ifndef UNION_H
+#define UNION_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Objet.h"
-#include <list>
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <ObjetComplexe>
+// Rôle de la classe <Union>
 //
 //
 //------------------------------------------------------------------------
 
-class ObjetComplexe : public Objet
+class Union : public ObjetComplexe
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual bool Contient ( Point p ) const = 0;
+    bool Contient (Point p) const;
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
-
 //------------------------------------------------- Surcharge d'opérateurs
-    ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
+    Union & operator = ( const Union & unUnion );
     // Mode d'emploi :
     //
     // Contrat :
@@ -42,22 +40,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    ObjetComplexe ( const ObjetComplexe & unObjetComplexe );
+    Union ( const Union & unUnion );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    ObjetComplexe ( const string & unNom,
-                    const string & uneDescription,
-                    const std::list<Objet *> &desObjets,
-                    const std::list<string> &aSousDescriptions );
+    Union ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~ObjetComplexe ( );
+    virtual ~Union ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -73,8 +68,6 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    std::list<Objet *> objets;
-    std::list<string> sousDescriptions;
 
 private:
 //------------------------------------------------------- Attributs privés
@@ -87,6 +80,6 @@ private:
 
 };
 
-//------------------------------------ Types dépendants de <ObjetComplexe>
+//-------------------------------------------- Types dépendants de <Union>
 
-#endif // OBJETCOMPLEXE_H
+#endif // UNION_H
