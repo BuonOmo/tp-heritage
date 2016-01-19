@@ -40,11 +40,6 @@ bool Rectangle::Contient ( Point p ) const
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Rectangle & Rectangle::operator = ( const Rectangle & unRectangle )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur

@@ -34,11 +34,6 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Rectangle & operator = ( const Rectangle & unRectangle );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur

@@ -34,11 +34,6 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Polygone & operator = ( const Polygone & unPolygone );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur

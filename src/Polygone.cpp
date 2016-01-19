@@ -37,11 +37,6 @@ bool Polygone::Contient ( Point p ) const
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Polygone & Polygone::operator = ( const Polygone & unPolygone )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur
