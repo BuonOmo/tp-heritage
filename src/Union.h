@@ -27,12 +27,9 @@ class Union : public ObjetComplexe
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
+    bool Contient (Point p) const;
     // Contrat :
-    //
-
+    // Renvoi vrai si p est contenu dans l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
     Union & operator = ( const Union & unUnion );
@@ -83,6 +80,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Union>
+//-------------------------------------------- Types dépendants de <Union>
 
 #endif // UNION_H

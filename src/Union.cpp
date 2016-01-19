@@ -27,11 +27,20 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Union::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+bool Union::Contient (Point p) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Contient de <Union>" << endl;
+#endif
+    for (Objet * obj : objets )
+    {
+        if ( obj -> Contient(p) )
+        {
+            return true;
+        }
+    }
+    return false;
+} //----- Fin de Contient
 
 
 //------------------------------------------------- Surcharge d'opérateurs

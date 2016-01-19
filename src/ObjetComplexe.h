@@ -28,11 +28,9 @@ class ObjetComplexe : public Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
+    virtual bool Contient ( Point p ) const = 0;
     // Contrat :
-    //
+    // Renvoi vrai si p est contenu dans l’objet.
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -52,7 +50,7 @@ public:
 
     ObjetComplexe ( const string & unNom,
                     const string & uneDescription,
-                    const std::list<Objet *> &desObjets, 
+                    const std::list<Objet *> &desObjets,
                     const std::list<string> &aSousDescriptions );
     // Mode d'emploi :
     //
