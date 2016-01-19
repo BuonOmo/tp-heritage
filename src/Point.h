@@ -35,14 +35,14 @@ public:
     // Contrat :
     // Renvoi la valeur de l'ordonnée.
 
-    bool Point::XIn ( Point p1, Point p2 ) const;
+    bool XIn ( Point p1, Point p2 ) const;
     // Mode d’emploi :
     // Permet de voir si l’abscisse d’un point est comprise entre celles
     // de deux autres.
     // Contrat :
     // Vrai si inclu.
 
-    bool Point::YIn ( Point p1, Point p2 ) const;
+    bool YIn ( Point p1, Point p2 ) const;
     // Mode d’emploi :
     // Permet de voir si l’abscisse d’un point est comprise entre celles
     // de deux autres.
@@ -56,15 +56,20 @@ public:
     // Contrat :
     // Affiche ( x : y )
 
-    Point & operator + ( const Point & unPoint );
+    Point & operator + ( const Point & unPoint ) const;
     // Contrat :
-    // ajoute les x et les y separement et renvoi le résultat
+    // Ajoute les x et les y separement et renvoi le résultat
 
-    int operator * ( const Point & unPoint);
+    Point & operator - ( const Point & unPoint ) const;
+    // Contrat :
+    // Effectue les soustractions des x et des y separement et renvoi le
+    // résultat
+
+    int operator * ( const Point & unPoint) const;
     // Contrat :
     // Renvoi le produit scalaire de deux vecteurs.
 
-    int operator ^ ( const Point & unPoint);
+    int operator ^ ( const Point & unPoint) const;
     // Contrat :
     // Renvoi le produit vectoriel de deux vecteurs coplanaires.
 

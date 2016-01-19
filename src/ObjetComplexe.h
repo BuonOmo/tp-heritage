@@ -48,10 +48,10 @@ public:
     // Contrat :
     //
 
-    ObjetComplexe ( const string & unNom,
-                    const string & uneDescription,
-                    const std::list<Objet *> &desObjets,
-                    const std::list<string> &aSousDescriptions );
+    ObjetComplexe ( const string & unNom = "",
+                    const string & uneDescription = "",
+                    const std::list<Objet *> &desObjets = *(new std::list<Objet *>),
+                    const std::list<string> &aSousDescriptions = *(new std::list<string>));
     // Mode d'emploi :
     //
     // Contrat :

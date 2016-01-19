@@ -10,7 +10,8 @@
 #define INTERSECTION_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "ObjetComplexe.h"
+#include "Point.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -33,11 +34,6 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Intersection & operator = ( const Intersection & unIntersection );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur

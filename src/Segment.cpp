@@ -32,18 +32,13 @@ bool Segment::Contient ( Point p ) const
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Segment>" << endl;
 #endif
-    return !(p - points[0]) * (points[1] - points[0])
+    return !( (p - points.front() ) * (points.back() - points.front() ) )
            &&
-           p.XIn(points[0], points[1]);
+           p.XIn(points.front(), points.back());
 } //----- Fin de Contient
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Segment & Segment::operator = ( const Segment & unSegment )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur

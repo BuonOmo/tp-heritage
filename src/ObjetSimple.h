@@ -55,13 +55,9 @@ public:
     // Contrat :
     //
 
-    ObjetSimple ( const std::list<Point> & desPoints );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    ObjetSimple ( const string &uneDescription );
+    ObjetSimple ( const list<Point> & desPoints = *(new list<Point>),
+                  const string & description = "",
+                  const string & nom = "");
     // Mode d'emploi :
     //
     // Contrat :

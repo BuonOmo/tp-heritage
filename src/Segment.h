@@ -10,7 +10,8 @@
 #define SEGMENT_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "ObjetSimple.h"
+#include "Point.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -33,11 +34,6 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Segment & operator = ( const Segment & unSegment );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur

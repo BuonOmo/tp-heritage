@@ -86,17 +86,22 @@ ostream & operator << ( ostream & os, const Point & unPoint)
     return os;
 } //----- Fin de operator <<
 
-Point & Point::operator + ( const Point &unPoint )
+Point & Point::operator + ( const Point &unPoint ) const
 {
     return *(new Point( x + unPoint.x, y + unPoint.y));
 } //----- Fin de operator +
 
-int Point::operator * ( const Point &unPoint )
+Point & Point::operator - ( const Point &unPoint ) const
+{
+    return *(new Point( x - unPoint.x, y - unPoint.y));
+} //----- Fin de operator -
+
+int Point::operator * ( const Point &unPoint ) const
 {
     return x*unPoint.x + y*unPoint.y;
 } //----- Fin de operator *
 
-int Point::operator ^ ( const Point &unPoint )
+int Point::operator ^ ( const Point &unPoint ) const
 {
     return x*unPoint.y - y*unPoint.x;
 } //----- Fin de operator ^

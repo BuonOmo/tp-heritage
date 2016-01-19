@@ -50,12 +50,6 @@ bool Intersection::Contient (Point p) const
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Intersection & Intersection::operator = ( const Intersection & unIntersection )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
 Intersection::Intersection ( const Intersection & unIntersection )

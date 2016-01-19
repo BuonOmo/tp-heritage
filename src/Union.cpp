@@ -44,11 +44,6 @@ bool Union::Contient (Point p) const
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Union & Union::operator = ( const Union & unUnion )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
 
 
 //-------------------------------------------- Constructeurs - destructeur

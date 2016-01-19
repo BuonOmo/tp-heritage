@@ -51,6 +51,7 @@ ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
     if (this != &unObjetSimple)
     {
         points = unObjetSimple.points;
+        // TODO gerer l’appel à l’operateur = de la classe mere
     }
     return *this;
 } //----- Fin de operator =
@@ -68,9 +69,9 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 } //----- Fin de ObjetSimple (constructeur de copie)
 
 
-ObjetSimple::ObjetSimple ( const string & nom,
+ObjetSimple::ObjetSimple ( const list<Point> & desPoints,
                            const string & description,
-                           const list<Point> & desPoints )
+                           const string & nom )
     : points (desPoints), Objet(nom, description)
 // Algorithme :
 //
@@ -79,15 +80,14 @@ ObjetSimple::ObjetSimple ( const string & nom,
     cout << "Appel au constructeur de <ObjetSimple>" << endl;
 #endif
 } //----- Fin de ObjetSimple
-
-ObjetSimple::ObjetSimple ( const string &uneDescription )
-    : Objet(uneDescription)
+/*
+ObjetSimple::ObjetSimple ( )
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <ObjetSimple>" << endl;
+    cout << "Appel au constructeur par defaut de <ObjetSimple>" << endl;
 #endif
-} //----- Fin de ObjetSimple
-
+}
+*/
 ObjetSimple::~ObjetSimple ( )
 // Algorithme :
 //
@@ -95,25 +95,6 @@ ObjetSimple::~ObjetSimple ( )
 #ifdef MAP
     cout << "Appel au destructeur de <ObjetSimple>" << endl;
 #endif
-    string str (description);
-    int pos(0);
-    str = str.substr(str.find(" ")); // on enleve le type
-    name = str.substr(0,str.find(" ")-1); // on selectionne le nom
-    str = str.substr(str.find(" ")); // on enleve le nom
-    int x,y;
-    while (pos = str.find(" ") != str.npos)
-    {
-        x = stoi(str.substr(0, pos-1).c_str());
-        str = str.substr(pos);
-        pos = str.find(" ");
-        pos = (pos == str.npos) ? str.size() : pos;
-        y = stoi(str.substr(0, pos-1).c_str());
-        if (str.size() > 0)
-        {
-            str = str.substr(pos);
-        }
-        // TODO revoir ce truc foireux
-    }
 } //----- Fin de ~ObjetSimple
 
 

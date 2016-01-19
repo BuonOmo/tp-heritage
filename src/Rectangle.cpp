@@ -33,9 +33,9 @@ bool Rectangle::Contient ( Point p ) const
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Rectangle>" << endl;
 #endif
-    return p.XIn(points[0], points[1])
+    return p.XIn(points.back(), points.front())
            &&
-           p.YIn(points[0], points[1]);
+           p.YIn(points.back(), points.front());
 } //----- Fin de Contient
 
 

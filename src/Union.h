@@ -10,7 +10,8 @@
 #define UNION_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include "ObjetComplexe.h"
+#include "Point.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -32,11 +33,6 @@ public:
     // Renvoi vrai si p est contenu dans l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Union & operator = ( const Union & unUnion );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur

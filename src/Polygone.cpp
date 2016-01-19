@@ -1,82 +1,82 @@
+/*************************************************************************
+                                Polygone
+                             -------------------
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
+*************************************************************************/
 
-    /*************************************************************************
-                               Polygone  -  description
-                                 -------------------
-        début                : 19/1/2016
-        copyright            : (C) 2016 par Pierre et Ulysse
-    *************************************************************************/
+//-------------- Réalisation de la classe <Polygone> (fichier Polygone) --
 
-    //---------- Réalisation de la classe <Polygone> (fichier Polygone) --
+//---------------------------------------------------------------- INCLUDE
 
-    //---------------------------------------------------------------- INCLUDE
+//-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
 
-    //-------------------------------------------------------- Include système
-    using namespace std;
-    #include <iostream>
+//------------------------------------------------------ Include personnel
+#include "Polygone.h"
 
-    //------------------------------------------------------ Include personnel
-    #include "Polygone.h"
+//------------------------------------------------------------- Constantes
 
-    //------------------------------------------------------------- Constantes
+//---------------------------------------------------- Variables de classe
 
-    //---------------------------------------------------- Variables de classe
-
-    //----------------------------------------------------------- Types privés
-
-
-    //----------------------------------------------------------------- PUBLIC
-    //-------------------------------------------------------- Fonctions amies
-
-    //----------------------------------------------------- Méthodes publiques
-    // type Polygone::Méthode ( liste de paramètres )
-    // Algorithme :
-    //
-    //{
-    //} //----- Fin de Méthode
+//----------------------------------------------------------- Types privés
 
 
-    //------------------------------------------------- Surcharge d'opérateurs
-    Polygone & Polygone::operator = ( const Polygone & unPolygone )
-    // Algorithme :
-    //
-    {
-    } //----- Fin de operator =
+//----------------------------------------------------------------- PUBLIC
+//-------------------------------------------------------- Fonctions amies
+
+//----------------------------------------------------- Méthodes publiques
+bool Polygone::Contient ( Point p ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Contient de <Polygone>" << endl;
+#endif
+    return false; // TODO implementer tout ça.
+} //----- Fin de Contient
 
 
-    //-------------------------------------------- Constructeurs - destructeur
-    Polygone::Polygone ( const Polygone & unPolygone )
-    // Algorithme :
-    //
-    {
-    #ifdef MAP
-        cout << "Appel au constructeur de copie de <Polygone>" << endl;
-    #endif
-    } //----- Fin de Polygone (constructeur de copie)
+//------------------------------------------------- Surcharge d'opérateurs
+Polygone & Polygone::operator = ( const Polygone & unPolygone )
+// Algorithme :
+//
+{
+} //----- Fin de operator =
 
 
-    Polygone::Polygone ( )
-    // Algorithme :
-    //
-    {
-    #ifdef MAP
-        cout << "Appel au constructeur de <Polygone>" << endl;
-    #endif
-    } //----- Fin de Polygone
+//-------------------------------------------- Constructeurs - destructeur
+Polygone::Polygone ( const Polygone & unPolygone )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de copie de <Polygone>" << endl;
+#endif
+} //----- Fin de Polygone (constructeur de copie)
 
 
-    Polygone::~Polygone ( )
-    // Algorithme :
-    //
-    {
-    #ifdef MAP
-        cout << "Appel au destructeur de <Polygone>" << endl;
-    #endif
-    } //----- Fin de ~Polygone
+Polygone::Polygone ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Polygone>" << endl;
+#endif
+} //----- Fin de Polygone
 
 
-    //------------------------------------------------------------------ PRIVE
+Polygone::~Polygone ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <Polygone>" << endl;
+#endif
+} //----- Fin de ~Polygone
 
-    //----------------------------------------------------- Méthodes protégées
 
-    //------------------------------------------------------- Méthodes privées
-    
+//------------------------------------------------------------------ PRIVE
+
+//----------------------------------------------------- Méthodes protégées
+
+//------------------------------------------------------- Méthodes privées

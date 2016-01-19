@@ -1,89 +1,87 @@
+/*************************************************************************
+                                Polygone
+                             -------------------
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
+*************************************************************************/
 
-    /*************************************************************************
-                               Polygone  -  description
-                                 -------------------
-        début                : 19/1/2016
-        copyright            : (C) 2016 par Pierre et Ulysse
-    *************************************************************************/
+//-------------- Interface de la classe <Polygone> (fichier Polygone) ----
+#ifndef POLYGONE_H
+#define POLYGONE_H
 
-    //-------------- Interface de la classe <Polygone> (fichier Polygone) --------------
-    #if ! defined ( POLYGONE_H )
-    #define POLYGONE_H
+//--------------------------------------------------- Interfaces utilisées
+#include "ObjetSimple.h"
+#include "Point.h"
+//------------------------------------------------------------- Constantes
 
-    //--------------------------------------------------- Interfaces utilisées
+//------------------------------------------------------------------ Types
 
-    //------------------------------------------------------------- Constantes
+//------------------------------------------------------------------------
+// Rôle de la classe <Polygone>
+//
+//
+//------------------------------------------------------------------------
 
-    //------------------------------------------------------------------ Types
+class Polygone : public ObjetSimple
+{
+//----------------------------------------------------------------- PUBLIC
 
-    //------------------------------------------------------------------------
-    // Rôle de la classe <Polygone>
+public:
+//----------------------------------------------------- Méthodes publiques
+    bool Contient (Point p) const;
+    // Contrat :
+    // Renvoi vrai si p est contenu dans l’objet.
+
+
+//------------------------------------------------- Surcharge d'opérateurs
+    Polygone & operator = ( const Polygone & unPolygone );
+    // Mode d'emploi :
     //
+    // Contrat :
     //
-    //------------------------------------------------------------------------
-
-    class Polygone : public ObjetSimple
-    {
-    //----------------------------------------------------------------- PUBLIC
-
-    public:
-    //----------------------------------------------------- Méthodes publiques
-        // type Méthode ( liste de paramètres );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
 
 
-    //------------------------------------------------- Surcharge d'opérateurs
-        Polygone & operator = ( const Polygone & unPolygone );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+//-------------------------------------------- Constructeurs - destructeur
+    Polygone ( const Polygone & unPolygone );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
+    Polygone ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-    //-------------------------------------------- Constructeurs - destructeur
-        Polygone ( const Polygone & unPolygone );
-        // Mode d'emploi (constructeur de copie) :
-        //
-        // Contrat :
-        //
+    virtual ~Polygone ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-        Polygone ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+//------------------------------------------------------------------ PRIVE
 
-        virtual ~Polygone ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+protected:
+//----------------------------------------------------- Méthodes protégées
 
-    //------------------------------------------------------------------ PRIVE
+private:
+//------------------------------------------------------- Méthodes privées
 
-    protected:
-    //----------------------------------------------------- Méthodes protégées
+protected:
+//----------------------------------------------------- Attributs protégés
 
-    private:
-    //------------------------------------------------------- Méthodes privées
+private:
+//------------------------------------------------------- Attributs privés
 
-    protected:
-    //----------------------------------------------------- Attributs protégés
+//---------------------------------------------------------- Classes amies
 
-    private:
-    //------------------------------------------------------- Attributs privés
+//-------------------------------------------------------- Classes privées
 
-    //---------------------------------------------------------- Classes amies
+//----------------------------------------------------------- Types privés
 
-    //-------------------------------------------------------- Classes privées
+};
 
-    //----------------------------------------------------------- Types privés
+//----------------------------------------- Types dépendants de <Polygone>
 
-    };
-
-    //----------------------------------------- Types dépendants de <Polygone>
-
-    #endif // POLYGONE_H
+#endif // POLYGONE_H
