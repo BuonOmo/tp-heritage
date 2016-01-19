@@ -27,11 +27,15 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Rectangle::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+bool Rectangle::Contient ( Point p ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Contient de <Rectangle>" << endl;
+#endif
+    return p.XIn(points[0], points[1])
+           &&
+           p.YIn(points[0], points[1]);
+} //----- Fin de Contient
 
 
 //------------------------------------------------- Surcharge d'opérateurs
