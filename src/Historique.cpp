@@ -1,4 +1,4 @@
-a/*************************************************************************
+/*************************************************************************
                         Historique  -  Listes des commandes
                              -------------------
     début                : 18/01/2016
@@ -28,7 +28,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-void add (const string commande)
+void Historique::add (const string commande)
 // Algorithme :
 //
 {
@@ -41,7 +41,7 @@ void add (const string commande)
 	
 } //----- Fin de add()
 
-void undo ()
+void Historique::undo ()
 // Algorithme :
 //
 {

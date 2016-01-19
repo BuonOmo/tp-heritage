@@ -15,10 +15,16 @@ using namespace std;
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <list>
 #include <vector>
+#include <map>
 
 //------------------------------------------------------ Include personnel
 #include "Point.h"
+#include "Historique.h"
+#include "Rectangle.h"
+#include "Segment.h"
+#include "Polygone.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -35,7 +41,7 @@ using namespace std;
 int main () {
 	
 	string requete;
-	std::map<string,Objet> objets;
+	std::map<string,Objet*> objets;
 	Historique histoCommande;
 	
 	while(true) {		
@@ -58,11 +64,12 @@ int main () {
 			}
 			else
 			{				
-				if(objets.at(name) == NULL)
+				if(objets.size() == 0 || objets.at(name) == NULL)
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
-					objets.insert(pair<string,Objet>(name,new Segment(name, requete, p1, p2)));
+					objets.insert(pair<string,Objet*>(name,new Segment(name, requete, p1, p2)));
+					histoCommande.add(requete);
 					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
 				}
 				else
@@ -88,9 +95,18 @@ int main () {
 			}
 			else
 			{
-				Point p1 (X1,Y1);
-				Point p2 (X2,Y2);
-				cout << name << " " << X1 << " " << Y1 << " " << X2 << " " << Y2 << " OK" << endl;
+				if(objets.size() == 0 || objets.at(name) == NULL)
+				{
+					Point p1 (X1,Y1);
+					Point p2 (X2,Y2);
+					objets.insert(pair<string,Objet*>(name,new Rectangle(name, requete, p1, p2)));
+					histoCommande.add(requete);
+					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
+				}
+				else
+				{
+					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
+				}
 				
 			}
 				
@@ -109,8 +125,7 @@ int main () {
 		        {
 		        	coordOk = false;
 		        	break;
-		        }
-		        
+		        }		        
 		        points.push_back(coord);
 
 		    }
@@ -121,21 +136,33 @@ int main () {
 			}
 			else
 			{
-				vector<Point> listPoints;
-				for(int i=0; i<points.size()-1; i+=2)
+				
+				if(objets.size() == 0 || objets.at(name) == NULL)
 				{
-					Point p (points[i], points[i+1]);
-					listPoints.push_back(p);
+					vector<Point> listPoints;
+					for(int i=0; i<points.size()-1; i+=2)
+					{
+						Point p (points[i], points[i+1]);
+						listPoints.push_back(p);
+					}
+					objets.insert(pair<string,Objet*>(name,new Polygone(name, requete, listPoints)));
+					histoCommande.add(requete);
+					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
 				}
+				else
+				{
+					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
+				}
+				
 			}
-				cout << "OK" << endl;
+				
 		}
 		
 		else if(commande == "OR")
 		{
 			string name = "";
 			iss >> name;
-			vector<string> names;
+			list<string> names;
 			
 			while(!iss.eof())
 		    {
@@ -149,14 +176,29 @@ int main () {
 				
 			}
 			else
-				cout << "OK" << endl;
+			{
+				bool trouve = true;
+				for(string nameObj : names)
+				{
+					if(objets.size() == 0 || objets.at(nameObj) == NULL)
+					{
+						cout << "ERR" << endl << "#Il y a un objet qui n'existe pas !" << endl;
+						trouve = false;
+						break;
+					}
+						
+				}
+				
+				
+			}
+				
 		}
 		
 		else if(commande == "OI")
 		{
 			string name = "";
 			iss >> name;
-			vector<string> names;
+			list<string> names;
 			
 			while(!iss.eof())
 		    {
@@ -309,7 +351,6 @@ int main () {
 		else 
 		{
 			cout << "ERR" << endl << "#Commande inconnue !" << endl;
-			break;
 		}	
 	}
 	return 0;

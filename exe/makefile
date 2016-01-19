@@ -5,7 +5,7 @@ RMFLAGS  = -f
 OUTPUT   = -o
 CPPFLAGS = -Wall -std=c++11 # -DMAP
 INTPATH  = ../src/
-INT      = Objet.h ObjetComplexe.h ObjetSimple.h Point.h Segment.h Polygone.h Rectangle.h Union.h Intersection.h
+INT      = Objet.h ObjetComplexe.h ObjetSimple.h Point.h Segment.h Polygone.h Rectangle.h Union.h Intersection.h Historique.h
 INTPATH  =../src/
 #REAL     = $(REALPATH)$(INT:.h=.cpp)
 REALPATH =../src/
@@ -37,8 +37,9 @@ Rectangle.o : $(INTPATH)ObjetSimple.h $(INTPATH)Objet.h $(INTPATH)Point.h $(INTP
 Segment.o : $(INTPATH)ObjetSimple.h $(INTPATH)Objet.h $(INTPATH)Point.h $(INTPATH)Segment.h
 Union.o : $(INTPATH)ObjetComplexe.h $(INTPATH)Objet.h $(INTPATH)Point.h $(INTPATH)Union.h
 Intersection.o : $(INTPATH)ObjetComplexe.h $(INTPATH)Objet.h $(INTPATH)Point.h $(INTPATH)Intersection.h
+Historique.o : $(INTPATH)Historique.h
 
 
-Clean :
+clean :
 	$(ECHO) "Nettoyage du repertoire..."
 	$(RM) $(RMFLAGS) $(EXE) $(OBJ) core
