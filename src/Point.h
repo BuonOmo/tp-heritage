@@ -27,12 +27,20 @@ class Point
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
+    int GetX () const;
     // Contrat :
-    //
+    // Renvoi la valeur de l'abscisse.
 
+    int GetY () const;
+    // Contrat :
+    // Renvoi la valeur de l'ordonnée.
+
+    bool Point::XIn ( Point p1, Point p2 ) const;
+    // Mode d’emploi :
+    // Permet de voir si l’abscisse d’un point est comprise entre celles
+    // de deux autres.
+    // Contrat :
+    // Vrai si inclu.
 
 //------------------------------------------------- Surcharge d'opérateurs
     Point & operator = ( const Point & unPoint );

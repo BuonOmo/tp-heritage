@@ -27,11 +27,15 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Segment::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+bool Segment::Contient ( Point p ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Contient de <Segment>" << endl;
+#endif
+    return !(p - points[0]) * (points[1] - points[0])
+           &&
+           p.XIn(points[0], points[1]);
+} //----- Fin de Contient
 
 
 //------------------------------------------------- Surcharge d'opérateurs

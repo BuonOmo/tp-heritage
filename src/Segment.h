@@ -27,11 +27,9 @@ class Segment : public ObjetSimple
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste de paramètres );
-    // Mode d'emploi :
-    //
+    bool Contient (Point p) const;
     // Contrat :
-    //
+    // Renvoi vrai si p est contenu dans l’objet.
 
 
 //------------------------------------------------- Surcharge d'opérateurs
