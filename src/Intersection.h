@@ -1,90 +1,88 @@
+/*************************************************************************
+                                Intersection
+                             -------------------
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
+*************************************************************************/
 
-    /*************************************************************************
-                               Intersection  -  description
-                                 -------------------
-        début                : 19/1/2016
-        copyright            : (C) 2016 par Pierre et Ulysse
-    *************************************************************************/
+//------ Interface de la classe <Intersection> (fichier Intersection.h) --
+#ifndef INTERSECTION_H
+#define INTERSECTION_H
 
-    //-------------- Interface de la classe <Intersection> (fichier Intersection) --------------
-    #if ! defined ( INTERSECTION_H )
-    #define INTERSECTION_H
+//--------------------------------------------------- Interfaces utilisées
 
-    //--------------------------------------------------- Interfaces utilisées
+//------------------------------------------------------------- Constantes
 
-    //------------------------------------------------------------- Constantes
+//------------------------------------------------------------------ Types
 
-    //------------------------------------------------------------------ Types
+//------------------------------------------------------------------------
+// Rôle de la classe <Intersection>
+//
+//
+//------------------------------------------------------------------------
 
-    //------------------------------------------------------------------------
-    // Rôle de la classe <Intersection>
+class Intersection
+{
+//----------------------------------------------------------------- PUBLIC
+
+public:
+//----------------------------------------------------- Méthodes publiques
+    // type Méthode ( liste de paramètres );
+    // Mode d'emploi :
     //
+    // Contrat :
     //
-    //------------------------------------------------------------------------
-
-    class Intersection
-    {
-    //----------------------------------------------------------------- PUBLIC
-
-    public:
-    //----------------------------------------------------- Méthodes publiques
-        // type Méthode ( liste de paramètres );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
 
 
-    //------------------------------------------------- Surcharge d'opérateurs
-        Intersection & operator = ( const Intersection & unIntersection );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+//------------------------------------------------- Surcharge d'opérateurs
+    Intersection & operator = ( const Intersection & unIntersection );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 
-    //-------------------------------------------- Constructeurs - destructeur
-        Intersection ( const Intersection & unIntersection );
-        // Mode d'emploi (constructeur de copie) :
-        //
-        // Contrat :
-        //
+//-------------------------------------------- Constructeurs - destructeur
+    Intersection ( const Intersection & unIntersection );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-        Intersection ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+    Intersection ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-        virtual ~Intersection ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+    virtual ~Intersection ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-    //------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PRIVE
 
-    protected:
-    //----------------------------------------------------- Méthodes protégées
+protected:
+//----------------------------------------------------- Méthodes protégées
 
-    private:
-    //------------------------------------------------------- Méthodes privées
+private:
+//------------------------------------------------------- Méthodes privées
 
-    protected:
-    //----------------------------------------------------- Attributs protégés
+protected:
+//----------------------------------------------------- Attributs protégés
 
-    private:
-    //------------------------------------------------------- Attributs privés
+private:
+//------------------------------------------------------- Attributs privés
 
-    //---------------------------------------------------------- Classes amies
+//---------------------------------------------------------- Classes amies
 
-    //-------------------------------------------------------- Classes privées
+//-------------------------------------------------------- Classes privées
 
-    //----------------------------------------------------------- Types privés
+//----------------------------------------------------------- Types privés
 
-    };
+};
 
-    //----------------------------------------- Types dépendants de <Intersection>
+//------------------------------------- Types dépendants de <Intersection>
 
-    #endif // INTERSECTION_H
-    
+#endif // INTERSECTION_H

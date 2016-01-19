@@ -1,82 +1,80 @@
+/*************************************************************************
+                                    Segment
+                             -------------------
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
+*************************************************************************/
 
-    /*************************************************************************
-                               Segment  -  description
-                                 -------------------
-        début                : 19/1/2016
-        copyright            : (C) 2016 par Pierre et Ulysse
-    *************************************************************************/
+//------------ Réalisation de la classe <Segment> (fichier Segment.cpp) --
 
-    //---------- Réalisation de la classe <Segment> (fichier Segment) --
+//---------------------------------------------------------------- INCLUDE
 
-    //---------------------------------------------------------------- INCLUDE
+//-------------------------------------------------------- Include système
+using namespace std;
+#include <iostream>
 
-    //-------------------------------------------------------- Include système
-    using namespace std;
-    #include <iostream>
+//------------------------------------------------------ Include personnel
+#include "Segment.h"
 
-    //------------------------------------------------------ Include personnel
-    #include "Segment.h"
+//------------------------------------------------------------- Constantes
 
-    //------------------------------------------------------------- Constantes
+//---------------------------------------------------- Variables de classe
 
-    //---------------------------------------------------- Variables de classe
-
-    //----------------------------------------------------------- Types privés
-
-
-    //----------------------------------------------------------------- PUBLIC
-    //-------------------------------------------------------- Fonctions amies
-
-    //----------------------------------------------------- Méthodes publiques
-    // type Segment::Méthode ( liste de paramètres )
-    // Algorithme :
-    //
-    //{
-    //} //----- Fin de Méthode
+//----------------------------------------------------------- Types privés
 
 
-    //------------------------------------------------- Surcharge d'opérateurs
-    Segment & Segment::operator = ( const Segment & unSegment )
-    // Algorithme :
-    //
-    {
-    } //----- Fin de operator =
+//----------------------------------------------------------------- PUBLIC
+//-------------------------------------------------------- Fonctions amies
+
+//----------------------------------------------------- Méthodes publiques
+// type Segment::Méthode ( liste de paramètres )
+// Algorithme :
+//
+//{
+//} //----- Fin de Méthode
 
 
-    //-------------------------------------------- Constructeurs - destructeur
-    Segment::Segment ( const Segment & unSegment )
-    // Algorithme :
-    //
-    {
-    #ifdef MAP
-        cout << "Appel au constructeur de copie de <Segment>" << endl;
-    #endif
-    } //----- Fin de Segment (constructeur de copie)
+//------------------------------------------------- Surcharge d'opérateurs
+Segment & Segment::operator = ( const Segment & unSegment )
+// Algorithme :
+//
+{
+} //----- Fin de operator =
 
 
-    Segment::Segment ( )
-    // Algorithme :
-    //
-    {
-    #ifdef MAP
-        cout << "Appel au constructeur de <Segment>" << endl;
-    #endif
-    } //----- Fin de Segment
+//-------------------------------------------- Constructeurs - destructeur
+Segment::Segment ( const Segment & unSegment )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de copie de <Segment>" << endl;
+#endif
+} //----- Fin de Segment (constructeur de copie)
 
 
-    Segment::~Segment ( )
-    // Algorithme :
-    //
-    {
-    #ifdef MAP
-        cout << "Appel au destructeur de <Segment>" << endl;
-    #endif
-    } //----- Fin de ~Segment
+Segment::Segment ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Segment>" << endl;
+#endif
+} //----- Fin de Segment
 
 
-    //------------------------------------------------------------------ PRIVE
+Segment::~Segment ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <Segment>" << endl;
+#endif
+} //----- Fin de ~Segment
 
-    //----------------------------------------------------- Méthodes protégées
 
-    //------------------------------------------------------- Méthodes privées
-    
+//------------------------------------------------------------------ PRIVE
+
+//----------------------------------------------------- Méthodes protégées
+
+//------------------------------------------------------- Méthodes privées

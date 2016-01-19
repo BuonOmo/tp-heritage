@@ -1,90 +1,88 @@
+/*************************************************************************
+                                Rectangle
+                             -------------------
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
+*************************************************************************/
 
-    /*************************************************************************
-                               Rectangle  -  description
-                                 -------------------
-        début                : 19/1/2016
-        copyright            : (C) 2016 par Pierre et Ulysse
-    *************************************************************************/
+//---------- Interface de la classe <Rectangle> (fichier Rectangle.h) ----
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
-    //-------------- Interface de la classe <Rectangle> (fichier Rectangle) --------------
-    #if ! defined ( RECTANGLE_H )
-    #define RECTANGLE_H
+//--------------------------------------------------- Interfaces utilisées
 
-    //--------------------------------------------------- Interfaces utilisées
+//------------------------------------------------------------- Constantes
 
-    //------------------------------------------------------------- Constantes
+//------------------------------------------------------------------ Types
 
-    //------------------------------------------------------------------ Types
+//------------------------------------------------------------------------
+// Rôle de la classe <Rectangle>
+//
+//
+//------------------------------------------------------------------------
 
-    //------------------------------------------------------------------------
-    // Rôle de la classe <Rectangle>
+class Rectangle
+{
+//----------------------------------------------------------------- PUBLIC
+
+public:
+//----------------------------------------------------- Méthodes publiques
+    // type Méthode ( liste de paramètres );
+    // Mode d'emploi :
     //
+    // Contrat :
     //
-    //------------------------------------------------------------------------
-
-    class Rectangle
-    {
-    //----------------------------------------------------------------- PUBLIC
-
-    public:
-    //----------------------------------------------------- Méthodes publiques
-        // type Méthode ( liste de paramètres );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
 
 
-    //------------------------------------------------- Surcharge d'opérateurs
-        Rectangle & operator = ( const Rectangle & unRectangle );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+//------------------------------------------------- Surcharge d'opérateurs
+    Rectangle & operator = ( const Rectangle & unRectangle );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 
-    //-------------------------------------------- Constructeurs - destructeur
-        Rectangle ( const Rectangle & unRectangle );
-        // Mode d'emploi (constructeur de copie) :
-        //
-        // Contrat :
-        //
+//-------------------------------------------- Constructeurs - destructeur
+    Rectangle ( const Rectangle & unRectangle );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-        Rectangle ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+    Rectangle ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-        virtual ~Rectangle ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+    virtual ~Rectangle ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-    //------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PRIVE
 
-    protected:
-    //----------------------------------------------------- Méthodes protégées
+protected:
+//----------------------------------------------------- Méthodes protégées
 
-    private:
-    //------------------------------------------------------- Méthodes privées
+private:
+//------------------------------------------------------- Méthodes privées
 
-    protected:
-    //----------------------------------------------------- Attributs protégés
+protected:
+//----------------------------------------------------- Attributs protégés
 
-    private:
-    //------------------------------------------------------- Attributs privés
+private:
+//------------------------------------------------------- Attributs privés
 
-    //---------------------------------------------------------- Classes amies
+//---------------------------------------------------------- Classes amies
 
-    //-------------------------------------------------------- Classes privées
+//-------------------------------------------------------- Classes privées
 
-    //----------------------------------------------------------- Types privés
+//----------------------------------------------------------- Types privés
 
-    };
+};
 
-    //----------------------------------------- Types dépendants de <Rectangle>
+//---------------------------------------- Types dépendants de <Rectangle>
 
-    #endif // RECTANGLE_H
-    
+#endif // RECTANGLE_H

@@ -1,90 +1,88 @@
+/*************************************************************************
+                                    Segment
+                             -------------------
+    début                : 19/1/2016
+    copyright            : (C) 2016 par Pierre et Ulysse
+*************************************************************************/
 
-    /*************************************************************************
-                               Segment  -  description
-                                 -------------------
-        début                : 19/1/2016
-        copyright            : (C) 2016 par Pierre et Ulysse
-    *************************************************************************/
+//-------------- Interface de la classe <Segment> (fichier Segment.h) ----
+#ifndef SEGMENT_H
+#define SEGMENT_H
 
-    //-------------- Interface de la classe <Segment> (fichier Segment) --------------
-    #if ! defined ( SEGMENT_H )
-    #define SEGMENT_H
+//--------------------------------------------------- Interfaces utilisées
 
-    //--------------------------------------------------- Interfaces utilisées
+//------------------------------------------------------------- Constantes
 
-    //------------------------------------------------------------- Constantes
+//------------------------------------------------------------------ Types
 
-    //------------------------------------------------------------------ Types
+//------------------------------------------------------------------------
+// Rôle de la classe <Segment>
+//
+//
+//------------------------------------------------------------------------
 
-    //------------------------------------------------------------------------
-    // Rôle de la classe <Segment>
+class Segment
+{
+//----------------------------------------------------------------- PUBLIC
+
+public:
+//----------------------------------------------------- Méthodes publiques
+    // type Méthode ( liste de paramètres );
+    // Mode d'emploi :
     //
+    // Contrat :
     //
-    //------------------------------------------------------------------------
-
-    class Segment
-    {
-    //----------------------------------------------------------------- PUBLIC
-
-    public:
-    //----------------------------------------------------- Méthodes publiques
-        // type Méthode ( liste de paramètres );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
 
 
-    //------------------------------------------------- Surcharge d'opérateurs
-        Segment & operator = ( const Segment & unSegment );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+//------------------------------------------------- Surcharge d'opérateurs
+    Segment & operator = ( const Segment & unSegment );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 
-    //-------------------------------------------- Constructeurs - destructeur
-        Segment ( const Segment & unSegment );
-        // Mode d'emploi (constructeur de copie) :
-        //
-        // Contrat :
-        //
+//-------------------------------------------- Constructeurs - destructeur
+    Segment ( const Segment & unSegment );
+    // Mode d'emploi (constructeur de copie) :
+    //
+    // Contrat :
+    //
 
-        Segment ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+    Segment ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-        virtual ~Segment ( );
-        // Mode d'emploi :
-        //
-        // Contrat :
-        //
+    virtual ~Segment ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
-    //------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PRIVE
 
-    protected:
-    //----------------------------------------------------- Méthodes protégées
+protected:
+//----------------------------------------------------- Méthodes protégées
 
-    private:
-    //------------------------------------------------------- Méthodes privées
+private:
+//------------------------------------------------------- Méthodes privées
 
-    protected:
-    //----------------------------------------------------- Attributs protégés
+protected:
+//----------------------------------------------------- Attributs protégés
 
-    private:
-    //------------------------------------------------------- Attributs privés
+private:
+//------------------------------------------------------- Attributs privés
 
-    //---------------------------------------------------------- Classes amies
+//---------------------------------------------------------- Classes amies
 
-    //-------------------------------------------------------- Classes privées
+//-------------------------------------------------------- Classes privées
 
-    //----------------------------------------------------------- Types privés
+//----------------------------------------------------------- Types privés
 
-    };
+};
 
-    //----------------------------------------- Types dépendants de <Segment>
+//----------------------------------------- Types dépendants de <Segment>
 
-    #endif // SEGMENT_H
-    
+#endif // SEGMENT_H
