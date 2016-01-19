@@ -1,64 +1,93 @@
 /*************************************************************************
                                     Objet
                              -------------------
-    d�but                : 12 janvier 2016
+    début                : 12 janvier 2016
     copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-///---------- R�alisation de la classe <Objet> (fichier Objet.cpp) --
+//------------ Réalisation de la classe <Objet> (fichier Objet.cpp) ------
 
-///---------------------------------------------------------------- INCLUDE
+//---------------------------------------------------------------- INCLUDE
 
-///-------------------------------------------------------- Include syst�me
+//-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
 
-///------------------------------------------------------ Include personnel
+//------------------------------------------------------ Include personnel
 #include "Objet.h"
 
-///------------------------------------------------------------- Constantes
+//------------------------------------------------------------- Constantes
 
-///---------------------------------------------------- Variables de classe
+//---------------------------------------------------- Variables de classe
 
-///----------------------------------------------------------- Types priv�s
-
-
-///----------------------------------------------------------------- PUBLIC
-///-------------------------------------------------------- Fonctions amies
-
-///----------------------------------------------------- M�thodes publiques
-// type Objet::M�thode ( liste de param�tres )
-// Algorithme :
-//
-//{
-//} //----- Fin de M�thode
+//----------------------------------------------------------- Types privés
 
 
-///------------------------------------------------- Surcharge d'op�rateurs
+//----------------------------------------------------------------- PUBLIC
+//-------------------------------------------------------- Fonctions amies
+
+//----------------------------------------------------- Méthodes publiques
+/*
+void Shift ( Point p )
+{
+#ifdef MAP
+    cout << "Appel à la méthode contient de <ObjetSimple>" << endl;
+#endif
+} //----- Fin de Shift
+
+bool Objet::Contient (Point p) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode contient de <Objet>" << endl;
+#endif
+} //----- Fin de Contient
+*/ //TODO supprimer ce bloc si =0 marche bien
+
+string Objet::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Objet>" << endl;
+#endif
+    return description;
+} //----- Fin de ToString
+
+//------------------------------------------------- Surcharge d'opérateurs
 Objet & Objet::operator = ( const Objet & unObjet )
 // Algorithme :
 //
 {
+    if (this != &unObjet)
+    {
+        nom = unObjet.nom;
+        description = unObjet.description;
+    }
+    return *this;
 } //----- Fin de operator =
 
 
-///-------------------------------------------- Constructeurs - destructeur
+//-------------------------------------------- Constructeurs - destructeur
 Objet::Objet ( const Objet & unObjet )
 // Algorithme :
 //
 {
+    c++;
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Objet>" << endl;
+    cout << "#Appel au constructeur de copie de <Objet>" << endl;
+    cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
+    *this = unObjet;
 } //----- Fin de Objet (constructeur de copie)
 
 
-Objet::Objet ( )
+Objet::Objet ( const string & unNom, const string & uneDescription )
+    : nom(unNom), description(uneDescription)
 // Algorithme :
 //
 {
+    c=1;
 #ifdef MAP
-    cout << "Appel au constructeur de <Objet>" << endl;
+    cout << "#Appel au constructeur de <Objet>" << endl;
+    cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
 
 } //----- Fin de Objet
@@ -68,14 +97,20 @@ Objet::~Objet ( )
 // Algorithme :
 //
 {
+    c--;
+    if (!c)
+    {
+        //TODO suppression du contenu;
+    }
 #ifdef MAP
-    cout << "Appel au destructeur de <Objet>" << endl;
+    cout << "#Appel au destructeur de <Objet>" << endl;
+    cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
 } //----- Fin de ~Objet
 
 
-///------------------------------------------------------------------ PRIVE
+//------------------------------------------------------------------ PRIVE
 
-///----------------------------------------------------- M�thodes prot�g�es
+//----------------------------------------------------- Méthodes protégées
 
-///------------------------------------------------------- M�thodes priv�es
+//------------------------------------------------------- Méthodes privées

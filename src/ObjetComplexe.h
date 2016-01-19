@@ -1,67 +1,65 @@
 /*************************************************************************
-                                    Objet
+                        ObjetComplexe  -  liste d’objets
                              -------------------
-    début                : 12 janvier 2016
-    copyright            : (C) 2016 par Pierre et Ulysse
+    début                : 18/01/2016
+    copyright            : (C) 2016 par pierre et ulysse
 *************************************************************************/
 
-//---------------- Interface de la classe <Objet> (fichier Objet.h) ------
-#ifndef OBJET_H
-#define OBJET_H
+//------ Interface de la classe <ObjetComplexe> (fichier ObjetComplexe) --
+#ifndef OBJETCOMPLEXE_H
+#define OBJETCOMPLEXE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
-#include "Point.h"
+#include "Objet.h"
+#include <list>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Objet>
+// Rôle de la classe <ObjetComplexe>
 //
 //
 //------------------------------------------------------------------------
 
-class Objet
+class ObjetComplexe : public Objet
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void Shift ( Point p );
+    // type Méthode ( liste de paramètres );
     // Mode d'emploi :
-    // p correspond à un vecteur de déplacement et non un point.
     //
     // Contrat :
-    // Déplace l’objet selon le vecteur correspondant à p.
+    //
 
-    virtual bool Contient ( Point p ) const = 0;
-    // Contrat :
-    // Renvoi vrai si p est contenu dans l’objet.
-
-    string ToString () const;
-    // Contrat :
-    // Renvoi la ligne de commande correspondant à la création de l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Objet & operator = ( const Objet & unObjet );
-
+    ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Objet ( const Objet & unObjet );
+    ObjetComplexe ( const ObjetComplexe & unObjetComplexe );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Objet ( const string & unNom = "", const string & uneDescription = "" );
+    ObjetComplexe ( const string & unNom,
+                    const string & uneDescription,
+                    const std::list<Objet *> &desObjets, 
+                    const std::list<string> &aSousDescriptions );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Objet ( );
+    virtual ~ObjetComplexe ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -77,12 +75,12 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    string nom;
-    string description;
+    std::list<Objet *> objets;
+    std::list<string> sousDescriptions;
 
 private:
 //------------------------------------------------------- Attributs privés
-    int c;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées
@@ -91,6 +89,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Objet>
+//------------------------------------ Types dépendants de <ObjetComplexe>
 
-#endif // OBJET_H
+#endif // OBJETCOMPLEXE_H

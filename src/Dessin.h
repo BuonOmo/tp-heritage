@@ -1,67 +1,48 @@
 /*************************************************************************
-                                    Objet
+						Dessin
                              -------------------
-    début                : 12 janvier 2016
-    copyright            : (C) 2016 par Pierre et Ulysse
+    début                : 18/01/2016
+    copyright            : (C) 2016 par pierre et ulysse
 *************************************************************************/
 
-//---------------- Interface de la classe <Objet> (fichier Objet.h) ------
-#ifndef OBJET_H
-#define OBJET_H
+//---------- Interface de la classe <Dessin> (fichier Dessin.h) --
+#ifndef DESSIN_H
+#define DESSIN_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
-#include "Point.h"
+#include "Objet.h"
+#include <map>
+#include <iostream>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Objet>
+// Rôle de la classe <Dessin>
 //
 //
 //------------------------------------------------------------------------
 
-class Objet
+class Dessin
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void Shift ( Point p );
-    // Mode d'emploi :
-    // p correspond à un vecteur de déplacement et non un point.
-    //
-    // Contrat :
-    // Déplace l’objet selon le vecteur correspondant à p.
-
-    virtual bool Contient ( Point p ) const = 0;
-    // Contrat :
-    // Renvoi vrai si p est contenu dans l’objet.
-
-    string ToString () const;
-    // Contrat :
-    // Renvoi la ligne de commande correspondant à la création de l’objet.
-
-//------------------------------------------------- Surcharge d'opérateurs
-    Objet & operator = ( const Objet & unObjet );
-
-
-
-//-------------------------------------------- Constructeurs - destructeur
-    Objet ( const Objet & unObjet );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
-    Objet ( const string & unNom = "", const string & uneDescription = "" );
+    
+    Dessin ();
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Objet ( );
+	std::map<string,Objet> getObjets();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+	
+    virtual ~Dessin ();
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,15 +55,15 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-
+	std::map<string,Objet> objets;
+	
 protected:
 //----------------------------------------------------- Attributs protégés
-    string nom;
-    string description;
+
 
 private:
 //------------------------------------------------------- Attributs privés
-    int c;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées
@@ -91,6 +72,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Objet>
+//-------------------------------------- Types dépendants de <ObjetSimple>
 
-#endif // OBJET_H
+#endif // OBJETSIMPLE_H

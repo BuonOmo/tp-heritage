@@ -1,67 +1,72 @@
 /*************************************************************************
-                                    Objet
+                           Point  -  gestion de points (vecteurs)
                              -------------------
-    début                : 12 janvier 2016
+    début                : 18/01/2016
     copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-//---------------- Interface de la classe <Objet> (fichier Objet.h) ------
-#ifndef OBJET_H
-#define OBJET_H
+//-------------- Interface de la classe <Point> (fichier Point) ----------
+#ifndef POINT_H
+#define POINT_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <string>
-#include "Point.h"
+#include <iostream>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Objet>
+// Rôle de la classe <Point>
 //
 //
 //------------------------------------------------------------------------
 
-class Objet
+class Point
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void Shift ( Point p );
+    // type Méthode ( liste de paramètres );
     // Mode d'emploi :
-    // p correspond à un vecteur de déplacement et non un point.
     //
     // Contrat :
-    // Déplace l’objet selon le vecteur correspondant à p.
+    //
 
-    virtual bool Contient ( Point p ) const = 0;
-    // Contrat :
-    // Renvoi vrai si p est contenu dans l’objet.
-
-    string ToString () const;
-    // Contrat :
-    // Renvoi la ligne de commande correspondant à la création de l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Objet & operator = ( const Objet & unObjet );
+    Point & operator = ( const Point & unPoint );
 
+    friend std::ostream & operator << ( std::ostream & os, const Point & unPoint);
+    // Contrat :
+    // Affiche ( x : y )
 
+    Point & operator + ( const Point & unPoint );
+    // Contrat :
+    // ajoute les x et les y separement et renvoi le résultat
+
+    int operator * ( const Point & unPoint);
+    // Contrat :
+    // Renvoi le produit scalaire de deux vecteurs.
+
+    int operator ^ ( const Point & unPoint);
+    // Contrat :
+    // Renvoi le produit vectoriel de deux vecteurs coplanaires.
 
 //-------------------------------------------- Constructeurs - destructeur
-    Objet ( const Objet & unObjet );
+    Point ( const Point & aPoint );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Objet ( const string & unNom = "", const string & uneDescription = "" );
+    Point ( int aX = 0, int aY = 0 );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Objet ( );
+    virtual ~Point ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -77,12 +82,12 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    string nom;
-    string description;
 
 private:
 //------------------------------------------------------- Attributs privés
-    int c;
+    int x;
+    int y;
+
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées
@@ -91,6 +96,6 @@ private:
 
 };
 
-//----------------------------------------- Types dépendants de <Objet>
+//----------------------------------------- Types dépendants de <Point>
 
-#endif // OBJET_H
+#endif // POINT_H
