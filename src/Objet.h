@@ -35,6 +35,10 @@ public:
     // Contrat :
     // Déplace l’objet selon le vecteur correspondant à p.
 
+    virtual bool Contient ( Point p ) const = 0;
+    // Contrat :
+    // Renvoi vrai si p est contenu dans l’objet.
+
     string ToString () const;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.

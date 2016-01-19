@@ -33,8 +33,16 @@ void ObjetSimple::Shift ( Point p )
     {
         i = i + p;
     }
-} //----- Fin de shift
+} //----- Fin de Shift
 
+/*
+bool ObjetSimple::Contient (Point p) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode contient de <ObjetSimple>" << endl;
+#endif
+} //----- Fin de Contient
+*/ //TODO supprimer ce bloc si =0 marche bien
 
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
@@ -72,6 +80,8 @@ ObjetSimple::ObjetSimple ( const list<Point> & desPoints )
 #endif
 } //----- Fin de ObjetSimple
 
+ObjetSimple::ObjetSimple ( const string &uneDescription )
+    : Objet(uneDescription)
 
 ObjetSimple::~ObjetSimple ( )
 // Algorithme :
@@ -80,6 +90,20 @@ ObjetSimple::~ObjetSimple ( )
 #ifdef MAP
     cout << "Appel au destructeur de <ObjetSimple>" << endl;
 #endif
+    string str (description);
+    int pos(0);
+    str = str.substr(str.find(" ")); // on enleve le type
+    name = str.substr(0,str.find(" ")-1); // on selectionne le nom
+    str = str.substr(str.find(" ")); // on enleve le nom
+    int x,y;
+    while (pos = str.find(" ") != str.npos)
+    {
+        x = str.substr(0, pos-1);
+        str = str.substr(pos);
+        pos = str.find(" ");
+        pos = (pos == str.npos) ? str.size() : pos;
+        // TODO revoir ce truc foireux
+    }
 } //----- Fin de ~ObjetSimple
 
 

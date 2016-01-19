@@ -86,6 +86,6 @@ std::list<string> sousDescriptions;
 
 };
 
-//----------------------------------------- Types dépendants de <ObjetComplexe>
+//------------------------------------ Types dépendants de <ObjetComplexe>
 
 #endif // OBJETCOMPLEXE_H

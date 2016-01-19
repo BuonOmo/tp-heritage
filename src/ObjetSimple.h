@@ -36,6 +36,9 @@ public:
     // Contrat :
     // -
 
+    virtual bool Contient ( Point p ) const = 0;
+    // Contrat :
+    // Renvoi vrai si p est contenu dans l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetSimple & operator = ( const ObjetSimple & unObjetSimple );
@@ -78,7 +81,6 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
 std::list<Point> points;
-int nombrePoints;
 
 //---------------------------------------------------------- Classes amies
 

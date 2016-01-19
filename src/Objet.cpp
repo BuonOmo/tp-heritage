@@ -27,8 +27,21 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+/*
 void Shift ( Point p )
-{ } //----- Fin de shift
+{
+#ifdef MAP
+    cout << "Appel à la méthode contient de <ObjetSimple>" << endl;
+#endif
+} //----- Fin de Shift
+
+bool Objet::Contient (Point p) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode contient de <Objet>" << endl;
+#endif
+} //----- Fin de Contient
+*/ //TODO supprimer ce bloc si =0 marche bien
 
 string Objet::ToString ( ) const
 {
