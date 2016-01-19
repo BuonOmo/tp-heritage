@@ -27,6 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+
 bool Rectangle::Contient ( Point p ) const
 {
 #ifdef MAP
