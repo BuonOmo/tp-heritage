@@ -17,7 +17,7 @@ LIBS     = #-lm
 
 ECHO  = @echo
 EXE   = exe
-CLEAN = Clean
+CLEAN = clean
 #.SILENT:
 .PHONY: $(CLEAN)
 
@@ -39,6 +39,6 @@ Union.o : $(INTPATH)ObjetComplexe.h $(INTPATH)Objet.h $(INTPATH)Point.h $(INTPAT
 Intersection.o : $(INTPATH)ObjetComplexe.h $(INTPATH)Objet.h $(INTPATH)Point.h $(INTPATH)Intersection.h
 
 
-Clean :
+clean :
 	$(ECHO) "Nettoyage du repertoire..."
 	$(RM) $(RMFLAGS) $(EXE) $(OBJ) core
