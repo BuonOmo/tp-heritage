@@ -61,7 +61,7 @@ ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 
 
 ObjetComplexe::ObjetComplexe
-    (  const list<Objet> &desObjets, const list<string> &desSousDescriptions )
+    (  const list<Objet *> &desObjets, const list<string> &desSousDescriptions )
     : objets (desObjets), sousDescriptions (desSousDescriptions)
 // Algorithme :
 //

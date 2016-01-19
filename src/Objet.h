@@ -77,12 +77,12 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
+    string name;
+    string description;
 
 private:
 //------------------------------------------------------- Attributs privés
     int c;
-    string name;
-    string description;
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

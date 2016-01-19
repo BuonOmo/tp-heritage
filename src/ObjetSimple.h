@@ -61,6 +61,13 @@ public:
     // Contrat :
     //
 
+    ObjetSimple ( const string &uneDescription );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+
     virtual ~ObjetSimple ( );
     // Mode d'emploi :
     //
@@ -77,10 +84,10 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
+std::list<Point> points;
 
 private:
 //------------------------------------------------------- Attributs privés
-std::list<Point> points;
 
 //---------------------------------------------------------- Classes amies
 

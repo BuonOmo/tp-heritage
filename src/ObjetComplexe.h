@@ -50,7 +50,7 @@ public:
     // Contrat :
     //
 
-    ObjetComplexe ( const std::list<Objet> &desObjets, const std::list<string> &aSousDescriptions );
+    ObjetComplexe ( const std::list<Objet *> &desObjets, const std::list<string> &aSousDescriptions );
     // Mode d'emploi :
     //
     // Contrat :
@@ -72,11 +72,11 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
+    std::list<Objet *> objets;
+    std::list<string> sousDescriptions;
 
 private:
 //------------------------------------------------------- Attributs privés
-std::list<Objet> objets;
-std::list<string> sousDescriptions;
 
 //---------------------------------------------------------- Classes amies
 

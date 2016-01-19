@@ -12,7 +12,6 @@
 //-------------------------------------------------------- Include système
 using namespace std;
 #include <iostream>
-
 //------------------------------------------------------ Include personnel
 #include "ObjetSimple.h"
 
@@ -52,7 +51,6 @@ ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
     if (this != &unObjetSimple)
     {
         points = unObjetSimple.points;
-		nombrePoints = unObjetSimple.nombrePoints;
     }
     return *this;
 } //----- Fin de operator =
@@ -82,6 +80,11 @@ ObjetSimple::ObjetSimple ( const list<Point> & desPoints )
 
 ObjetSimple::ObjetSimple ( const string &uneDescription )
     : Objet(uneDescription)
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <ObjetSimple>" << endl;
+#endif
+} //----- Fin de ObjetSimple
 
 ObjetSimple::~ObjetSimple ( )
 // Algorithme :
@@ -98,10 +101,15 @@ ObjetSimple::~ObjetSimple ( )
     int x,y;
     while (pos = str.find(" ") != str.npos)
     {
-        x = str.substr(0, pos-1);
+        x = stoi(str.substr(0, pos-1).c_str());
         str = str.substr(pos);
         pos = str.find(" ");
         pos = (pos == str.npos) ? str.size() : pos;
+        y = stoi(str.substr(0, pos-1).c_str());
+        if (str.size() > 0)
+        {
+            str = str.substr(pos);
+        }
         // TODO revoir ce truc foireux
     }
 } //----- Fin de ~ObjetSimple
