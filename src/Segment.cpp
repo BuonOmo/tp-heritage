@@ -52,7 +52,11 @@ Segment::Segment ( const Segment & unSegment )
 } //----- Fin de Segment (constructeur de copie)
 
 
-Segment::Segment ( )
+Segment::Segment ( const string & unNom,
+                   const string & uneDescription,
+                   const Point & p1,
+                   const Point & p2)
+    : ObjetSimple( unNom, uneDescription, p1, p2 )
 // Algorithme :
 //
 {

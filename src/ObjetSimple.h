@@ -63,6 +63,10 @@ public:
     // Contrat :
     //
 
+    ObjetSimple ( const string & nom,
+                  const string & description,
+                  const Point & p1,
+                  const Point & p2);
 
     virtual ~ObjetSimple ( );
     // Mode d'emploi :

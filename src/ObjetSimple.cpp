@@ -80,14 +80,22 @@ ObjetSimple::ObjetSimple ( const list<Point> & desPoints,
     cout << "Appel au constructeur de <ObjetSimple>" << endl;
 #endif
 } //----- Fin de ObjetSimple
-/*
-ObjetSimple::ObjetSimple ( )
+
+ObjetSimple::ObjetSimple ( const string & nom,
+                           const string & description,
+                           const Point & p1,
+                           const Point & p2)
+    : Objet(nom, description)
+// Algorithme :
+//
 {
+    points.push_back(p1);
+    points.push_back(p2);
 #ifdef MAP
-    cout << "Appel au constructeur par defaut de <ObjetSimple>" << endl;
+    cout << "Appel au constructeur de <ObjetSimple>" << endl;
 #endif
-}
-*/
+} //----- Fin de ObjetSimple
+
 ObjetSimple::~ObjetSimple ( )
 // Algorithme :
 //
