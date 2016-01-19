@@ -27,11 +27,26 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-// type Intersection::Méthode ( liste de paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
+bool Intersection::Contient (Point p) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Contient de <Intersection>" << endl;
+#endif
+    bool premier (false); // si un premier objet contient le point on en
+                          // cherche un second.
+    for (Objet * obj : objets )
+    {
+        if ( obj -> Contient(p) )
+        {
+            if (premier)
+            {
+                return true;
+            }
+            premier = true;
+        }
+    }
+    return false;
+} //----- Fin de Contient
 
 
 //------------------------------------------------- Surcharge d'opérateurs
