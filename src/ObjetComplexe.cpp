@@ -69,8 +69,8 @@ ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 
 ObjetComplexe::ObjetComplexe (  const string & unNom,
                                 const string & uneDescription,
-                                const list<Objet *> &desObjets,
-                                const list<string> &desSousDescriptions )
+                                const vector<Objet *> &desObjets,
+                                const vector<string> &desSousDescriptions )
     : Objet(unNom, uneDescription),
       objets (desObjets),
       sousDescriptions (desSousDescriptions)

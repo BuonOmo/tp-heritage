@@ -71,7 +71,7 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 } //----- Fin de ObjetSimple (constructeur de copie)
 
 
-ObjetSimple::ObjetSimple ( const list<Point> & desPoints,
+ObjetSimple::ObjetSimple ( const vector<Point> & desPoints,
                            const string & description,
                            const string & nom )
     : points (desPoints), Objet(nom, description)

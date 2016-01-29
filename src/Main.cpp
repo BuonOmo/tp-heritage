@@ -39,17 +39,17 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 
 int main () {
-	
+
 	string requete;
 	std::map<string,Objet*> objets;
 	Historique histoCommande;
-	
-	while(true) {		
+
+	while(true) {
 		getline(cin, requete);
 		istringstream iss(requete);
 		string commande;
 		iss >> commande;
-					
+
 		if(commande == "S")
 		{
 			string name = "";
@@ -58,12 +58,12 @@ int main () {
 			int Y1;
 			int X2;
 			int Y2;
-			if ((!(iss >> X1 && iss >> Y1 && iss >> X2 && iss >> Y2) || name == "") || !iss.eof()) 
+			if ((!(iss >> X1 && iss >> Y1 && iss >> X2 && iss >> Y2) || name == "") || !iss.eof())
 			{
-				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5) !" << endl;				
+				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5) !" << endl;
 			}
 			else
-			{				
+			{
 				if(objets.size() == 0 || objets.at(name) == NULL)
 				{
 					Point p1 (X1,Y1);
@@ -76,11 +76,11 @@ int main () {
 				{
 					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
 				}
-				
+
 			}
-				
+
 		}
-				
+
 		else if(commande == "R")
 		{
 			string name = "";
@@ -91,7 +91,7 @@ int main () {
 			int Y2;
 			if ((!(iss >> X1 && iss >> Y1 && iss >> X2 && iss >> Y2) || name == "") || !iss.eof() ) {
 				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
-				
+
 			}
 			else
 			{
@@ -107,11 +107,11 @@ int main () {
 				{
 					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
 				}
-				
+
 			}
-				
+
 		}
-		
+
 		else if(commande == "PC")
 		{
 			string name = "";
@@ -125,18 +125,18 @@ int main () {
 		        {
 		        	coordOk = false;
 		        	break;
-		        }		        
+		        }
 		        points.push_back(coord);
 
 		    }
-		    
+
 			if (!coordOk || points.size() < 6 || name == "" || !(points.size()%2 == 0)) {
 				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon !" << endl;
-				
+
 			}
 			else
 			{
-				
+
 				if(objets.size() == 0 || objets.at(name) == NULL)
 				{
 					vector<Point> listPoints;
@@ -145,7 +145,7 @@ int main () {
 						Point p (points[i], points[i+1]);
 						listPoints.push_back(p);
 					}
-					objets.insert(pair<string,Objet*>(name,new Polygone(name, requete, listPoints)));
+					objets.insert(pair<string,Objet*>(name,new Polygone(listPoints, requete, name)));
 					histoCommande.add(requete);
 					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
 				}
@@ -153,27 +153,27 @@ int main () {
 				{
 					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
 				}
-				
+
 			}
-				
+
 		}
-		
+
 		else if(commande == "OR")
 		{
 			string name = "";
 			iss >> name;
 			list<string> names;
-			
+
 			while(!iss.eof())
 		    {
 		        string nameObjet;
-		        iss >> nameObjet;		        
+		        iss >> nameObjet;
 		        names.push_back(nameObjet);
 		    }
-		    
+
 			if (names.size() == 0 || name == "") {
 				cout << "ERR" << endl << "#Veuillez indiquer le nom de la réunion puis les noms d'objets existants constituant cette réunion !" << endl;
-				
+
 			}
 			else
 			{
@@ -186,35 +186,35 @@ int main () {
 						trouve = false;
 						break;
 					}
-						
+
 				}
-				
-				
+
+
 			}
-				
+
 		}
-		
+
 		else if(commande == "OI")
 		{
 			string name = "";
 			iss >> name;
 			list<string> names;
-			
+
 			while(!iss.eof())
 		    {
 		        string nameObjet;
-		        iss >> nameObjet;		        
+		        iss >> nameObjet;
 		        names.push_back(nameObjet);
 		    }
-		    
+
 			if (names.size() == 0 || name == "") {
 				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
-				
+
 			}
 			else
 				cout << "OK" << endl;
 		}
-		
+
 		else if(commande == "HIT")
 		{
 			string name = "";
@@ -223,50 +223,50 @@ int main () {
 			int Y;
 			if (!(iss >> X && iss >> Y) || name == "" || !iss.eof()) {
 				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (3)!" << endl;
-				
+
 			}
 			else
 			{
 				Point p (X,Y);
 				cout << name << " " << X << " " << Y << " OK" << endl;
 			}
-				
+
 		}
-		
+
 		else if(commande == "DELETE")
 		{
 			vector<string> names;
-			
+
 			while(!iss.eof())
 		    {
 		        string nameObjet;
-		        iss >> nameObjet;		        
+		        iss >> nameObjet;
 		        names.push_back(nameObjet);
 		    }
-		    
+
 			if (names.size() == 0) {
 				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
-				
+
 			}
 			else
 				cout << "OK" << endl;
 		}
-		
+
 		else if(commande == "MOVE")
 		{
 			string name = "";
 			iss >> name;
 			int dx;
 			int dy;
-			
+
 			if ((!(iss >> dx && iss >> dy) || name == "") || !iss.eof()) {
 				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
-				
+
 			}
 			else
 				cout << name << " " << dx << " " << dy << " OK" << endl;
 		}
-		
+
 		else if(commande == "LIST")
 		{
 			if(!iss.eof())
@@ -278,7 +278,7 @@ int main () {
 				cout << "OK" << endl;
 			}
 		}
-		
+
 		else if(commande == "UNDO")
 		{
 			if(!iss.eof())
@@ -290,7 +290,7 @@ int main () {
 				cout << "OK" << endl;
 			}
 		}
-		
+
 		else if(commande == "REDO")
 		{
 			if(!iss.eof())
@@ -302,7 +302,7 @@ int main () {
 				cout << "OK" << endl;
 			}
 		}
-		
+
 		else if(commande == "LOAD")
 		{
 			string filename;
@@ -316,7 +316,7 @@ int main () {
 				cout << "OK" << endl;
 			}
 		}
-		
+
 		else if(commande == "SAVE")
 		{
 			string filename;
@@ -330,7 +330,7 @@ int main () {
 				cout << "OK" << endl;
 			}
 		}
-		
+
 		else if(commande == "CLEAR")
 		{
 			if(!iss.eof())
@@ -342,16 +342,16 @@ int main () {
 				cout << "OK" << endl;
 			}
 		}
-		
+
 		else if(commande == "EXIT")
 		{
 			cout << "#BYE" << endl;
-			break;			
+			break;
 		}
-		else 
+		else
 		{
 			cout << "ERR" << endl << "#Commande inconnue !" << endl;
-		}	
+		}
 	}
 	return 0;
 }

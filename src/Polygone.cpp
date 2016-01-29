@@ -32,7 +32,18 @@ bool Polygone::Contient ( Point p ) const
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Polygone>" << endl;
 #endif
-    return false; // TODO implementer tout ça.
+    bool premiereIter = true;
+    Point precedent;
+    bool signe; // true = + / false = -
+    for (Point pts : points) // TODO verifier le sens de l’iteration
+    {
+        if (premiereIter)
+        {
+            precedent = pts;
+            points.back();
+            // TODO finir ça
+        }
+    }
 } //----- Fin de Contient
 
 
@@ -50,7 +61,10 @@ Polygone::Polygone ( const Polygone & unPolygone )
 } //----- Fin de Polygone (constructeur de copie)
 
 
-Polygone::Polygone ( )
+Polygone::Polygone ( const std::vector<Point> & listePoints,
+                     const string & description,
+                     const string & nom )
+                     : ObjetSimple(listePoints, description, nom)
 // Algorithme :
 //
 {

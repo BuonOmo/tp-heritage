@@ -12,7 +12,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Objet.h"
 #include "Point.h"
-#include <list>
+#include <vector>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -55,7 +55,7 @@ public:
     // Contrat :
     //
 
-    ObjetSimple ( const list<Point> & desPoints = *(new list<Point>),
+    ObjetSimple ( const vector<Point> & desPoints = *(new vector<Point>),
                   const string & description = "",
                   const string & nom = "");
     // Mode d'emploi :
@@ -84,7 +84,7 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-std::list<Point> points;
+std::vector<Point> points;
 
 private:
 //------------------------------------------------------- Attributs privés

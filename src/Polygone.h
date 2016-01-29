@@ -12,6 +12,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "ObjetSimple.h"
 #include "Point.h"
+#include <vector>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -43,7 +44,9 @@ public:
     // Contrat :
     //
 
-    Polygone ( );
+    Polygone ( const std::vector<Point> & listePoints,
+               const string & description,
+               const string & nom );
     // Mode d'emploi :
     //
     // Contrat :

@@ -11,7 +11,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Objet.h"
-#include <list>
+#include <vector>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -53,8 +53,8 @@ public:
 
     ObjetComplexe ( const string & unNom = "",
                     const string & uneDescription = "",
-                    const std::list<Objet *> &desObjets = *(new std::list<Objet *>),
-                    const std::list<string> &aSousDescriptions = *(new std::list<string>));
+                    const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>),
+                    const std::vector<string> &aSousDescriptions = *(new std::vector<string>));
     // Mode d'emploi :
     //
     // Contrat :
@@ -76,8 +76,8 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    std::list<Objet *> objets;
-    std::list<string> sousDescriptions;
+    std::vector<Objet *> objets;
+    std::vector<string> sousDescriptions;
 
 private:
 //------------------------------------------------------- Attributs privés
