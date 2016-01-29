@@ -16,7 +16,7 @@ INCPATH  = #-I
 LIBS     = #-lm
 
 ECHO  = @echo
-EXE   = exe
+EXE   = Heritage
 CLEAN = clean
 #.SILENT:
 .PHONY: $(CLEAN)
