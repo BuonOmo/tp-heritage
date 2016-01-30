@@ -27,6 +27,14 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+void ObjetComplexe::Deplacer ( Point p )
+{
+    for (Objet * i : objets)
+    {
+        i -> Deplacer(p);
+    }
+} //----- Fin de Deplacer
+
 string ObjetComplexe::ToString ( ) const
 {
 #ifdef MAP

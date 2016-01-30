@@ -32,6 +32,13 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
+    void Deplacer ( Point p );
+    // Mode d'emploi :
+    // p correspond à un vecteur de déplacement et non un point.
+    //
+    // Contrat :
+    // Déplace l’objet selon le vecteur correspondant à p.
+
     string ToString () const;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
