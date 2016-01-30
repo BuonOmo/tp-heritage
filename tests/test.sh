@@ -83,7 +83,8 @@ fi
 resultOut=2
 if [ -r "std.out" ]
 then
-  diff -wB --ignore-matching-lines=#* temp.txt std.out >/dev/null
+  awk '!/^#/' temp.txt > temp_no_comment.txt
+  diff -wB temp_no_comment.txt std.out >/dev/null
   if [ $? -eq 0 ]
   then
     echo "                                       Stdout      : PASSED"
@@ -94,14 +95,19 @@ then
     resultGlobal=0
   fi
   # clean temporary out file
-  rm temp.txt
+  if [[ $# < 3 ]]
+  then
+      rm temp.txt
+  fi
+  rm temp_no_comment.txt
 fi
 
 # compare stderr if concerned
 resultErr=2
 if [ -r "stderr.out" ]
 then
-  diff -wB temperr.txt stderr.out >/dev/null
+  awk '!/^#/' temperr.txt > temperr_no_comment.txt
+  diff -wB temperr_no_comment.txt stderr.out >/dev/null
   if [ $? -eq 0 ]
   then
     echo "                                       Stderr      : PASSED"
@@ -112,7 +118,11 @@ then
     resultGlobal=0
   fi
   # clean temporary out file
-  rm temperr.txt
+  if [[ $# < 3 ]]
+  then
+      rm temperr.txt
+  fi
+  rm temperr_no_comment.txt
 fi
 
 # compare files created if concerned

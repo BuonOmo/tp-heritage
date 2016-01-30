@@ -1,4 +1,5 @@
 echo "Test ID;Return code validation;Out result;StdErr result;File creation result;Global result" >results.csv
+
 nOk=0
 nKo=0
 nTotal=0
@@ -6,7 +7,12 @@ nMis=0
 
 for i in Test*
 do
-  ./test.sh $i results.csv
+  if [[ $# > 0 ]]
+  then
+    ./test.sh $i results.csv $1
+  else
+    ./test.sh $i results.csv
+  fi
   result=$?
   if [ $result -eq 0 ]
   then
@@ -25,3 +31,4 @@ echo "Failed tests     : $nKo"
 echo "Misformed tests  : $nMis"
 echo "-----------------------"
 echo "Total            : $nTotal"
+exit $nKo
