@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Polygone.h"
@@ -28,22 +28,46 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 bool Polygone::Contient ( Point p ) const
+// Algorithme :
+// Calcul le produit vectoriel entre les vecteurs constitués par deux
+// points consecutifs et le premier de ces points avec p. Si le signe de
+// ce produit vectoriel est constant alors p est contenu dans le polygone.
 {
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Polygone>" << endl;
 #endif
-    bool premiereIter = true;
-    Point precedent;
-    bool signe; // true = + / false = -
-    for (Point pts : points) // TODO verifier le sens de l’iteration
+    int it = 0;
+    // Recherche d’une valeur initiale non nulle pour commencer le calcul.
+    // Si tout les points d’un polygone sont identiques cela peut causé une
+    // erreure.
+    int val;
+    val = (points.back() - p)^(points.front() - points.back());
+    for (;val != 0;val = (points[it] - p)^(points[it+1] - points[it]),it++ )
     {
-        if (premiereIter)
+        // atteinte du maximum
+        // TODO optimisable en sortant ceci de la boucle
+        if (it>=points.size()-2)
         {
-            precedent = pts;
-            points.back();
-            // TODO finir ça
+            return true;
         }
     }
+    bool signe;
+    signe = val > 0 ? true : false;
+
+    // Comparaison des signes
+    for (val = (points[it] - p)^(points[it+1] - points[it]) ;
+         it < points.size()-1 ;
+         val = (points[it] - p)^(points[it+1] - points[it]),it++ )
+    {
+        if (val !=0)
+        {
+            if ((val > 0 && !signe) || (val < 0 && signe))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 } //----- Fin de Contient
 
 
