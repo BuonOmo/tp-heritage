@@ -39,14 +39,14 @@ public:
     // Contrat :
     // Renvoi une chaine de caractère au format : "X Y"
 
-    bool XIn ( Point p1, Point p2 ) const;
+    bool XIn ( const Point & p1, const Point & p2 ) const;
     // Mode d’emploi :
     // Permet de voir si l’abscisse d’un point est comprise entre celles
     // de deux autres.
     // Contrat :
     // Vrai si inclu.
 
-    bool YIn ( Point p1, Point p2 ) const;
+    bool YIn ( const Point & p1, const Point & p2 ) const;
     // Mode d’emploi :
     // Permet de voir si l’abscisse d’un point est comprise entre celles
     // de deux autres.

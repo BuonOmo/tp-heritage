@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool Segment::Contient ( Point p ) const
+bool Segment::Contient ( const Point & p ) const
 {
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Segment>" << endl;

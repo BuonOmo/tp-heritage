@@ -28,7 +28,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-bool Rectangle::Contient ( Point p ) const
+bool Rectangle::Contient ( const Point & p ) const
 {
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Rectangle>" << endl;

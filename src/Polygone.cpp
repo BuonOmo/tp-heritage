@@ -28,7 +28,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool Polygone::Contient ( Point p ) const
+bool Polygone::Contient ( const Point & p ) const
 // Algorithme :
 // Calcul le produit vectoriel entre les vecteurs constitués par deux
 // points consecutifs et le premier de ces points avec p. Si le signe de

@@ -26,7 +26,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void ObjetSimple::Deplacer ( Point p )
+void ObjetSimple::Deplacer ( const Point & p )
 {
     for (Point i : points)
     {

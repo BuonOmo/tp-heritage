@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool Union::Contient (Point p) const
+bool Union::Contient (const Point & p) const
 {
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Union>" << endl;

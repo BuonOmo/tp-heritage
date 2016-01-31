@@ -55,7 +55,7 @@ string Point::ToString ( ) const
     return s;
 } //----- Fin de ToString
 
-bool Point::XIn ( Point p1, Point p2 ) const
+bool Point::XIn ( const Point & p1, const Point & p2 ) const
 {
 #ifdef MAP
     cout << "Appel à la méthode XIn de <Point>" << endl;
@@ -68,7 +68,7 @@ bool Point::XIn ( Point p1, Point p2 ) const
     return x >= p1.GetX() && x <= p2.GetX();
 } //----- Fin de XIn
 
-bool Point::YIn ( Point p1, Point p2 ) const
+bool Point::YIn ( const Point & p1, const Point & p2 ) const
 {
 #ifdef MAP
     cout << "Appel à la méthode YIn de <Point>" << endl;

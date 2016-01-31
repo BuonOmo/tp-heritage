@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-void ObjetComplexe::Deplacer ( Point p )
+void ObjetComplexe::Deplacer ( const Point & p )
 {
     for (Objet * i : objets)
     {

@@ -28,14 +28,14 @@ class Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void Deplacer ( Point p ) = 0;
+    virtual void Deplacer ( const Point & p ) = 0;
     // Mode d'emploi :
     // p correspond à un vecteur de déplacement et non un point.
     //
     // Contrat :
     // Déplace l’objet selon le vecteur correspondant à p.
 
-    virtual bool Contient ( Point p ) const = 0;
+    virtual bool Contient ( const Point & p ) const = 0;
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 

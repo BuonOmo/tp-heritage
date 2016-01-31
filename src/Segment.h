@@ -28,7 +28,7 @@ class Segment : public ObjetSimple
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    bool Contient (Point p) const;
+    bool Contient (const Point & p) const;
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 

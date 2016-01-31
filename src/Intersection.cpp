@@ -27,7 +27,7 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-bool Intersection::Contient (Point p) const
+bool Intersection::Contient (const Point & p) const
 {
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Intersection>" << endl;
@@ -61,7 +61,7 @@ string Intersection::ToString ( ) const
     toReturn+="\n";
     toReturn+=objets.size();
     // nombre de lignes suivantes occupées par l’intersection en question
-    
+
     for (Objet * o : objets)
     {
         toReturn+="\n"+o -> ToString();
