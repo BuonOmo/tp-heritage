@@ -12,11 +12,11 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
-using namespace std;
 #include <sstream>
 #include <string>
 #include <vector>
 #include <map>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Point.h"
@@ -63,7 +63,7 @@ int main () {
 			}
 			else
 			{
-				if(objets.size() == 0 || objets.at(name) == NULL)
+				if(objets.size() == 0 || objets.count(name) == 0)
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
@@ -94,7 +94,7 @@ int main () {
 			}
 			else
 			{
-				if(objets.size() == 0 || objets.at(name) == NULL)
+				if(objets.size() == 0 || objets.count(name) == 0)
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
@@ -136,7 +136,7 @@ int main () {
 			else
 			{
 
-				if(objets.size() == 0 || objets.at(name) == NULL)
+				if(objets.size() == 0 || objets.count(name) == 0)
 				{
 					vector<Point> listPoints;
 					for(unsigned int i=0; i<points.size()-1; i+=2)
@@ -228,13 +228,30 @@ int main () {
 			int X;
 			int Y;
 			if (!(iss >> X && iss >> Y) || name == "" || !iss.eof()) {
-				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (3)!" << endl;
+				cout << "ERR" << endl;
+				cout << "#Argument invalide ou nombre d'arguments pas bon (3)!" << endl;
 
+			}
+			else if (objets.find(name) == objets.end())
+			{
+				cout << "ERR" << endl;
+				cout << "#Objet inexistant" << endl;
 			}
 			else
 			{
 				Point p (X,Y);
-				cout << name << " " << X << " " << Y << " OK" << endl;
+				if (objets[name] -> Contient(p))
+				{
+					cout << "YES" << endl;
+					cout << "#Le point " << p.ToString();
+					cout << "est contenu dans " << name << endl;
+				}
+				else
+				{
+					cout << "NO" << endl;
+					cout << "#Le point " << p.ToString();
+					cout << "n’est pas contenu dans " << name << endl;
+				}
 			}
 
 		}
