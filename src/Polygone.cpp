@@ -81,7 +81,6 @@ bool Polygone::EstConvexe ( std::vector<Point> & pts )
     Point v1, v2;
     float sinus = 0;
     float sinusprec = sinus;
-    float somme = 0;
     for (Point p : pts)
     {
         v1 = p-precedent;
@@ -94,18 +93,11 @@ bool Polygone::EstConvexe ( std::vector<Point> & pts )
         {
             return false;
         }
-        somme+= sinus;
         anteprecedent = precedent;
         precedent = p;
         sinusprec = sinus;
     }
-#ifdef MAP
-    cout << "#somme   : "<<somme << endl;
-    cout << "#somme^2 : "<<somme*somme << endl;
-    cout << "#pi^2 : "<<3.14*3.14 << endl;
-
-#endif
-    return !(somme*somme >= 3.14*3.14);
+    return true;
 } //----- Fin de EstConvexe
 
 string Polygone::ToString ( ) const
