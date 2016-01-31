@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Union.h"
@@ -42,6 +42,22 @@ bool Union::Contient (Point p) const
     return false;
 } //----- Fin de Contient
 
+string Union::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Union>" << endl;
+#endif
+    string toReturn = "OR "+nom;
+    for (Objet * o : objets)
+    {
+        toReturn+= " "+o -> GetNom();
+    }
+    for (string str : sousDescriptions)
+    {
+        toReturn+="\n\t"+str;
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 

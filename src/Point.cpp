@@ -48,7 +48,11 @@ string Point::ToString ( ) const
 #ifdef MAP
     cout << "Appel à la méthode ToString de <Point>" << endl;
 #endif
-    return x+" "+y;
+    string s;
+    s.push_back(x);
+    s.push_back(' ');
+    s.push_back(y);
+    return s;
 } //----- Fin de ToString
 
 bool Point::XIn ( Point p1, Point p2 ) const

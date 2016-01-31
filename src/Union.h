@@ -32,6 +32,10 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
+    string ToString () const;
+    // Contrat :
+    // Renvoi la ligne de commande correspondant à la création de l’objet.
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 

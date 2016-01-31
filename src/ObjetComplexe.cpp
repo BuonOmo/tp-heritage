@@ -35,19 +35,6 @@ void ObjetComplexe::Deplacer ( Point p )
     }
 } //----- Fin de Deplacer
 
-string ObjetComplexe::ToString ( ) const
-{
-#ifdef MAP
-    cout << "Appel à la méthode ToString de <ObjetComplexe>" << endl;
-#endif
-    string toReturn = description;
-    for (string str : sousDescriptions)
-    {
-        toReturn+="\n\t"+str;
-    }
-    return toReturn;
-} //----- Fin de ToString
-
 
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplexe )

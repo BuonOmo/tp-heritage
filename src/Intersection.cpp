@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Intersection.h"
@@ -48,6 +48,22 @@ bool Intersection::Contient (Point p) const
     return false;
 } //----- Fin de Contient
 
+string Intersection::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Intersection>" << endl;
+#endif
+    string toReturn = "OI "+nom;
+    for (Objet * o : objets)
+    {
+        toReturn+= " "+o -> GetNom();
+    }
+    for (string str : sousDescriptions)
+    {
+        toReturn+="\n\t"+str;
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 

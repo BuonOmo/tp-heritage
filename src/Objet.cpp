@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Objet.h"
@@ -27,6 +27,14 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
+
+string Objet::GetNom ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode GetNom de <Objet>" << endl;
+#endif
+    return nom;
+} //----- Fin de GetNom
 
 string Objet::ToString ( ) const
 {

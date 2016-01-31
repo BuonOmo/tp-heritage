@@ -39,7 +39,7 @@ public:
     // Contrat :
     // Déplace l’objet selon le vecteur correspondant à p.
 
-    string ToString () const;
+    virtual string ToString () const = 0;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 

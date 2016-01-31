@@ -39,6 +39,10 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
+    string GetNom ( ) const;
+    // Contrat :
+    // Renvoi le nom de l’objet.
+
     virtual string ToString () const;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.

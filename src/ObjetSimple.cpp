@@ -34,19 +34,6 @@ void ObjetSimple::Deplacer ( Point p )
     }
 } //----- Fin de Deplacer
 
-string ObjetSimple::ToString ( ) const
-{
-#ifdef MAP
-    cout << "Appel à la méthode ToString de <ObjetSimple>" << endl;
-#endif
-    string toReturn = nom;
-    for (Point p : points)
-    {
-        toReturn+=" "+p.ToString();
-    }
-    return toReturn;
-} //----- Fin de ToString
-
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
 // Algorithme :
