@@ -35,6 +35,10 @@ public:
     // Contrat :
     // Renvoi la valeur de l'ordonnée.
 
+    string ToString () const;
+    // Contrat :
+    // Renvoi une chaine de caractère au format : "X Y"
+
     bool XIn ( Point p1, Point p2 ) const;
     // Mode d’emploi :
     // Permet de voir si l’abscisse d’un point est comprise entre celles

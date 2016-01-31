@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Point.h"
@@ -42,6 +42,14 @@ int Point::GetY ( ) const
 #endif
     return y;
 } //----- Fin de GetY
+
+string Point::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Point>" << endl;
+#endif
+    return x+" "+y;
+} //----- Fin de ToString
 
 bool Point::XIn ( Point p1, Point p2 ) const
 {

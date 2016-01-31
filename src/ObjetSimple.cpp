@@ -10,8 +10,8 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 //------------------------------------------------------ Include personnel
 #include "ObjetSimple.h"
 
@@ -34,14 +34,18 @@ void ObjetSimple::Deplacer ( Point p )
     }
 } //----- Fin de Deplacer
 
-/*
-bool ObjetSimple::Contient (Point p) const
+string ObjetSimple::ToString ( ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode contient de <ObjetSimple>" << endl;
+    cout << "Appel à la méthode ToString de <ObjetSimple>" << endl;
 #endif
-} //----- Fin de Contient
-*/ //TODO supprimer ce bloc si =0 marche bien
+    string toReturn = nom;
+    for (Point p : points)
+    {
+        toReturn+=" "+p.ToString();
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
@@ -74,7 +78,7 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 ObjetSimple::ObjetSimple ( const vector<Point> & desPoints,
                            const string & description,
                            const string & nom )
-    : points (desPoints), Objet(nom, description)
+    : Objet(nom, description), points (desPoints)
 // Algorithme :
 //
 {

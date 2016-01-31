@@ -70,6 +70,18 @@ bool Polygone::Contient ( Point p ) const
     return true;
 } //----- Fin de Contient
 
+string Polygone::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Polygone>" << endl;
+#endif
+    string toReturn = "PC "+nom;
+    for (Point p : points)
+    {
+        toReturn+=" "+p.ToString();
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 

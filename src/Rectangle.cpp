@@ -38,6 +38,18 @@ bool Rectangle::Contient ( Point p ) const
            p.YIn(points.back(), points.front());
 } //----- Fin de Contient
 
+string Rectangle::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Rectangle>" << endl;
+#endif
+    string toReturn = "R "+nom;
+    for (Point p : points)
+    {
+        toReturn+=" "+p.ToString();
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 

@@ -37,6 +37,18 @@ bool Segment::Contient ( Point p ) const
            p.XIn(points.front(), points.back());
 } //----- Fin de Contient
 
+string Segment::ToString ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode ToString de <Segment>" << endl;
+#endif
+    string toReturn = "S "+nom;
+    for (Point p : points)
+    {
+        toReturn+=" "+p.ToString();
+    }
+    return toReturn;
+} //----- Fin de ToString
 
 //------------------------------------------------- Surcharge d'opérateurs
 

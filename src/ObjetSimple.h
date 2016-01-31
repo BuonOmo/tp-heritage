@@ -29,6 +29,10 @@ class ObjetSimple : public Objet
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    virtual bool Contient ( Point p ) const = 0;
+    // Contrat :
+    // Renvoi vrai si p est contenu dans l’objet.
+
     void Deplacer ( Point p );
     // Mode d'emploi :
     // Déplace l’objet selon le vecteur correspondant à p.
@@ -36,9 +40,9 @@ public:
     // Contrat :
     // -
 
-    virtual bool Contient ( Point p ) const = 0;
+    virtual string ToString () const;
     // Contrat :
-    // Renvoi vrai si p est contenu dans l’objet.
+    // Renvoi la ligne de commande correspondant à la création de l’objet.
 
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetSimple & operator = ( const ObjetSimple & unObjetSimple );
