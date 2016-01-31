@@ -136,9 +136,8 @@ Polygone::Polygone ( const Polygone & unPolygone )
 
 
 Polygone::Polygone ( const std::vector<Point> & listePoints,
-                     const string & description,
                      const string & nom )
-                     : ObjetSimple(listePoints, description, nom)
+                     : ObjetSimple(listePoints, nom)
 // Algorithme :
 //
 {

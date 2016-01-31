@@ -67,7 +67,7 @@ int main () {
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
-					objets.insert(pair<string,Objet*>(name,new Segment(name, requete, p1, p2)));
+					objets.insert(pair<string,Objet*>(name,new Segment(name, p1, p2)));
 					histoCommande.add(requete);
 					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
 				}
@@ -98,7 +98,7 @@ int main () {
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
-					objets.insert(pair<string,Objet*>(name,new Rectangle(name, requete, p1, p2)));
+					objets.insert(pair<string,Objet*>(name,new Rectangle(name, p1, p2)));
 					histoCommande.add(requete);
 					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
 				}
@@ -146,7 +146,7 @@ int main () {
 					}
 					if (Polygone::EstConvexe(listPoints))
 					{
-						objets.insert(pair<string,Objet*>(name,new Polygone(listPoints, requete, name)));
+						objets.insert(pair<string,Objet*>(name,new Polygone(listPoints, name)));
 						histoCommande.add(requete);
 						cout << "OK" << endl << "#Polygone " + name + " créé" << endl;
 					}

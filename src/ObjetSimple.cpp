@@ -43,7 +43,6 @@ ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
     {
         points = unObjetSimple.points;
         nom = unObjetSimple.nom;
-        description = unObjetSimple.description;
         // TODO gerer l’appel à l’operateur = de la classe mere
     }
     return *this;
@@ -63,9 +62,8 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 
 
 ObjetSimple::ObjetSimple ( const vector<Point> & desPoints,
-                           const string & description,
                            const string & nom )
-    : Objet(nom, description), points (desPoints)
+    : Objet(nom), points (desPoints)
 // Algorithme :
 //
 {
@@ -75,10 +73,9 @@ ObjetSimple::ObjetSimple ( const vector<Point> & desPoints,
 } //----- Fin de ObjetSimple
 
 ObjetSimple::ObjetSimple ( const string & nom,
-                           const string & description,
                            const Point & p1,
                            const Point & p2)
-    : Objet(nom, description)
+    : Objet(nom)
 // Algorithme :
 //
 {

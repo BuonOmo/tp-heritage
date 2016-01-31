@@ -36,14 +36,6 @@ string Objet::GetNom ( ) const
     return nom;
 } //----- Fin de GetNom
 
-string Objet::ToString ( ) const
-{
-#ifdef MAP
-    cout << "Appel à la méthode ToString de <Objet>" << endl;
-#endif
-    return description;
-} //----- Fin de ToString
-
 //------------------------------------------------- Surcharge d'opérateurs
 Objet & Objet::operator = ( const Objet & unObjet )
 // Algorithme :
@@ -52,7 +44,6 @@ Objet & Objet::operator = ( const Objet & unObjet )
     if (this != &unObjet)
     {
         nom = unObjet.nom;
-        description = unObjet.description;
     }
     return *this;
 } //----- Fin de operator =
@@ -72,8 +63,8 @@ Objet::Objet ( const Objet & unObjet )
 } //----- Fin de Objet (constructeur de copie)
 
 
-Objet::Objet ( const string & unNom, const string & uneDescription )
-    : nom(unNom), description(uneDescription)
+Objet::Objet ( const string & unNom)
+    : nom(unNom)
 // Algorithme :
 //
 {

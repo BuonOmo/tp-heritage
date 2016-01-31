@@ -66,10 +66,9 @@ Rectangle::Rectangle ( const Rectangle & unRectangle )
 
 
 Rectangle::Rectangle ( const string & unNom,
-                       const string & uneDescription,
                        const Point & p1,
                        const Point & p2)
-    : ObjetSimple( unNom, uneDescription, p1, p2 )
+    : ObjetSimple( unNom, p1, p2 )
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Rectangle>" << endl;

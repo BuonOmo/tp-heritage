@@ -53,7 +53,6 @@ public:
     //
 
     Polygone ( const std::vector<Point> & listePoints,
-               const string & description,
                const string & nom );
     // Mode d'emploi :
     //

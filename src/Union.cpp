@@ -52,9 +52,12 @@ string Union::ToString ( ) const
     {
         toReturn+= " "+o -> GetNom();
     }
-    for (string str : sousDescriptions)
+    toReturn+="\n";
+    toReturn+=objets.size();
+    // nombre de lignes suivantes occupées par l’union en question
+    for (Objet * o : objets)
     {
-        toReturn+="\n\t"+str;
+        toReturn+="\n"+o -> ToString();
     }
     return toReturn;
 } //----- Fin de ToString

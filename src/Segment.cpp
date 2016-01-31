@@ -65,10 +65,9 @@ Segment::Segment ( const Segment & unSegment )
 
 
 Segment::Segment ( const string & unNom,
-                   const string & uneDescription,
                    const Point & p1,
                    const Point & p2)
-    : ObjetSimple( unNom, uneDescription, p1, p2 )
+    : ObjetSimple( unNom, p1, p2 )
 // Algorithme :
 //
 {

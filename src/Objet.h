@@ -43,7 +43,7 @@ public:
     // Contrat :
     // Renvoi le nom de l’objet.
 
-    virtual string ToString () const;
+    virtual string ToString () const = 0;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 
@@ -59,7 +59,7 @@ public:
     // Contrat :
     //
 
-    Objet ( const string & unNom = "", const string & uneDescription = "" );
+    Objet ( const string & unNom = "" );
     // Mode d'emploi :
     //
     // Contrat :
@@ -82,7 +82,6 @@ private:
 protected:
 //----------------------------------------------------- Attributs protégés
     string nom;
-    string description;
 
 private:
 //------------------------------------------------------- Attributs privés

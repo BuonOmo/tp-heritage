@@ -35,7 +35,7 @@ public:
     string ToString () const;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
-    
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 
@@ -47,7 +47,6 @@ public:
     //
 
     Segment ( const string & unNom = "",
-              const string & uneDescription = "",
               const Point & p1 = *(new Point),
               const Point & p2 = *(new Point));
     // Mode d'emploi :

@@ -39,10 +39,11 @@ public:
     //
     // Contrat :
     // -
-
+/*
     virtual string ToString () const = 0;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
+*/ //TODO supprimer ce bloc si il ne cause pas de bug
 
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetSimple & operator = ( const ObjetSimple & unObjetSimple );
@@ -60,7 +61,6 @@ public:
     //
 
     ObjetSimple ( const vector<Point> & desPoints = *(new vector<Point>),
-                  const string & description = "",
                   const string & nom = "");
     // Mode d'emploi :
     //
@@ -68,7 +68,6 @@ public:
     //
 
     ObjetSimple ( const string & nom,
-                  const string & description,
                   const Point & p1,
                   const Point & p2);
 

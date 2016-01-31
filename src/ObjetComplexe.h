@@ -39,10 +39,6 @@ public:
     // Contrat :
     // Déplace l’objet selon le vecteur correspondant à p.
 
-    virtual string ToString () const = 0;
-    // Contrat :
-    // Renvoi la ligne de commande correspondant à la création de l’objet.
-
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
     // Mode d'emploi :
@@ -59,9 +55,7 @@ public:
     //
 
     ObjetComplexe ( const string & unNom = "",
-                    const string & uneDescription = "",
-                    const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>),
-                    const std::vector<string> &aSousDescriptions = *(new std::vector<string>));
+                    const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>));
     // Mode d'emploi :
     //
     // Contrat :
@@ -84,7 +78,6 @@ private:
 protected:
 //----------------------------------------------------- Attributs protégés
     std::vector<Objet *> objets;
-    std::vector<string> sousDescriptions;
 
 private:
 //------------------------------------------------------- Attributs privés

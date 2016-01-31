@@ -44,7 +44,6 @@ ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplex
     if (this != &unObjetComplexe)
     {
         objets = unObjetComplexe.objets;
-		sousDescriptions = unObjetComplexe.sousDescriptions;
     }
     return *this;
 } //----- Fin de operator =
@@ -63,12 +62,8 @@ ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 
 
 ObjetComplexe::ObjetComplexe (  const string & unNom,
-                                const string & uneDescription,
-                                const vector<Objet *> &desObjets,
-                                const vector<string> &desSousDescriptions )
-    : Objet(unNom, uneDescription),
-      objets (desObjets),
-      sousDescriptions (desSousDescriptions)
+                                const vector<Objet *> &desObjets )
+    : Objet(unNom), objets (desObjets)
 // Algorithme :
 //
 {
