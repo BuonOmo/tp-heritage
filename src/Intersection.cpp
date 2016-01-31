@@ -82,9 +82,9 @@ Intersection::Intersection ( const Intersection & unIntersection )
 } //----- Fin de Intersection (constructeur de copie)
 
 
-Intersection::Intersection ( )
-// Algorithme :
-//
+Intersection::Intersection ( const string & unNom ,
+                             const std::vector<Objet *> & desObjets)
+    : ObjetComplexe(unNom, desObjets)
 {
 #ifdef MAP
     cout << "Appel au constructeur de <Intersection>" << endl;

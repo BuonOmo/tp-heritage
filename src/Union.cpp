@@ -76,7 +76,9 @@ Union::Union ( const Union & unUnion )
 } //----- Fin de Union (constructeur de copie)
 
 
-Union::Union ( )
+Union::Union ( const string & unNom ,
+               const std::vector<Objet *> & desObjets)
+    : ObjetComplexe(unNom, desObjets)
 // Algorithme :
 //
 {

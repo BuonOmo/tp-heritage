@@ -24,6 +24,8 @@ using namespace std;
 #include "Rectangle.h"
 #include "Segment.h"
 #include "Polygone.h"
+#include "Intersection.h"
+#include "Union.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -178,26 +180,35 @@ int main () {
 		    }
 
 			if (names.size() == 0 || name == "") {
-				cout << "ERR" << endl << "#Veuillez indiquer le nom de la réunion puis les noms d'objets existants constituant cette réunion !" << endl;
+				cout << "ERR" << endl;
+				cout << "#Veuillez indiquer le nom de la réunion";
+				cout << "puis les noms d'objets existants" << endl;
+				cout << "#constituant cette réunion !" << endl;
 
 			}
 			else
 			{
 				bool trouve = true;
+				vector<Objet *> desObjets;
 				for(string nameObj : names)
 				{
-					if(objets.size() == 0 || objets.at(nameObj) == NULL)
+					if(objets.size() == 0 || objets.count(nameObj) == 0)
 					{
-						cout << "ERR" << endl << "#Il y a un objet qui n'existe pas !" << endl;
+						cout << "ERR" << endl;
+						cout << "#Il y a un objet qui n'existe pas !";
+						cout << endl;
 						trouve = false;
 						break;
 					}
-
+					desObjets.push_back(objets.at(nameObj));
 				}
-
-
+				if (trouve)
+				{
+					objets[name]=new Union(name, desObjets);
+					cout  << "OK" << endl;
+					cout << "#Union "+name+" crée";
+				}
 			}
-
 		}
 
 		else if(commande == "OI")
@@ -214,11 +225,35 @@ int main () {
 		    }
 
 			if (names.size() == 0 || name == "") {
-				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
+				cout << "ERR" << endl;
+				cout << "#Veuillez indiquer le nom de l'intersection";
+				cout << " puis les noms d'objets existants" << endl;
+				cout <<"#constituant cette réunion !" << endl;
 
 			}
 			else
-				cout << "OK" << endl;
+			{
+				bool trouve = true;
+				vector<Objet *> desObjets;
+				for(string nameObj : names)
+				{
+					if(objets.size() == 0 || objets.count(nameObj) == 0)
+					{
+						cout << "ERR" << endl;
+						cout << "#Il y a un objet qui n'existe pas !";
+						cout << endl;
+						trouve = false;
+						break;
+					}
+					desObjets.push_back(objets.at(nameObj));
+				}
+				if (trouve)
+				{
+					objets[name]=new Intersection(name, desObjets);
+					cout  << "OK" << endl;
+					cout << "#Intersection "+name+" crée";
+				}
+			}
 		}
 
 		else if(commande == "HIT")

@@ -46,7 +46,8 @@ public:
     // Contrat :
     //
 
-    Union ( );
+    Union ( const string & unNom = "",
+            const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>));
     // Mode d'emploi :
     //
     // Contrat :
