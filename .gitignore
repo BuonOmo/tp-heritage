@@ -1,3 +1,4 @@
 doc/.~lock*
 exe/*.o
 exe/Heritage
+tests/*/*~
