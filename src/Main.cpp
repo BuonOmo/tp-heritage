@@ -144,9 +144,16 @@ int main () {
 						Point p (points[i], points[i+1]);
 						listPoints.push_back(p);
 					}
-					objets.insert(pair<string,Objet*>(name,new Polygone(listPoints, requete, name)));
-					histoCommande.add(requete);
-					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
+					if (Polygone::EstConvexe(listPoints))
+					{
+						objets.insert(pair<string,Objet*>(name,new Polygone(listPoints, requete, name)));
+						histoCommande.add(requete);
+						cout << "OK" << endl << "#Polygone " + name + " créé" << endl;
+					}
+					else
+					{
+						cout << "ERR" << endl << "#Polygone non convexe" << endl;
+					}
 				}
 				else
 				{

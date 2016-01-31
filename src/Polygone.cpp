@@ -11,6 +11,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -69,6 +70,43 @@ bool Polygone::Contient ( Point p ) const
     }
     return true;
 } //----- Fin de Contient
+
+bool Polygone::EstConvexe ( std::vector<Point> & pts )
+{
+#ifdef MAP
+    cout << "Appel à la méthode EstConvexe de <Polygone>" << endl;
+#endif
+    Point precedent = pts.back();
+    Point anteprecedent = pts[pts.size()-2];
+    Point v1, v2;
+    float sinus = 0;
+    float sinusprec = sinus;
+    float somme = 0;
+    for (Point p : pts)
+    {
+        v1 = p-precedent;
+        v2 = precedent - anteprecedent;
+        sinus = (float)(v1^v2) / (float)(sqrt(v1*v1) * sqrt(v2*v2));
+#ifdef MAP
+    cout << "#sinus : "<<sinus << endl;
+#endif
+        if ((sinus >= 0 && sinusprec < 0)||(sinus <= 0 && sinusprec > 0))
+        {
+            return false;
+        }
+        somme+= sinus;
+        anteprecedent = precedent;
+        precedent = p;
+        sinusprec = sinus;
+    }
+#ifdef MAP
+    cout << "#somme   : "<<somme << endl;
+    cout << "#somme^2 : "<<somme*somme << endl;
+    cout << "#pi^2 : "<<3.14*3.14 << endl;
+
+#endif
+    return !(somme*somme >= 3.14*3.14);
+} //----- Fin de EstConvexe
 
 string Polygone::ToString ( ) const
 {

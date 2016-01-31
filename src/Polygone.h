@@ -33,10 +33,15 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
+    static bool EstConvexe (std::vector<Point> & pts );
+    // Contrat :
+    // Renvoi vrai si la liste ordonnée de points donne un polygone
+    // convexe.
+
     string ToString () const;
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
-    
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 

@@ -3,7 +3,7 @@ EDL      = g++
 RM       = rm
 RMFLAGS  = -f
 OUTPUT   = -o
-CPPFLAGS = -Wall -std=c++11 # -DMAP
+CPPFLAGS = -Wall -std=c++11 #-DMAP
 INTPATH  = ../src/
 INT      = Objet.h ObjetComplexe.h ObjetSimple.h Point.h Segment.h Polygone.h Rectangle.h Union.h Intersection.h Historique.h
 INTPATH  =../src/
