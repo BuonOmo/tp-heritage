@@ -36,7 +36,7 @@ bool Polygone::Contient ( Point p ) const
 #ifdef MAP
     cout << "Appel à la méthode Contient de <Polygone>" << endl;
 #endif
-    int it = 0;
+    unsigned int it = 0;
     // Recherche d’une valeur initiale non nulle pour commencer le calcul.
     // Si tout les points d’un polygone sont identiques cela peut causé une
     // erreure.

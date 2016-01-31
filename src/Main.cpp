@@ -11,11 +11,10 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
 #include <sstream>
 #include <string>
-#include <list>
 #include <vector>
 #include <map>
 
@@ -140,7 +139,7 @@ int main () {
 				if(objets.size() == 0 || objets.at(name) == NULL)
 				{
 					vector<Point> listPoints;
-					for(int i=0; i<points.size()-1; i+=2)
+					for(unsigned int i=0; i<points.size()-1; i+=2)
 					{
 						Point p (points[i], points[i+1]);
 						listPoints.push_back(p);
@@ -162,7 +161,7 @@ int main () {
 		{
 			string name = "";
 			iss >> name;
-			list<string> names;
+			vector<string> names;
 
 			while(!iss.eof())
 		    {
@@ -198,7 +197,7 @@ int main () {
 		{
 			string name = "";
 			iss >> name;
-			list<string> names;
+			vector<string> names;
 
 			while(!iss.eof())
 		    {
