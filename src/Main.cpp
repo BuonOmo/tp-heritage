@@ -251,7 +251,7 @@ int main () {
 				{
 					objets[name]=new Intersection(name, desObjets);
 					cout  << "OK" << endl;
-					cout << "#Intersection "+name+" crée";
+					cout << "#Intersection "+name+" crée" << endl;
 				}
 			}
 		}
@@ -303,7 +303,10 @@ int main () {
 		    }
 
 			if (names.size() == 0) {
-				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
+				cout << "ERR" << endl;
+				cout << "#Veuillez indiquer le nom de";
+				cout << "l'intersection puis les noms d'objets";
+				cout << "# existants constituant cette réunion !" << endl;
 
 			}
 			else
@@ -318,11 +321,20 @@ int main () {
 			int dy;
 
 			if ((!(iss >> dx && iss >> dy) || name == "") || !iss.eof()) {
-				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
+				cout << "ERR" << endl;
+				cout << "#Arguments invalides ou";
+				cout << "nombre d'arguments pas bon (5)!" << endl;
 
 			}
+			else if (objets.count(name) == 0)
+			{
+				cout << "ERR" << endl;
+				cout << "#Objet inexistant" << endl;
+			}
 			else
-				cout << name << " " << dx << " " << dy << " OK" << endl;
+			{
+				objets.at(name) -> Deplacer(*(new Point(dx,dy)));
+			}
 		}
 
 		else if(commande == "LIST")
@@ -333,7 +345,13 @@ int main () {
 			}
 			else
 			{
-				cout << "OK" << endl;
+
+				// pour parcourir toutes les paires de la map
+				std::map<string,Objet*>::const_iterator it;
+				for (it=objets.begin() ; it!=objets.end() ; ++it)
+				{
+				    cout << it->second -> ToString() << endl;
+				}
 			}
 		}
 

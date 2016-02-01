@@ -58,13 +58,13 @@ string Intersection::ToString ( ) const
     {
         toReturn+= " "+o -> GetNom();
     }
-    toReturn+="\n";
-    toReturn+=objets.size();
+    toReturn+="\r\n";
+    toReturn+=to_string(objets.size());
     // nombre de lignes suivantes occupées par l’intersection en question
 
     for (Objet * o : objets)
     {
-        toReturn+="\n"+o -> ToString();
+        toReturn+="\r\n"+o -> ToString();
     }
     return toReturn;
 } //----- Fin de ToString

@@ -53,7 +53,7 @@ string Union::ToString ( ) const
         toReturn+= " "+o -> GetNom();
     }
     toReturn+="\n";
-    toReturn+=objets.size();
+    toReturn+=to_string(objets.size());
     // nombre de lignes suivantes occupées par l’union en question
     for (Objet * o : objets)
     {

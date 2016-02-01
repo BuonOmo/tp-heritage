@@ -49,9 +49,9 @@ string Point::ToString ( ) const
     cout << "Appel à la méthode ToString de <Point>" << endl;
 #endif
     string s;
-    s.push_back(x);
-    s.push_back(' ');
-    s.push_back(y);
+    s+= to_string(x);
+    s+= ' ';
+    s+= to_string(y);
     return s;
 } //----- Fin de ToString
 

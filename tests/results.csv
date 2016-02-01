@@ -1,6 +1,7 @@
 Test ID;Return code validation;Out result;StdErr result;File creation result;Global result
 TestHit1;1;1;2;2;1
 TestInt1;1;1;2;2;1
+TestInt2;1;1;2;2;1
 TestPoly1;1;1;2;2;1
 TestPoly2;1;1;2;2;1
 TestRec1;1;1;2;2;1
