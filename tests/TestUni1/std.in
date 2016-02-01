@@ -1,0 +1,4 @@
+S s1 0 3 2 50
+S s2 15 3 4 5
+OR inter s1 s2
+EXIT

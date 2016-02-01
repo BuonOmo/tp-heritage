@@ -206,7 +206,7 @@ int main () {
 				{
 					objets[name]=new Union(name, desObjets);
 					cout  << "OK" << endl;
-					cout << "#Union "+name+" crée";
+					cout << "#Union "+name+" crée" << endl;
 				}
 			}
 		}
