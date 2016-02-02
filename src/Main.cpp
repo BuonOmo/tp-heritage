@@ -51,7 +51,7 @@ int main () {
 		string commande;
 		iss >> commande;
 
-		if(commande == "S")
+		if(commande == "S" || commande == "s")
 		{
 			string name = "";
 			iss >> name;
@@ -82,7 +82,7 @@ int main () {
 
 		}
 
-		else if(commande == "R")
+		else if(commande == "R" || commande == "r")
 		{
 			string name = "";
 			iss >> name;
@@ -113,7 +113,7 @@ int main () {
 
 		}
 
-		else if(commande == "PC")
+		else if(commande == "PC" || commande == "pc")
 		{
 			string name = "";
 			iss >> name;
@@ -166,7 +166,7 @@ int main () {
 
 		}
 
-		else if(commande == "OR")
+		else if(commande == "OR" || commande == "or")
 		{
 			string name = "";
 			iss >> name;
@@ -211,7 +211,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "OI")
+		else if(commande == "OI" || commande == "oi")
 		{
 			string name = "";
 			iss >> name;
@@ -256,7 +256,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "HIT")
+		else if(commande == "HIT" || commande == "hit")
 		{
 			string name = "";
 			iss >> name;
@@ -291,7 +291,7 @@ int main () {
 
 		}
 
-		else if(commande == "DELETE")
+		else if(commande == "DELETE" || commande == "delet")
 		{
 			vector<string> names;
 
@@ -313,7 +313,7 @@ int main () {
 				cout << "OK" << endl;
 		}
 
-		else if(commande == "MOVE")
+		else if(commande == "MOVE" || commande == "move")
 		{
 			string name = "";
 			iss >> name;
@@ -337,7 +337,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "LIST")
+		else if(commande == "LIST" || commande == "list")
 		{
 			if(!iss.eof())
 			{
@@ -355,7 +355,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "UNDO")
+		else if(commande == "UNDO" || commande == "undo")
 		{
 			if(!iss.eof())
 			{
@@ -367,7 +367,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "REDO")
+		else if(commande == "REDO" || commande == "redo")
 		{
 			if(!iss.eof())
 			{
@@ -379,7 +379,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "LOAD")
+		else if(commande == "LOAD" || commande == "load")
 		{
 			string filename;
 			iss >> filename;
@@ -393,7 +393,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "SAVE")
+		else if(commande == "SAVE" || commande == "save")
 		{
 			string filename;
 			iss >> filename;
@@ -407,7 +407,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "CLEAR")
+		else if(commande == "CLEAR" || commande == "clear")
 		{
 			if(!iss.eof())
 			{
@@ -419,7 +419,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "EXIT")
+		else if(commande == "EXIT" || commande == "exit")
 		{
 			cout << "#BYE" << endl;
 			break;
