@@ -102,7 +102,12 @@ ObjetComplexe::ObjetComplexe (  const string & unNom,
     }
     for (Objet * o : objets)
     {
-        o -> Renommer (unNom + "_"+o -> GetNom());
+        // test permettant d’eviter le double rennomage sur un
+        // save/load/save
+        if (o -> GetNom().find(unNom+"_") == string::npos)
+        {
+            o -> Renommer (unNom + "_"+o -> GetNom());
+        }
     }
 #ifdef MAP
     cout << "#Appel au constructeur de <ObjetComplexe>" << endl;
@@ -117,6 +122,10 @@ ObjetComplexe::~ObjetComplexe ( )
 #ifdef MAP
     cout << "#Appel au destructeur de <ObjetComplexe>" << endl;
 #endif
+    for (Objet * o : objets)
+    {
+        delete o;
+    }
 } //----- Fin de ~ObjetComplexe
 
 
