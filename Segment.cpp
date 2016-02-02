@@ -1,11 +1,11 @@
 /*************************************************************************
-                                    Objet
+                                    Segment
                              -------------------
-    début                : 12 janvier 2016
+    début                : 19/1/2016
     copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-//------------ Réalisation de la classe <Objet> (fichier Objet.cpp) ------
+//------------ Réalisation de la classe <Segment> (fichier Segment.cpp) --
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -14,7 +14,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "Objet.h"
+#include "Segment.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,77 +27,65 @@ using namespace std;
 //-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
-
-string Objet::GetNom ( ) const
+bool Segment::Contient ( Point p ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode GetNom de <Objet>" << endl;
+    cout << "Appel à la méthode Contient de <Segment>" << endl;
 #endif
-    return nom;
-} //----- Fin de GetNom
+    return !( (p - points.front() ) * (points.back() - points.front() ) )
+           &&
+           p.XIn(points.front(), points.back());
+} //----- Fin de Contient
 
-void Objet::Renommer ( const string & nouveauNom )
+string Segment::ToString ( ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Renommer de <Objet>" << endl;
+    cout << "Appel à la méthode ToString de <Segment>" << endl;
 #endif
-    nom = nouveauNom;
-} //----- Fin de Renommer
-//------------------------------------------------- Surcharge d'opérateurs
-Objet & Objet::operator = ( const Objet & unObjet )
-// Algorithme :
-//
-{
-    if (this != &unObjet)
+    string toReturn = "S "+nom;
+    for (Point p : points)
     {
-        nom = unObjet.nom;
+        toReturn+=" "+p.ToString();
     }
-    return *this;
-} //----- Fin de operator =
+    return toReturn;
+} //----- Fin de ToString
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Objet::Objet ( const Objet & unObjet )
+Segment::Segment ( const Segment & unSegment )
 // Algorithme :
 //
 {
-    c++;
 #ifdef MAP
-    cout << "#Appel au constructeur de copie de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au constructeur de copie de <Segment>" << endl;
 #endif
-    *this = unObjet;
-} //----- Fin de Objet (constructeur de copie)
+} //----- Fin de Segment (constructeur de copie)
 
 
-Objet::Objet ( const string & unNom)
-    : nom(unNom)
+Segment::Segment ( const string & unNom,
+                   const Point & p1,
+                   const Point & p2)
+    : ObjetSimple( unNom, p1, p2 )
 // Algorithme :
 //
 {
-    c=1;
 #ifdef MAP
-    cout << "#Appel au constructeur de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au constructeur de <Segment>" << endl;
 #endif
+} //----- Fin de Segment
 
-} //----- Fin de Objet
 
-
-Objet::~Objet ( )
+Segment::~Segment ( )
 // Algorithme :
 //
 {
-    c--;
-    /*if (!c)
-    {
-        //TODO suppression du contenu;
-    }*/
+    cout << "Je delete" << endl;
 #ifdef MAP
-    cout << "#Appel au destructeur de <Objet>" << endl;
-    cout << "#Nombre de réferences : " << c << endl << endl;
+    cout << "Appel au destructeur de <Segment>" << endl;
 #endif
-} //----- Fin de ~Objet
+} //----- Fin de ~Segment
 
 
 //------------------------------------------------------------------ PRIVE

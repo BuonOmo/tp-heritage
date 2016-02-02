@@ -6,9 +6,8 @@ TestPoly1;1;1;2;2;1
 TestPoly2;1;1;2;2;1
 TestRec1;1;1;2;2;1
 TestRecHit;1;1;2;2;1
+TestSave1;1;1;2;1;1
 TestSeg1;1;1;2;2;1
 TestSeg2;1;1;2;2;1
 TestUni1;1;1;2;2;1
 TestUni2;1;1;2;2;1
-TestSave1/;1;1;2;0;0
-TestSave1/;1;1;2;1;1

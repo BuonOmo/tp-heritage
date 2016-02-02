@@ -15,8 +15,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <map>
-#include <fstream>*/
+#include <map>*/
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -25,8 +24,6 @@ using namespace std;
 #include "Rectangle.h"
 #include "Segment.h"
 #include "Polygone.h"
-#include "Intersection.h"
-#include "Union.h"
 #include "Dessin.h"
 
 //------------------------------------------------------------- Constantes
@@ -44,7 +41,7 @@ using namespace std;
 int main () {
 
 	string requete;
-	//Historique histoCommande;
+	Historique histoCommande;
 	Dessin *dessin = new Dessin();
 
 	while(true) {
@@ -53,7 +50,7 @@ int main () {
 		string commande;
 		iss >> commande;
 
-		if(commande == "S" || commande == "s")
+		if(commande == "S")
 		{
 			string name = "";
 			iss >> name;
@@ -84,7 +81,7 @@ int main () {
 
 		}
 
-		else if(commande == "R" || commande == "r")
+		else if(commande == "R")
 		{
 			string name = "";
 			iss >> name;
@@ -114,7 +111,7 @@ int main () {
 
 		}
 
-		else if(commande == "PC" || commande == "pc")
+		else if(commande == "PC")
 		{
 			string name = "";
 			iss >> name;
@@ -167,7 +164,7 @@ int main () {
 
 		}
 
-		else if(commande == "OR" || commande == "or")
+		else if(commande == "OR")
 		{
 			string name = "";
 			iss >> name;
@@ -181,46 +178,50 @@ int main () {
 		    }
 
 			if (names.size() == 0 || name == "") {
-				cout << "ERR" << endl;
-				cout << "#Veuillez indiquer le nom de la réunion";
-				cout << "puis les noms d'objets existants" << endl;
-				cout << "#constituant cette réunion !" << endl;
+				cout << "ERR" << endl << "#Veuillez indiquer le nom de la réunion puis les noms d'objets existants constituant cette réunion !" << endl;
 
 			}
 			else
 			{
-				dessin->AjouterObjetsComplexes(name, names, 1);				
-			}
-		}
-
-		else if(commande == "OI" || commande == "oi")
-		{
-			string name = "";
-			iss >> name;
-			vector<string> names;
-
-			while(!iss.eof())
-		    {
-		        string nameObjet;
-		        iss >> nameObjet;
-		        names.push_back(nameObjet);
-		    }
-
-			if (names.size() == 0 || name == "") {
-				cout << "ERR" << endl;
-				cout << "#Veuillez indiquer le nom de l'intersection";
-				cout << " puis les noms d'objets existants" << endl;
-				cout <<"#constituant cette réunion !" << endl;
-
-			}
-			else
-			{
-				dessin->AjouterObjetsComplexes(name, names, 2);
 				
+				/*for(string nameObj : names)
+				{
+					if(objets.size() == 0 || objets.at(nameObj) == NULL)
+					{
+						cout << "ERR" << endl << "#Il y a un objet qui n'existe pas !" << endl;
+						//trouve = false;
+						break;
+					}
+
+				}*/
+
+
 			}
+
 		}
 
-		else if(commande == "HIT" || commande == "hit")
+		else if(commande == "OI")
+		{
+			string name = "";
+			iss >> name;
+			vector<string> names;
+
+			while(!iss.eof())
+		    {
+		        string nameObjet;
+		        iss >> nameObjet;
+		        names.push_back(nameObjet);
+		    }
+
+			if (names.size() == 0 || name == "") {
+				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
+
+			}
+			else
+				cout << "OK" << endl;
+		}
+
+		else if(commande == "HIT")
 		{
 			string name = "";
 			iss >> name;
@@ -255,7 +256,7 @@ int main () {
 
 		}
 
-		else if(commande == "DELETE" || commande == "delet")
+		else if(commande == "DELETE")
 		{
 			vector<string> names;
 
@@ -267,10 +268,7 @@ int main () {
 		    }
 
 			if (names.size() == 0) {
-				cout << "ERR" << endl;
-				cout << "#Veuillez indiquer le nom de";
-				cout << "l'intersection puis les noms d'objets";
-				cout << "# existants constituant cette réunion !" << endl;
+				cout << "ERR" << endl << "#Veuillez indiquer le nom de l'intersection puis les noms d'objets existants constituant cette réunion !" << endl;
 
 			}
 			else if(dessin->verifObjetsPresents(names))
@@ -282,9 +280,10 @@ int main () {
 			{
 				cout << "ERR" << endl << "#Un ou des objets n'existent pas !" << endl;
 			}
+			
 		}
 
-		else if(commande == "MOVE" || commande == "move")
+		else if(commande == "MOVE")
 		{
 			string name = "";
 			iss >> name;
@@ -292,24 +291,14 @@ int main () {
 			int dy;
 
 			if ((!(iss >> dx && iss >> dy) || name == "") || !iss.eof()) {
-				cout << "ERR" << endl;
-				cout << "#Arguments invalides ou";
-				cout << "nombre d'arguments pas bon (5)!" << endl;
+				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
 
-			}
-			else if (!dessin->isObjetPresent(name))
-			{
-				cout << "ERR" << endl;
-				cout << "#Objet inexistant" << endl;
 			}
 			else
-			{
-				dessin->DeplacerObjet(name,*(new Point(dx,dy)));
-				//objets.at(name) -> Deplacer(*(new Point(dx,dy)));
-			}
+				cout << name << " " << dx << " " << dy << " OK" << endl;
 		}
 
-		else if(commande == "LIST" || commande == "list")
+		else if(commande == "LIST")
 		{
 			if(!iss.eof())
 			{
@@ -317,13 +306,11 @@ int main () {
 			}
 			else
 			{
-
-				// pour parcourir toutes les paires de la map
-				dessin->Afficher();
+				cout << "OK" << endl;
 			}
 		}
 
-		else if(commande == "UNDO" || commande == "undo")
+		else if(commande == "UNDO")
 		{
 			if(!iss.eof())
 			{
@@ -335,7 +322,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "REDO" || commande == "redo")
+		else if(commande == "REDO")
 		{
 			if(!iss.eof())
 			{
@@ -347,7 +334,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "LOAD" || commande == "load")
+		else if(commande == "LOAD")
 		{
 			string filename;
 			iss >> filename;
@@ -361,7 +348,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "SAVE" || commande == "save")
+		else if(commande == "SAVE")
 		{
 			string filename;
 			iss >> filename;
@@ -371,12 +358,11 @@ int main () {
 			}
 			else
 			{
-				dessin->Save(filename);
 				cout << "OK" << endl;
 			}
 		}
 
-		else if(commande == "CLEAR" || commande == "clear")
+		else if(commande == "CLEAR")
 		{
 			if(!iss.eof())
 			{
@@ -388,7 +374,7 @@ int main () {
 			}
 		}
 
-		else if(commande == "EXIT" || commande == "exit")
+		else if(commande == "EXIT")
 		{
 			cout << "#BYE" << endl;
 			break;
