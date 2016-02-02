@@ -16,6 +16,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <fstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -403,6 +404,13 @@ int main () {
 			}
 			else
 			{
+				ofstream file (filename.c_str(), ios::out | ios::trunc);
+
+				std::map<string,Objet*>::const_iterator it;
+				for (it=objets.begin() ; it!=objets.end() ; ++it)
+				{
+				    file << it->second -> ToString() << endl;
+				}
 				cout << "OK" << endl;
 			}
 		}
