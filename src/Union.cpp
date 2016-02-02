@@ -42,6 +42,14 @@ bool Union::Contient (const Point & p) const
     return false;
 } //----- Fin de Contient
 
+Objet * Union::Copier ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Copier de <Union>" << endl;
+#endif
+    return new Union (*this);
+} //----- Fin de Copier
+
 string Union::ToString ( ) const
 {
 #ifdef MAP
@@ -66,7 +74,7 @@ string Union::ToString ( ) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Union::Union ( const Union & unUnion )
+Union::Union ( const Union & unUnion ) : ObjetComplexe(unUnion)
 // Algorithme :
 //
 {

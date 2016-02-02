@@ -71,6 +71,14 @@ bool Polygone::Contient ( const Point & p ) const
     return true;
 } //----- Fin de Contient
 
+Objet * Polygone::Copier ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Copier de <Polygone>" << endl;
+#endif
+    return new Polygone(*this);
+} //----- Fin de Copier
+
 bool Polygone::EstConvexe ( std::vector<Point> & pts )
 {
 #ifdef MAP
@@ -118,6 +126,7 @@ string Polygone::ToString ( ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 Polygone::Polygone ( const Polygone & unPolygone )
+    : ObjetSimple(unPolygone)
 // Algorithme :
 //
 {

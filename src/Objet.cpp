@@ -36,6 +36,13 @@ string Objet::GetNom ( ) const
     return nom;
 } //----- Fin de GetNom
 
+void Objet::Renommer ( const string & nouveauNom )
+{
+#ifdef MAP
+    cout << "Appel à la méthode Renommer de <Objet>" << endl;
+#endif
+    nom = nouveauNom;
+} //----- Fin de Renommer
 //------------------------------------------------- Surcharge d'opérateurs
 Objet & Objet::operator = ( const Objet & unObjet )
 // Algorithme :

@@ -33,6 +33,10 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
+    Objet * Copier ( ) const;
+    // Contrat :
+    // Renvoi un pointeur vers une copie de l’objet.
+
     static bool EstConvexe (std::vector<Point> & pts );
     // Contrat :
     // Renvoi vrai si la liste ordonnée de points donne un polygone

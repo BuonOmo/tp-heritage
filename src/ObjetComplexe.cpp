@@ -43,7 +43,12 @@ ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplex
 {
     if (this != &unObjetComplexe)
     {
-        objets = unObjetComplexe.objets;
+        objets.clear();
+        for (Objet * o : unObjetComplexe.objets)
+        {
+            objets.push_back(o -> Copier());
+        }
+        nom = unObjetComplexe.nom;
     }
     return *this;
 } //----- Fin de operator =
@@ -55,20 +60,52 @@ ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <ObjetComplexe>" << endl;
+    cout << "#Appel au constructeur de copie de <ObjetComplexe>" << endl;
 #endif
     *this = unObjetComplexe;
 } //----- Fin de ObjetComplexe (constructeur de copie)
 
+void ObjetComplexe::Renommer ( const string & nouveauNom )
+{
+#ifdef MAP
+    cout << "Appel à la méthode Renommer de <ObjetComplexe>" << endl;
+#endif
+    string tmp;
+    if (nouveauNom.find(nom) != string::npos)
+    {
+        for (Objet * o : objets)
+        {
+            tmp=o->GetNom();
+            o -> Renommer(nouveauNom + tmp.substr(tmp.find('_')));
+        }
+    }
+    else
+    {
+        for (Objet * o : objets)
+        {
+            tmp=o->GetNom();
+            o -> Renommer(nouveauNom+"_"+tmp);
+        }
+    }
+    nom = nouveauNom;
+} //----- Fin de Renommer
 
 ObjetComplexe::ObjetComplexe (  const string & unNom,
                                 const vector<Objet *> &desObjets )
-    : Objet(unNom), objets (desObjets)
+    : Objet(unNom)
 // Algorithme :
 //
 {
+    for (Objet * o : desObjets)
+    {
+        objets.push_back(o -> Copier());
+    }
+    for (Objet * o : objets)
+    {
+        o -> Renommer (unNom + "_"+o -> GetNom());
+    }
 #ifdef MAP
-    cout << "Appel au constructeur de <ObjetComplexe>" << endl;
+    cout << "#Appel au constructeur de <ObjetComplexe>" << endl;
 #endif
 } //----- Fin de ObjetComplexe
 
@@ -78,7 +115,7 @@ ObjetComplexe::~ObjetComplexe ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <ObjetComplexe>" << endl;
+    cout << "#Appel au destructeur de <ObjetComplexe>" << endl;
 #endif
 } //----- Fin de ~ObjetComplexe
 

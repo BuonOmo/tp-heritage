@@ -39,6 +39,13 @@ public:
     // Contrat :
     // Déplace l’objet selon le vecteur correspondant à p.
 
+    void Renommer ( const string & nouveauNom );
+    // Mode d’emploi :
+    // Permet de renommer un objet (utile pour les objets complexes).
+    // Contrat :
+    // Attribue nouveauNom à la variable nom, et nouveauNom+nom aux sous
+    // objets.
+
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
     // Mode d'emploi :

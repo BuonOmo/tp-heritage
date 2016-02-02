@@ -30,17 +30,25 @@ using namespace std;
 bool Segment::Contient ( const Point & p ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Contient de <Segment>" << endl;
+    cout << "#Appel à la méthode Contient de <Segment>" << endl;
 #endif
     return !( (p - points.front() ) * (points.back() - points.front() ) )
            &&
            p.XIn(points.front(), points.back());
 } //----- Fin de Contient
 
+Objet * Segment::Copier ( ) const
+{
+#ifdef MAP
+    cout << "#Appel à la méthode Copier de <Segment>" << endl;
+#endif
+    return new Segment(*this);
+} //----- Fin de Copier
+
 string Segment::ToString ( ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode ToString de <Segment>" << endl;
+    cout << "#Appel à la méthode ToString de <Segment>" << endl;
 #endif
     string toReturn = "S "+nom;
     for (Point p : points)
@@ -54,12 +62,12 @@ string Segment::ToString ( ) const
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Segment::Segment ( const Segment & unSegment )
+Segment::Segment ( const Segment & unSegment ) : ObjetSimple(unSegment)
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Segment>" << endl;
+    cout << "#Appel au constructeur de copie de <Segment>" << endl;
 #endif
 } //----- Fin de Segment (constructeur de copie)
 
@@ -72,7 +80,7 @@ Segment::Segment ( const string & unNom,
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Segment>" << endl;
+    cout << "#Appel au constructeur de <Segment>" << endl;
 #endif
 } //----- Fin de Segment
 
@@ -82,7 +90,7 @@ Segment::~Segment ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Segment>" << endl;
+    cout << "#Appel au destructeur de <Segment>" << endl;
 #endif
 } //----- Fin de ~Segment
 

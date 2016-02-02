@@ -38,6 +38,14 @@ bool Rectangle::Contient ( const Point & p ) const
            p.YIn(points.back(), points.front());
 } //----- Fin de Contient
 
+Objet * Rectangle::Copier ( ) const
+{
+#ifdef MAP
+    cout << "Appel à la méthode Copier de <Rectangle>" << endl;
+#endif
+    return new Rectangle(*this);
+} //----- Fin de Copier
+
 string Rectangle::ToString ( ) const
 {
 #ifdef MAP
@@ -56,6 +64,7 @@ string Rectangle::ToString ( ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 Rectangle::Rectangle ( const Rectangle & unRectangle )
+    : ObjetSimple(unRectangle)
 // Algorithme :
 //
 {

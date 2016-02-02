@@ -48,10 +48,18 @@ bool Intersection::Contient (const Point & p) const
     return false;
 } //----- Fin de Contient
 
+Objet * Intersection::Copier ( ) const
+{
+#ifdef MAP
+    cout << "#Appel à la méthode Copier de <Intersection>" << endl;
+#endif
+    return new Intersection (*this);
+} //----- Fin de Copier
+
 string Intersection::ToString ( ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode ToString de <Intersection>" << endl;
+    cout << "#Appel à la méthode ToString de <Intersection>" << endl;
 #endif
     string toReturn = "OI "+nom;
     for (Objet * o : objets)
@@ -73,11 +81,12 @@ string Intersection::ToString ( ) const
 
 //-------------------------------------------- Constructeurs - destructeur
 Intersection::Intersection ( const Intersection & unIntersection )
+    : ObjetComplexe(unIntersection)
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Intersection>" << endl;
+    cout << "#Appel au constructeur de copie de <Intersection>" << endl;
 #endif
 } //----- Fin de Intersection (constructeur de copie)
 
@@ -87,7 +96,7 @@ Intersection::Intersection ( const string & unNom ,
     : ObjetComplexe(unNom, desObjets)
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Intersection>" << endl;
+    cout << "#Appel au constructeur de <Intersection>" << endl;
 #endif
 } //----- Fin de Intersection
 
@@ -97,7 +106,7 @@ Intersection::~Intersection ( )
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Intersection>" << endl;
+    cout << "#Appel au destructeur de <Intersection>" << endl;
 #endif
 } //----- Fin de ~Intersection
 

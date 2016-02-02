@@ -39,9 +39,19 @@ public:
     // Contrat :
     // Renvoi vrai si p est contenu dans l’objet.
 
+    virtual Objet * Copier ( ) const = 0;
+    // Contrat :
+    // Renvoi un pointeur vers une copie de l’objet.
+
     string GetNom ( ) const;
     // Contrat :
     // Renvoi le nom de l’objet.
+
+    virtual void Renommer ( const string & nouveauNom );
+    // Mode d’emploi :
+    // Permet de renommer un objet (utile pour les objets complexes).
+    // Contrat :
+    // Attribue nouveauNom à la variable nom.
 
     virtual string ToString () const = 0;
     // Contrat :
