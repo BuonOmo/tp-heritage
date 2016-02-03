@@ -79,6 +79,7 @@ Segment::Segment ( const string & unNom,
 // Algorithme :
 //
 {
+    
 #ifdef MAP
     cout << "#Appel au constructeur de <Segment>" << endl;
 #endif
@@ -89,6 +90,7 @@ Segment::~Segment ( )
 // Algorithme :
 //
 {
+    
 #ifdef MAP
     cout << "#Appel au destructeur de <Segment>" << endl;
 #endif

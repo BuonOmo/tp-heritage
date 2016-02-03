@@ -1,64 +1,65 @@
 /*************************************************************************
-                                Rectangle
+                           Commande  -  gestion de la liste des commandes
                              -------------------
-    début                : 19/1/2016
+    début                : 18/01/2016
     copyright            : (C) 2016 par Pierre et Ulysse
 *************************************************************************/
 
-//---------- Interface de la classe <Rectangle> (fichier Rectangle.h) ----
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+//-------------- Interface de la classe <Commande> (fichier Commande.h) ----------
+#ifndef COMMANDE_H
+#define COMMANDE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "ObjetSimple.h"
-#include "Point.h"
+#include <iostream>
+#include <deque>
+#include <iomanip>
+#include "Dessin.h"
+#include "Historique.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Rectangle>
+// Rôle de la classe <Commande>
 //
 //
 //------------------------------------------------------------------------
 
-class Rectangle : public ObjetSimple
+class Commande
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    bool Contient (const Point & p) const;
-    // Contrat :
-    // Renvoi vrai si p est contenu dans l’objet.
-
-    Objet * Copier ( ) const;
-    // Contrat :
-    // Renvoi un pointeur vers une copie de l’objet.
-
-    string ToString () const;
-    // Contrat :
-    // Renvoi la ligne de commande correspondant à la création de l’objet.
-
-//------------------------------------------------- Surcharge d'opérateurs
-
-
-//-------------------------------------------- Constructeurs - destructeur
-    Rectangle ( const Rectangle & unRectangle );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
-    Rectangle ( const string & unNom,
-                const Point & p1,
-                const Point & p2);
+    bool execute (const string commande, bool undo = false);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Rectangle ( );
+    void executeCommande (const string commande);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    void executeDescription (const string commande);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+        
+//------------------------------------------------- Surcharge d'opérateurs
+
+//-------------------------------------------- Constructeurs - destructeur
+    Commande ();
+    // Mode d'emploi () :
+    //
+    // Contrat :
+    //
+
+    
+    virtual ~Commande ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,9 +75,11 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-
+	
 private:
 //------------------------------------------------------- Attributs privés
+    Dessin *dessin;
+    Historique *histo;
 
 //---------------------------------------------------------- Classes amies
 
@@ -86,6 +89,6 @@ private:
 
 };
 
-//---------------------------------------- Types dépendants de <Rectangle>
+//----------------------------------------- Types dépendants de <Commande>
 
-#endif // RECTANGLE_H
+#endif // COMMANDE_H

@@ -34,13 +34,31 @@ public:
     //
     // Contrat :
     //
-    
-    void undo ();
-	// Mode d'emploi :
+
+    void addRedo (const string commande);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    void viderRedo ();
+    // Mode d'emploi :
     //
     // Contrat :
     //
     
+    string getCommandeUndo ();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    string getCommandeRedo ();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -68,10 +86,12 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-	
+    
 private:
 //------------------------------------------------------- Attributs privés
-    std::deque<string> commandes;
+    //std::deque<string> commandes;
+    std::deque<string> commandesUndo;
+    std::deque<string> commandesRedo;
 
 //---------------------------------------------------------- Classes amies
 

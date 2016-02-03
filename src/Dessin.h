@@ -120,6 +120,13 @@ public:
     // Contrat :
     // Supprime tous les objets du dessin actuel.
 
+    Objet* getObjet(string name);
+    // Mode d'emploi :
+    // Renvoie le pointeur vers l'objet name.
+    //
+    // Contrat :
+    // Renvoie le pointeur vers l'objet name.
+
    
 //------------------------------------------------- Surcharge d'opérateurs
     Dessin & operator = ( const Dessin & unDessin );
@@ -147,20 +154,7 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
-    void viderEtatSuivants();
-    // Mode d'emploi :
-    // Vide la pile des etats suivants pour le redo.
-    //
-    // Contrat :
-    // Vide la pile.
-
-    void viderEtatPrecedents();
-    // Mode d'emploi :
-    // Vide la pile des etats precedents pour le undo.
-    //
-    // Contrat :
-    // Vide la pile.
-    
+       
 protected:
 //----------------------------------------------------- Attributs protégés
    
@@ -168,10 +162,7 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     map<string,Objet*>* objets;
-    //Historique histoCommande;
-   
-    deque<map<string,Objet*>>* etatPrecedent;
-    deque<map<string,Objet*>>* etatSuivant;
+    
 //---------------------------------------------------------- Classes amies
 
 //-------------------------------------------------------- Classes privées

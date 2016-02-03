@@ -28,9 +28,10 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void ObjetSimple::Deplacer ( const Point & p )
 {
-    for (Point i : points)
+    for (size_t i = 0; i < points.size(); ++i)
     {
-        i = i + p;
+        points[i] = points[i] + p;
+        
     }
 } //----- Fin de Deplacer
 
@@ -93,6 +94,7 @@ ObjetSimple::~ObjetSimple ( )
 #ifdef MAP
     cout << "Appel au destructeur de <ObjetSimple>" << endl;
 #endif
+    
 } //----- Fin de ~ObjetSimple
 
 

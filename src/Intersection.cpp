@@ -108,6 +108,7 @@ Intersection::~Intersection ( )
 #ifdef MAP
     cout << "#Appel au destructeur de <Intersection>" << endl;
 #endif
+    
 } //----- Fin de ~Intersection
 
 

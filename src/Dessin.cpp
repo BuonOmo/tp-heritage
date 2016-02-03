@@ -35,14 +35,15 @@ void Dessin::AjouterObjet (string name, Objet* o)
 // Algorithme :
 //
 {
-    if(etatPrecedent->size() == 10) 
+    /*if(etatPrecedent->size() == 10) 
     {
         etatPrecedent->pop_front();
                  
     }
-    etatPrecedent->push_back(*objets);
+    etatPrecedent->push_back(*objets);*/
     objets->insert(pair<string,Objet*>(name,o));
-    viderEtatSuivants();
+    /*histoCommande.add()
+    viderEtatSuivants();*/
 }
 
 void Dessin::AjouterObjetsComplexes (string name, vector<string> names, int type)
@@ -110,31 +111,28 @@ void Dessin::Delete(vector<string> names)
 // Algorithme :
 //
 {
-    if(etatPrecedent->size() == 10) 
-    {
-        etatPrecedent->pop_front();
-                 
-    }
-    etatPrecedent->push_back(*objets);
     for(string name : names)
     {
+        delete objets->at(name);
         objets->erase(name);
     }        
-    viderEtatSuivants();
 }
 
 void Dessin::DeplacerObjet (string name, Point p)
 // Algorithme :
 //
 {
-    objets->at(name) -> Deplacer(p);
+    cout << "#" << p.ToString() << endl;
+    cout << "#" << objets->at(name)->ToString() << endl;
+    objets->at(name)->Deplacer(p);
+    cout << "#" << objets->at(name)->ToString() << endl;
 }
 
 void Dessin::Undo()
 // Algorithme :
 //
 {
-    if(etatPrecedent->size() == 0) 
+    /*if(etatPrecedent->size() == 0) 
     {
         cout << "ERR" << endl
              << "#Il n'y a pas de commandes à annuler" << endl;
@@ -149,14 +147,14 @@ void Dessin::Undo()
         *objets = etatPrecedent->back();
         etatPrecedent->pop_back();
 
-    }
+    }*/
 }
 
 void Dessin::Redo()
 // Algorithme :
 //
 {
-    if(etatSuivant->size() == 0) 
+    /*if(etatSuivant->size() == 0) 
     {
         cout << "ERR" << endl
              << "#Il n'y a pas de commandes annulée qui doit être refaite" << endl;
@@ -166,12 +164,12 @@ void Dessin::Redo()
     {
         cout << "OK" << endl;
         /*if(etatPrecedent->size() == 10)
-            etatPrecedent->pop_front();*/
+            etatPrecedent->pop_front();
         etatPrecedent->push_back(*objets);
         *objets = etatSuivant->back();
         etatSuivant->pop_back();
 
-    }
+    }*/
 }
 
 void Dessin::Afficher() 
@@ -199,13 +197,18 @@ void Dessin::Clear()
 // Algorithme :
 //
 {
-    if(etatPrecedent->size() == 10) 
-    {
-        etatPrecedent->pop_front();
-                 
+    for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
+    {        
+        delete it->second;        
     }
-    etatPrecedent->push_back(*objets);
     objets->clear();   
+}
+
+Objet* Dessin::getObjet(string name)
+// Algorithme :
+//
+{
+    return objets->at(name);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -224,10 +227,7 @@ Dessin::Dessin ()
 //
 {
 
-    objets = new map<string,Objet*>();
-    etatPrecedent = new deque<map<string,Objet*>>();
-    etatSuivant = new deque<map<string,Objet*>>();
-    
+    objets = new map<string,Objet*>();    
 #ifdef MAP
     cout << "#Appel au constructeur de copie de <Dessin>" << endl;
     cout << "#Nombre de réferences : " << c << endl << endl;
@@ -240,19 +240,8 @@ Dessin::~Dessin ( )
 // Algorithme :
 //
 {
-    for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
-    {
-        delete it->second;
-    }
-    /*for(deque<map<string,Objet*>>::iterator it=etatPrecedent->begin(); it!=etatPrecedent->end(); ++it)
-    {
-        delete it;
-    }*/
-    viderEtatSuivants();
-    viderEtatPrecedents();
+    Clear();
     delete objets;
-    delete etatPrecedent;
-    delete etatSuivant;
 
 #ifdef MAP
     cout << "#Appel au destructeur de <Dessin>" << endl;
@@ -266,15 +255,3 @@ Dessin::~Dessin ( )
 //----------------------------------------------------- Méthodes protégées
 
 //------------------------------------------------------- Méthodes privées
-
-void Dessin::viderEtatSuivants() 
-{
-    if(!etatSuivant->size() == 0)
-        etatSuivant->clear();
-}
-
-void Dessin::viderEtatPrecedents() 
-{
-    if(!etatPrecedent->size() == 0)
-        etatPrecedent->clear();
-}

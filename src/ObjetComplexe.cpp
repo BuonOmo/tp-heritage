@@ -98,7 +98,7 @@ ObjetComplexe::ObjetComplexe (  const string & unNom,
 {
     for (Objet * o : desObjets)
     {
-        objets.push_back(o -> Copier());
+        objets.push_back(o->Copier());
     }
     for (Objet * o : objets)
     {

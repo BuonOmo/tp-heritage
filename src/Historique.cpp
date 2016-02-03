@@ -32,27 +32,62 @@ void Historique::add (const string commande)
 // Algorithme :
 //
 {
-	if(commandes.size() == 20) 
+	if(commandesUndo.size() == 10)
 	{
-		commandes.pop_front();
-		         
-	}
-	commandes.push_back(commande);
+		commandesUndo.pop_front();
+	}	
+	commandesUndo.push_back(commande);
 	
 } //----- Fin de add()
 
-void Historique::undo ()
+void Historique::addRedo (const string commande)
 // Algorithme :
 //
 {
-	if(commandes.size() == 0) 
+	if(commandesRedo.size() == 10)
 	{
-		cout << "ERR" << endl << "#Pas de commandes a annulé !" << endl;
-		         
+		commandesRedo.pop_front();
+	}	
+	commandesRedo.push_back(commande);
+	
+} //----- Fin de add()
+
+void Historique::viderRedo ()
+// Algorithme :
+//
+{
+	if(!commandesRedo.size() == 0)
+	{
+		commandesRedo.clear();
+	}	
+} //----- Fin de add()
+
+string Historique::getCommandeUndo ()
+// Algorithme :
+//
+{
+	if(commandesUndo.size() == 0)
+	{
+		return "ERR1";		         
 	}
 	else
 	{
-		commandes.pop_back();
+		return commandesUndo.back();
+	}
+	
+} //----- Fin de add()
+
+string Historique::getCommandeRedo ()
+// Algorithme :
+//
+{
+	if(commandesRedo.size() == 0)
+	{
+		return "ERR2";		         
+	}
+	else
+	{
+		return commandesRedo.back();
 	}
 	
 } //----- Fin de add()

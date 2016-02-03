@@ -50,9 +50,9 @@ public:
     // Contrat :
     //
 
-    Segment ( const string & unNom = "",
-              const Point & p1 = *(new Point),
-              const Point & p2 = *(new Point));
+    Segment ( const string & unNom,
+              const Point & p1,
+              const Point & p2);
     // Mode d'emploi :
     //
     // Contrat :
