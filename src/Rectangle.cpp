@@ -51,7 +51,7 @@ string Rectangle::ToString ( ) const
 #ifdef MAP
     cout << "Appel à la méthode ToString de <Rectangle>" << endl;
 #endif
-    string toReturn = "R "+nom + " 2";
+    string toReturn = "R "+nom /*+ " 2"*/;
     for (Point p : points)
     {
         toReturn+=" "+p.ToString();

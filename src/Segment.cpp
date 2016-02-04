@@ -50,7 +50,7 @@ string Segment::ToString ( ) const
 #ifdef MAP
     cout << "#Appel à la méthode ToString de <Segment>" << endl;
 #endif
-    string toReturn = "S "+nom + " 2";
+    string toReturn = "S "+nom /*+ " 2"*/;
     for (Point p : points)
     {
         toReturn+=" "+p.ToString();

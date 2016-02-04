@@ -1,0 +1,16 @@
+S seg 1 1 5 5
+MOVE seg 10 10
+LIST
+MOVE seg -10 -10
+HIT seg 0 0
+HIT seg 6 6
+HIT seg 1 1
+HIT seg 2 2
+HIT seg 5 5
+HIT seg 5 4
+HIT seg 4 5
+HIT seg 4 1
+HIT seg 1 4
+HIT seg 1 2
+HIT seg 2 1
+EXIT

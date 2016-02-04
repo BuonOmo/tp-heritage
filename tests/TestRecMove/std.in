@@ -1,0 +1,20 @@
+R rect 56 2 4 5
+MOVE rect 10 10
+LIST
+MOVE rect -10 -10
+HIT rect 20 3
+HIT rect 1 1
+HIT rect 100 100
+HIT rect 56 12
+HIT rect 56 1
+HIT rect 4 6
+HIT rect 4 1
+HIT rect 2 2
+HIT rect 57 2
+HIT rect 3 5
+HIT rect 58 5
+HIT rect 56 2
+HIT rect 4 5
+HIT rect 56 5
+HIT rect 4 2
+EXIT
