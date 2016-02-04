@@ -135,6 +135,16 @@ Polygone::Polygone ( const Polygone & unPolygone )
 #endif
 } //----- Fin de Polygone (constructeur de copie)
 
+Polygone::Polygone ( const string & nom )
+    : ObjetSimple(nom)
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Polygone>" << endl;
+#endif
+} //----- Fin de Polygone (string nom)
+
 
 Polygone::Polygone ( const std::vector<Point> & listePoints,
                      const string & nom )

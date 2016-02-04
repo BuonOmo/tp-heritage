@@ -50,6 +50,12 @@ public:
     // Contrat :
     //
 
+    Segment ( const string & nom );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     Segment ( const string & unNom,
               const Point & p1,
               const Point & p2);

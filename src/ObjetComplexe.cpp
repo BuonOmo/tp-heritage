@@ -35,6 +35,11 @@ void ObjetComplexe::Deplacer ( const Point & p )
     }
 } //----- Fin de Deplacer
 
+void ObjetComplexe::AddObjet (Objet * o) 
+{
+    objets.push_back(o->Copier());
+}
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplexe )
@@ -100,7 +105,7 @@ ObjetComplexe::ObjetComplexe (  const string & unNom,
     {
         objets.push_back(o->Copier());
     }
-    for (Objet * o : objets)
+    /*for (Objet * o : objets)
     {
         // test permettant d’eviter le double rennomage sur un
         // save/load/save
@@ -108,7 +113,7 @@ ObjetComplexe::ObjetComplexe (  const string & unNom,
          {
              o -> Renommer (unNom + "_"+o -> GetNom());
          }
-    }
+    }*/
 #ifdef MAP
     cout << "#Appel au constructeur de <ObjetComplexe>" << endl;
 #endif

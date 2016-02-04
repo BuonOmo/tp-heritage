@@ -62,17 +62,16 @@ string Intersection::ToString ( ) const
     cout << "#Appel à la méthode ToString de <Intersection>" << endl;
 #endif
     string toReturn = "OI "+nom;
-    for (Objet * o : objets)
+    /*for (Objet * o : objets)
     {
         toReturn+= " "+o -> GetNom();
-    }
-    toReturn+="\r\n";
-    toReturn+=to_string(objets.size());
-    // nombre de lignes suivantes occupées par l’intersection en question
-
+    }*/
+    //toReturn+="\n";
+    toReturn+=" " + to_string(objets.size());
+    // nombre de lignes suivantes occupées par l’union en question
     for (Objet * o : objets)
     {
-        toReturn+="\r\n"+o -> ToString();
+        toReturn+= " " + o -> ToString();
     }
     return toReturn;
 } //----- Fin de ToString

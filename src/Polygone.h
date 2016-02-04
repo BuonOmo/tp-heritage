@@ -56,6 +56,12 @@ public:
     // Contrat :
     //
 
+    Polygone ( const string & nom );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     Polygone ( const std::vector<Point> & listePoints,
                const string & nom );
     // Mode d'emploi :

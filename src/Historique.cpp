@@ -28,7 +28,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-void Historique::add (const string commande)
+void Historique::add (const vector<string> commande)
 // Algorithme :
 //
 {
@@ -40,7 +40,7 @@ void Historique::add (const string commande)
 	
 } //----- Fin de add()
 
-void Historique::addRedo (const string commande)
+void Historique::addRedo (const vector<string> commande)
 // Algorithme :
 //
 {
@@ -62,32 +62,41 @@ void Historique::viderRedo ()
 	}	
 } //----- Fin de add()
 
-string Historique::getCommandeUndo ()
+vector<string> Historique::getCommandeUndo ()
 // Algorithme :
 //
 {
+	vector<string> commande;
 	if(commandesUndo.size() == 0)
 	{
-		return "ERR1";		         
+		commande.push_back("ERR1");
+		return commande;		         
 	}
 	else
 	{
-		return commandesUndo.back();
+		commande = commandesUndo.back();
+		commandesUndo.pop_back();
+
+		return commande;
 	}
 	
 } //----- Fin de add()
 
-string Historique::getCommandeRedo ()
+vector<string> Historique::getCommandeRedo ()
 // Algorithme :
 //
 {
+	vector<string> commande;
 	if(commandesRedo.size() == 0)
 	{
-		return "ERR2";		         
+		commande.push_back("ERR2");
+		return commande;		         
 	}
 	else
 	{
-		return commandesRedo.back();
+		commande = commandesRedo.back();
+		commandesRedo.pop_back();
+		return commande;
 	}
 	
 } //----- Fin de add()

@@ -36,12 +36,15 @@ using namespace std;
 
 int main () {
 
-	string requete;
+	string entreeClavier;
 	Commande *commande = new Commande();
 
 	while(true) {
-		getline(cin, requete);
-		if(!commande->execute(requete))
+		getline(cin, entreeClavier);
+		vector<string> requetes;
+		requetes.push_back(entreeClavier);
+
+		if(!commande->execute(requetes, false, false))
 			break;
 	}
 	delete commande;

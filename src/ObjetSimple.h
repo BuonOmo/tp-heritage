@@ -39,6 +39,13 @@ public:
     //
     // Contrat :
     // -
+
+    void AddPoint (const Point & p);
+    // Mode d'emploi :
+    // Ajoute le point à l'objet.
+    //
+    // Contrat :
+    // -
 /*
     virtual string ToString () const = 0;
     // Contrat :
@@ -60,6 +67,12 @@ public:
     // Contrat :
     //
 
+    ObjetSimple ( const string & nom );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     ObjetSimple ( const vector<Point> & desPoints = *(new vector<Point>),
                   const string & nom = "");
     // Mode d'emploi :
@@ -70,6 +83,10 @@ public:
     ObjetSimple ( const string & nom,
                   const Point & p1,
                   const Point & p2);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
     virtual ~ObjetSimple ( );
     // Mode d'emploi :

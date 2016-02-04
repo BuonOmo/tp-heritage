@@ -122,10 +122,7 @@ void Dessin::DeplacerObjet (string name, Point p)
 // Algorithme :
 //
 {
-    cout << "#" << p.ToString() << endl;
-    cout << "#" << objets->at(name)->ToString() << endl;
-    objets->at(name)->Deplacer(p);
-    cout << "#" << objets->at(name)->ToString() << endl;
+    objets->at(name)->Deplacer(p);    
 }
 
 void Dessin::Undo()
@@ -176,10 +173,16 @@ void Dessin::Afficher()
 // Algorithme :
 //
 {
-    for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
+    if (objets->size() == 0)
+        cout << "#Aucuns objets présents" << endl;
+    else
     {
-        cout << it->second -> ToString() << endl;
+        for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
+        {
+            cout << it->second -> ToString() << endl;
+        } 
     }
+    
 }
 
 void Dessin::Save(string filename) 
@@ -191,6 +194,22 @@ void Dessin::Save(string filename)
     {
         file << it->second -> ToString() << endl;
     }
+}
+
+vector<string> Dessin::Load(string filename) 
+// Algorithme :
+//
+{
+    Clear();
+    ifstream fichier(filename.c_str());
+    vector<string> vecCom;
+    while(fichier)
+    {
+        string ligne;
+        getline(fichier, ligne);
+        vecCom.push_back(ligne);
+    }
+    return vecCom;
 }
 
 void Dessin::Clear()
@@ -211,15 +230,26 @@ Objet* Dessin::getObjet(string name)
     return objets->at(name);
 }
 
-//------------------------------------------------- Surcharge d'opérateurs
-Dessin & Dessin::operator = ( const Dessin & unDessin )
+string Dessin::getDescription(string name)
 // Algorithme :
 //
 {
-    
-    return *this;
-} //----- Fin de operator =
+    return objets->at(name)->ToString();
+}
 
+vector<string> Dessin::getDescriptions()
+// Algorithme :
+//
+{
+    vector<string> desc;
+    for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
+    {        
+        desc.push_back(it->second->ToString());        
+    }
+    return desc;
+}
+
+//------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 Dessin::Dessin ()

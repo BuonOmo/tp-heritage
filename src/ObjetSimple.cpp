@@ -35,6 +35,11 @@ void ObjetSimple::Deplacer ( const Point & p )
     }
 } //----- Fin de Deplacer
 
+void ObjetSimple::AddPoint(const Point & p)
+{
+    points.push_back(p);
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
 // Algorithme :
@@ -65,6 +70,16 @@ ObjetSimple::ObjetSimple ( const ObjetSimple & unObjetSimple )
 ObjetSimple::ObjetSimple ( const vector<Point> & desPoints,
                            const string & nom )
     : Objet(nom), points (desPoints)
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <ObjetSimple>" << endl;
+#endif
+} //----- Fin de ObjetSimple
+
+ObjetSimple::ObjetSimple ( const string & nom )
+    : Objet(nom)
 // Algorithme :
 //
 {

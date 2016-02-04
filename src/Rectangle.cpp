@@ -51,7 +51,7 @@ string Rectangle::ToString ( ) const
 #ifdef MAP
     cout << "Appel à la méthode ToString de <Rectangle>" << endl;
 #endif
-    string toReturn = "R "+nom;
+    string toReturn = "R "+nom + " 2";
     for (Point p : points)
     {
         toReturn+=" "+p.ToString();
@@ -73,6 +73,14 @@ Rectangle::Rectangle ( const Rectangle & unRectangle )
 #endif
 } //----- Fin de Rectangle (constructeur de copie)
 
+Rectangle::Rectangle ( const string & nom ) : ObjetSimple(nom)
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "#Appel au constructeur de <Rectangle>" << endl;
+#endif
+} //----- Fin de Rectangle
 
 Rectangle::Rectangle ( const string & unNom,
                        const Point & p1,

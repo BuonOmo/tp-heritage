@@ -13,6 +13,7 @@
 #include <iostream>
 #include <deque>
 #include <iomanip>
+#include <vector>   
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -29,13 +30,13 @@ class Historique
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void add (const string commande);
+    void add (const vector<string> commande);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    void addRedo (const string commande);
+    void addRedo (const vector<string> commande);
     // Mode d'emploi :
     //
     // Contrat :
@@ -47,13 +48,13 @@ public:
     // Contrat :
     //
     
-    string getCommandeUndo ();
+    vector<string> getCommandeUndo ();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    string getCommandeRedo ();
+    vector<string> getCommandeRedo ();
     // Mode d'emploi :
     //
     // Contrat :
@@ -90,8 +91,8 @@ protected:
 private:
 //------------------------------------------------------- Attributs privés
     //std::deque<string> commandes;
-    std::deque<string> commandesUndo;
-    std::deque<string> commandesRedo;
+    std::deque<vector<string>> commandesUndo;
+    std::deque<vector<string>> commandesRedo;
 
 //---------------------------------------------------------- Classes amies
 

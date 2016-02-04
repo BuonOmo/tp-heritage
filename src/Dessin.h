@@ -113,6 +113,13 @@ public:
     // Contrat :
     // Sauve l'état du dessin actuel dans le fichier correspondant au nom.
 
+    vector<string> Load(string fileName);
+    // Mode d'emploi :
+    // Charge un fichier pour construire le dessin.
+    //
+    // Contrat :
+    // Quand on l'appelle on détruit tous les objets existants.
+
     void Clear();
     // Mode d'emploi :
     // Supprime tous les objets du dessin actuel.
@@ -127,12 +134,23 @@ public:
     // Contrat :
     // Renvoie le pointeur vers l'objet name.
 
+    string getDescription(string name);
+    // Mode d'emploi :
+    // Renvoie la description de l'objet.
+    //
+    // Contrat :
+    // -.
+
+    vector<string> getDescriptions();
+    // Mode d'emploi :
+    // Renvoie un vector de string contenant toutes les descriptions.
+    //
+    // Contrat :
+    // -.
+
    
 //------------------------------------------------- Surcharge d'opérateurs
-    Dessin & operator = ( const Dessin & unDessin );
-
-
-
+    
 //-------------------------------------------- Constructeurs - destructeur
     Dessin ();
     // Mode d'emploi :

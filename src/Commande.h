@@ -15,6 +15,7 @@
 #include <iomanip>
 #include "Dessin.h"
 #include "Historique.h"
+#include "ObjetComplexe.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -31,7 +32,9 @@ class Commande
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    bool execute (const string commande, bool undo = false);
+    bool execute (const vector<string> commande, 
+                  bool undo = false, 
+                  bool redo = false);
     // Mode d'emploi :
     //
     // Contrat :
@@ -43,7 +46,13 @@ public:
     // Contrat :
     //
 
-    void executeDescription (const string commande);
+    void executeDescription (vector<string> objectNames, bool undo = false, bool redo = false);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    bool loadObjet (string description);
     // Mode d'emploi :
     //
     // Contrat :
@@ -72,6 +81,15 @@ protected:
 
 private:
 //------------------------------------------------------- Méthodes privées
+    int loadObjetIntoObjetComplexe (ObjetComplexe * objComp, 
+                                    const vector<string> & tokens, 
+                                    int pos);
+    // Mode d'emploi : Renvoie la position de la forme suivante composant 
+    //                 l'objet complexe.
+    // 
+    // Contrat :
+    //
+
 
 protected:
 //----------------------------------------------------- Attributs protégés

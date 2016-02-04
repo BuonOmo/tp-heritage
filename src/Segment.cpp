@@ -50,7 +50,7 @@ string Segment::ToString ( ) const
 #ifdef MAP
     cout << "#Appel à la méthode ToString de <Segment>" << endl;
 #endif
-    string toReturn = "S "+nom;
+    string toReturn = "S "+nom + " 2";
     for (Point p : points)
     {
         toReturn+=" "+p.ToString();
@@ -71,6 +71,14 @@ Segment::Segment ( const Segment & unSegment ) : ObjetSimple(unSegment)
 #endif
 } //----- Fin de Segment (constructeur de copie)
 
+Segment::Segment ( const string & nom ) : ObjetSimple(nom)
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "#Appel au constructeur de <Segment>" << endl;
+#endif
+} //----- Fin de Segment
 
 Segment::Segment ( const string & unNom,
                    const Point & p1,

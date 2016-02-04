@@ -50,6 +50,12 @@ public:
     // Contrat :
     //
 
+    Rectangle ( const string & nom );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     Rectangle ( const string & unNom,
                 const Point & p1,
                 const Point & p2);

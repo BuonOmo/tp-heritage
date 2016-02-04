@@ -46,6 +46,12 @@ public:
     // Attribue nouveauNom à la variable nom, et nouveauNom+nom aux sous
     // objets.
 
+    void AddObjet (Objet * o);
+    // Mode d’emploi :
+    // Permet d'ajouter un objet à l'objet complexe.
+    // Contrat :
+    // 
+
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
     // Mode d'emploi :

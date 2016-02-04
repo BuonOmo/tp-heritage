@@ -4,20 +4,11 @@ OK
 OK
 OK
 OK
-OR bigunion bigunion_union bigunion_r1 bigunion_p1 bigunion_s1
-4
-OR bigunion_union bigunion_union_s1 bigunion_union_s2
-2
-S bigunion_union_s1 0 3 2 50
-S bigunion_union_s2 15 3 4 5
-R bigunion_r1 12 12 50 200
-PC bigunion_p1 56 46 108 4536 80 100
-S bigunion_s1 0 3 2 50
+OR bigunion 4 OR union 2 S s1 2 0 3 2 50 S s2 2 15 3 4 5 R r1 2 12 12 50 200 PC p1 56 46 108 4536 80 100 S s1 2 0 3 2 50
 PC p1 56 46 108 4536 80 100
-R r1 12 12 50 200
-S s1 0 3 2 50
-S s2 15 3 4 5
-OR union union_s1 union_s2
-2
-S union_s1 0 3 2 50
-S union_s2 15 3 4 5
+R r1 2 12 12 50 200
+S s1 2 0 3 2 50
+S s2 2 15 3 4 5
+OR union 2 S s1 2 0 3 2 50 S s2 2 15 3 4 5
+
+

@@ -56,16 +56,16 @@ string Union::ToString ( ) const
     cout << "Appel à la méthode ToString de <Union>" << endl;
 #endif
     string toReturn = "OR "+nom;
-    for (Objet * o : objets)
+    /*for (Objet * o : objets)
     {
         toReturn+= " "+o -> GetNom();
-    }
-    toReturn+="\n";
-    toReturn+=to_string(objets.size());
+    }*/
+    //toReturn+="\n";
+    toReturn+=" " + to_string(objets.size());
     // nombre de lignes suivantes occupées par l’union en question
     for (Objet * o : objets)
     {
-        toReturn+="\n"+o -> ToString();
+        toReturn+= " " + o -> ToString();
     }
     return toReturn;
 } //----- Fin de ToString
