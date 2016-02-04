@@ -43,7 +43,7 @@ bool Polygone::Contient ( const Point & p ) const
     // erreure.
     int val;
     val = (points.back() - p)^(points.front() - points.back());
-    for (;val != 0;val = (points[it] - p)^(points[it+1] - points[it]),it++ )
+    for (;val == 0;val = (points[it] - p)^(points[it+1] - points[it]),it++ )
     {
         // atteinte du maximum
         // TODO optimisable en sortant ceci de la boucle
@@ -52,20 +52,16 @@ bool Polygone::Contient ( const Point & p ) const
             return true;
         }
     }
-    bool signe;
-    signe = val > 0 ? true : false;
-
+    int firstVal;
+    firstVal = val;
     // Comparaison des signes
     for (val = (points[it] - p)^(points[it+1] - points[it]) ;
          it < points.size()-1 ;
-         val = (points[it] - p)^(points[it+1] - points[it]),it++ )
+         it++,val = (points[it] - p)^(points[it+1] - points[it]) )
     {
-        if (val !=0)
+        if (val*firstVal<0)
         {
-            if ((val > 0 && !signe) || (val < 0 && signe))
-            {
-                return false;
-            }
+            return false;
         }
     }
     return true;

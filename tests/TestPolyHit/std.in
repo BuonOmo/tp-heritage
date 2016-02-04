@@ -1,0 +1,17 @@
+PC pol 0 0 0 100 50 50
+HIT pol 0 0
+HIT pol 0 100
+HIT pol 50 50
+HIT pol 25 25
+HIT pol 25 75
+HIT pol 0 50
+HIT pol 25 30
+HIT pol 20 46
+HIT pol 26 25
+HIT pol 25 76
+HIT pol 0 -1
+HIT pol 1 100
+HIT pol 0 101
+HIT pol 56 50
+HIT pol 3 2
+EXIT

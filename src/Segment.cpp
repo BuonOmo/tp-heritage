@@ -32,9 +32,9 @@ bool Segment::Contient ( const Point & p ) const
 #ifdef MAP
     cout << "#Appel à la méthode Contient de <Segment>" << endl;
 #endif
-    return !( (p - points.front() ) * (points.back() - points.front() ) )
+    return !( (p - points[0] ) ^ (points[1] - points[0] ) )
            &&
-           p.XIn(points.front(), points.back());
+           p.XIn(points[0], points[1]);
 } //----- Fin de Contient
 
 Objet * Segment::Copier ( ) const
@@ -87,7 +87,7 @@ Segment::Segment ( const string & unNom,
 // Algorithme :
 //
 {
-    
+
 #ifdef MAP
     cout << "#Appel au constructeur de <Segment>" << endl;
 #endif
@@ -98,7 +98,7 @@ Segment::~Segment ( )
 // Algorithme :
 //
 {
-    
+
 #ifdef MAP
     cout << "#Appel au destructeur de <Segment>" << endl;
 #endif

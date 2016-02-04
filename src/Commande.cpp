@@ -161,7 +161,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 					}
 					if (Polygone::EstConvexe(listPoints))
 					{
-						
+
 						cout << "OK" << endl << "#Polygone " + name + " créé" << endl;
 						dessin->AjouterObjet(name,new Polygone(listPoints, name));
 						commandeUndo = "DELETE " + name;
@@ -307,7 +307,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 					else
 						histo->addRedo(commandesAUndo);
 			    }
-				
+
 			}
 		}
 
@@ -346,7 +346,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 
 		}
 
-		else if(commande == "DELETE" || commande == "delet")
+		else if(commande == "DELETE" || commande == "delete")
 		{
 			vector<string> names;
 
@@ -369,7 +369,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				cout << "OK" << endl;
 				executeDescription(names, undo, redo);
 				dessin->Delete(names);
-				
+
 			}
 			else
 			{
@@ -481,11 +481,15 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 					loadObjet(com);
 				}
 				if(fichierPresent)
+				{
 					cout << "OK" << endl;
+				}
 				else
+				{
 					cout << "ERR" << endl
 						 << "#Le fichier est introuvable"
 						 << endl;
+				}
 			}
 		}
 
@@ -512,7 +516,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			}
 			else
 			{
-				
+
 				commandesAUndo = dessin->getDescriptions();
 				if(!undo)
 				{
@@ -548,7 +552,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 		else
 		{
 			cout << "ERR" << endl << "#Commande inconnue !" << endl;
-		}		
+		}
 	}
 	else
 	{
@@ -591,8 +595,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 
 		cout << "OK" << endl;
 	}
-	return true;	
-	
+	return true;
+
 } //----- Fin de add()
 
 void Commande::executeDescription(vector<string> names, bool undo, bool redo)
@@ -764,7 +768,7 @@ Commande::Commande ()
 #endif
     dessin = new Dessin();
     histo = new Historique();
-    
+
 } //----- Fin de Commande ()
 
 
