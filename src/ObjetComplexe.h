@@ -12,14 +12,10 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Objet.h"
 #include <vector>
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <ObjetComplexe>
-//
-//
+// La classe ObjetComplexe hérite de Objet et permet de gérer des
+// ensembles ou collections d’objet de type Union ou Intersection.
 //------------------------------------------------------------------------
 
 class ObjetComplexe : public Objet
@@ -50,59 +46,36 @@ public:
     // Mode d’emploi :
     // Permet d'ajouter un objet à l'objet complexe.
     // Contrat :
-    // 
+    //
 
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetComplexe & operator = ( const ObjetComplexe & unObjetComplexe );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // Copie l’objet, attribut par attribut. Pour l’attribut objets, copie
+    // un a un chaque pointeur en construisant un nouvel objet avec la
+    // methode Copier () de Objet.
 
 
 //-------------------------------------------- Constructeurs - destructeur
     ObjetComplexe ( const ObjetComplexe & unObjetComplexe );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Copie l’objet en utilisant la surcharge d’operateur =.
 
-    ObjetComplexe ( const string & unNom = "",
-                    const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>));
-    // Mode d'emploi :
-    //
+    ObjetComplexe ( const string & unNom,
+                    const std::vector<Objet *> &desObjets);
     // Contrat :
-    //
+    // Crée un objet complexe à partir d’une liste d’objets, en faisant
+    // appel au constructeur d’Objet pour le nom.
 
     virtual ~ObjetComplexe ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
+    // Détruit tous les objets de la liste du même nom un à un.
 
 protected:
 //----------------------------------------------------- Attributs protégés
+    // Liste d’objets contenu par l’ensemble.
     std::vector<Objet *> objets;
 
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
-
 };
-
-//------------------------------------ Types dépendants de <ObjetComplexe>
 
 #endif // OBJETCOMPLEXE_H

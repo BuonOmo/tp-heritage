@@ -16,35 +16,32 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "ObjetComplexe.h"
 
-//------------------------------------------------------------- Constantes
-
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
 
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
 void ObjetComplexe::Deplacer ( const Point & p )
 {
+#ifdef MAP
+    cout << "#Appel à la méthode Deplacer de <ObjetComplexe>" << endl;
+#endif
     for (Objet * i : objets)
     {
         i -> Deplacer(p);
     }
 } //----- Fin de Deplacer
 
-void ObjetComplexe::AddObjet (Objet * o) 
+void ObjetComplexe::AddObjet (Objet * o)
 {
+#ifdef MAP
+    cout << "#Appel à la méthode AddObjet de <ObjetComplexe>" << endl;
+#endif
     objets.push_back(o);
-}
+} //----- Fin de AddObjet
 
 
 //------------------------------------------------- Surcharge d'opérateurs
 ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplexe )
-// Algorithme :
-//
 {
     if (this != &unObjetComplexe)
     {
@@ -61,8 +58,6 @@ ObjetComplexe & ObjetComplexe::operator = ( const ObjetComplexe & unObjetComplex
 
 //-------------------------------------------- Constructeurs - destructeur
 ObjetComplexe::ObjetComplexe ( const ObjetComplexe & unObjetComplexe )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "#Appel au constructeur de copie de <ObjetComplexe>" << endl;
@@ -98,31 +93,18 @@ void ObjetComplexe::Renommer ( const string & nouveauNom )
 ObjetComplexe::ObjetComplexe (  const string & unNom,
                                 const vector<Objet *> &desObjets )
     : Objet(unNom)
-// Algorithme :
-//
 {
+#ifdef MAP
+    cout << "#Appel au constructeur de <ObjetComplexe>" << endl;
+#endif
     for (Objet * o : desObjets)
     {
         objets.push_back(o->Copier());
     }
-    /*for (Objet * o : objets)
-    {
-        // test permettant d’eviter le double rennomage sur un
-        // save/load/save
-         if (o -> GetNom().find(unNom+"_") == string::npos)
-         {
-             o -> Renommer (unNom + "_"+o -> GetNom());
-         }
-    }*/
-#ifdef MAP
-    cout << "#Appel au constructeur de <ObjetComplexe>" << endl;
-#endif
 } //----- Fin de ObjetComplexe
 
 
 ObjetComplexe::~ObjetComplexe ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "#Appel au destructeur de <ObjetComplexe>" << endl;
@@ -132,10 +114,3 @@ ObjetComplexe::~ObjetComplexe ( )
         delete o;
     }
 } //----- Fin de ~ObjetComplexe
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
