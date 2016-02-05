@@ -32,7 +32,7 @@ void Historique::add (const vector<string> commande)
 // Algorithme :
 //
 {
-	if(commandesUndo.size() == 10)
+	if(commandesUndo.size() == 20)
 	{
 		commandesUndo.pop_front();
 	}	
@@ -44,7 +44,7 @@ void Historique::addRedo (const vector<string> commande)
 // Algorithme :
 //
 {
-	if(commandesRedo.size() == 10)
+	if(commandesRedo.size() == 20)
 	{
 		commandesRedo.pop_front();
 	}	
