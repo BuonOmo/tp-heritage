@@ -73,17 +73,17 @@ void Dessin::Delete(vector<string> names)
     {
         delete objets->at(name);
         objets->erase(name);
-    }        
+    }
 }
 
 void Dessin::DeplacerObjet (string name, Point p)
 // Algorithme :
 //
 {
-    objets->at(name)->Deplacer(p);    
+    objets->at(name)->Deplacer(p);
 }
 
-void Dessin::Afficher() 
+void Dessin::Afficher()
 // Algorithme :
 //
 {
@@ -94,12 +94,12 @@ void Dessin::Afficher()
         for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
         {
             cout << it->second -> ToString() << endl;
-        } 
+        }
     }
-    
+
 }
 
-void Dessin::Save(string filename) 
+void Dessin::Save(string filename)
 // Algorithme :
 //
 {
@@ -110,7 +110,7 @@ void Dessin::Save(string filename)
     }
 }
 
-vector<string> Dessin::Load(string filename) 
+vector<string> Dessin::Load(string filename)
 // Algorithme :
 //
 {
@@ -131,10 +131,10 @@ void Dessin::Clear()
 //
 {
     for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
-    {        
-        delete it->second;        
+    {
+        delete it->second;
     }
-    objets->clear();   
+    objets->clear();
 }
 
 Objet* Dessin::getObjet(string name)
@@ -157,8 +157,8 @@ vector<string> Dessin::getDescriptions()
 {
     vector<string> desc;
     for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
-    {        
-        desc.push_back(it->second->ToString());        
+    {
+        desc.push_back(it->second->ToString());
     }
     return desc;
 }
@@ -171,12 +171,12 @@ Dessin::Dessin ()
 //
 {
 
-    objets = new map<string,Objet*>();    
+    objets = new map<string,Objet*>();
 #ifdef MAP
     cout << "#Appel au constructeur de copie de <Dessin>" << endl;
     cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
-    
+
 } //----- Fin de Dessin (constructeur de copie)
 
 

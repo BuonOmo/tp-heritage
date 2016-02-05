@@ -83,23 +83,23 @@ bool Polygone::EstConvexe ( std::vector<Point> & pts )
     Point precedent = pts.back();
     Point anteprecedent = pts[pts.size()-2];
     Point v1, v2;
-    float sinus = 0;
-    float sinusprec = sinus;
+    float vect = 0;
+    float vectprec = vect;
     for (Point p : pts)
     {
         v1 = p-precedent;
         v2 = precedent - anteprecedent;
-        sinus = (float)(v1^v2) / (float)(sqrt(v1*v1) * sqrt(v2*v2));
+        vect = v1^v2;
 #ifdef MAP
-    cout << "#sinus : "<<sinus << endl;
+    cout << "#vect : "<<vect << endl;
 #endif
-        if ((sinus >= 0 && sinusprec < 0)||(sinus <= 0 && sinusprec > 0))
+        if (vect*vectprec < 0)
         {
             return false;
         }
         anteprecedent = precedent;
         precedent = p;
-        sinusprec = sinus;
+        vectprec = vect;
     }
     return true;
 } //----- Fin de EstConvexe

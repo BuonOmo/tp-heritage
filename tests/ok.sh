@@ -1,1 +1,6 @@
-if ./mktest.sh &>-; then echo reussi;else echo raté; fi
+if ./mktest.sh &>/dev/null
+then
+    echo reussi
+else
+    echo raté
+fi
