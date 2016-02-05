@@ -12,14 +12,10 @@
 //--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include "Point.h"
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Objet>
-//
-//
+// Classe abstraite permettant la gestion d’objet. Seul le nom est
+// pris en compte ici.
 //------------------------------------------------------------------------
 
 class Objet
@@ -31,7 +27,6 @@ public:
     virtual void Deplacer ( const Point & p ) = 0;
     // Mode d'emploi :
     // p correspond à un vecteur de déplacement et non un point.
-    //
     // Contrat :
     // Déplace l’objet selon le vecteur correspondant à p.
 
@@ -64,46 +59,29 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Objet ( const Objet & unObjet );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Copie l’objet en utilisant la surcharge d’operateur =.
 
     Objet ( const string & unNom = "" );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // Initie le nom d’un objet.
 
     virtual ~Objet ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // -
 
 //------------------------------------------------------------------ PRIVE
 
 protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
 //----------------------------------------------------- Attributs protégés
+    //Nom de l’objet
     string nom;
 
 private:
 //------------------------------------------------------- Attributs privés
+    //Deprecated
     int c;
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
 
 };
-
-//----------------------------------------- Types dépendants de <Objet>
 
 #endif // OBJET_H

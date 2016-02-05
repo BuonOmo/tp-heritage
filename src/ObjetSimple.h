@@ -79,12 +79,6 @@ public:
     //
     // Contrat :
     //
-/*
-    ObjetSimple ( const string & nom = "");
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //*/
 
     ObjetSimple ( const string & nom,
                   const Point & p1,
