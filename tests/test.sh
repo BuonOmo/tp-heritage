@@ -43,18 +43,24 @@ fi
 if [ -r "std.in" ]
 then
   sRun="$sRun <std.in"
+else
+  sRun="$sRun <../default.in"
 fi
 
 # stdout has been specified
 if [ -r "std.out" ]
 then
   sRun="$sRun >temp.txt"
+else
+    sRun="$sRun >/dev/null"
 fi
 
 # stderr has been specified
 if [ -r "stderr.out" ]
 then
   sRun="$sRun 2>temperr.txt"
+else
+  sRun="$sRun 2>/dev/null"
 fi
 
 echo $sRun
