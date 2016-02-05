@@ -18,9 +18,9 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <ObjetSimple>
-//
-//
+// Classe héritant d’objet, à laquelle s’ajoute la gestion d’une liste de
+// Points liés à l’objet.
+// De cette classe dépendent Polygone, Rectangle et Segment.
 //------------------------------------------------------------------------
 
 class ObjetSimple : public Objet
@@ -36,87 +36,59 @@ public:
     void Deplacer ( const Point & p );
     // Mode d'emploi :
     // Déplace l’objet selon le vecteur correspondant à p.
-    //
     // Contrat :
     // -
 
     void AddPoint (const Point & p);
     // Mode d'emploi :
     // Ajoute le point à l'objet.
-    //
     // Contrat :
-    // -
-/*
-    virtual string ToString () const = 0;
-    // Contrat :
-    // Renvoi la ligne de commande correspondant à la création de l’objet.
-*/ //TODO supprimer ce bloc si il ne cause pas de bug
+    // Cette methode ne vérifie pas la convexité d’un Polygone, ou le
+    // dépassement du nombre de points pour un Rectangle ou un Segment
+    // (2 points). Ces vérifications sont à la charge de l’utilisateur.
 
 //------------------------------------------------- Surcharge d'opérateurs
     ObjetSimple & operator = ( const ObjetSimple & unObjetSimple );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
-
+    // Copie l’objet, attribut par attribut.
 
 //-------------------------------------------- Constructeurs - destructeur
     ObjetSimple ( const ObjetSimple & unObjetSimple );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Copie l’objet en utilisant la surcharge d’operateur =.
 
     ObjetSimple ( const string & nom );
     // Mode d'emploi :
-    //
+    // Constructeur utilisé avec la methode addPoint.
     // Contrat :
-    //
+    // -
 
     ObjetSimple ( const vector<Point> & desPoints,
                   const string & nom = "");
     // Mode d'emploi :
-    //
+    // Constructeur utilisé pour les polygones convexe.
     // Contrat :
-    //
+    // Crée un objet simple à partir d’une liste de points, en faisant
+    // appel au constructeur d’Objet pour le nom.
 
     ObjetSimple ( const string & nom,
                   const Point & p1,
                   const Point & p2);
     // Mode d'emploi :
-    //
+    // Constructeur utilisé pour les segments et rectangles.
     // Contrat :
-    //
+    // Crée un objet simple à partir de deux points, en faisant appel au
+    // constructeur d’Objet pour le nom.
 
     virtual ~ObjetSimple ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE
 
 protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
 //----------------------------------------------------- Attributs protégés
-std::vector<Point> points;
-
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
+    // liste de Points définissant l’objet.
+    std::vector<Point> points;
 
 };
-
-//-------------------------------------- Types dépendants de <ObjetSimple>
 
 #endif // OBJETSIMPLE_H

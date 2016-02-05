@@ -39,7 +39,7 @@ void ObjetSimple::AddPoint(const Point & p)
 } //----- Fin de Deplacer
 
 //------------------------------------------------- Surcharge d'opérateurs
-ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple )
+ObjetSimple & ObjetSimple::operator = ( const ObjetSimple & unObjetSimple)
 {
     if (this != &unObjetSimple)
     {
