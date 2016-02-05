@@ -64,7 +64,8 @@ public:
 
     Objet ( const string & unNom = "" );
     // Contrat :
-    // Initie le nom d’un objet.
+    // Initie le nom d’un objet. Il est recommandé d’instancier celui-ci
+    // et de ne pas laisser ou mettre une chaine vide.
 
     virtual ~Objet ( );
     // Contrat :

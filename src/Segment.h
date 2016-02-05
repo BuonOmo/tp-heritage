@@ -50,7 +50,7 @@ public:
     // Constructeur par defaut, à utiliser avec la methode addPoint().
     // Contrat :
     // L’ajout de points ulterieure n’est pas vérifiée, c’est à la charge
-    // de l’utilisateur d’en mettre deux. Il est recommandé d’instancié
+    // de l’utilisateur d’en mettre deux. Il est recommandé d’instancier
     // un nom.
 
     Segment ( const string & unNom,

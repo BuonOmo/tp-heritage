@@ -13,14 +13,13 @@
 #include "ObjetSimple.h"
 #include "Point.h"
 #include <vector>
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Polygone>
-//
-//
+// Classe permettant d’utiliser l’objet Polygone :
+// permet principalement de vérifier si un point est sur le polygone et de
+// deplacer le polygone dans l’espace.
+// Elle permet entre autre de verifier avant la création d’un polygone
+// que celui-ci sera convexe.
 //------------------------------------------------------------------------
 
 class Polygone : public ObjetSimple
@@ -37,7 +36,7 @@ public:
     // Contrat :
     // Renvoi un pointeur vers une copie de l’objet.
 
-    static bool EstConvexe ( std::vector<Point> & pts );
+    static bool EstConvexe ( const std::vector<Point> & pts );
     // Contrat :
     // Renvoi vrai si la liste ordonnée de points donne un polygone
     // convexe.
@@ -46,57 +45,31 @@ public:
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
 //-------------------------------------------- Constructeurs - destructeur
     Polygone ( const Polygone & unPolygone );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Constructeur de copie basé sur la surcharge d’operateur = de
+    // ObjetSimple.
 
     Polygone ( const string & nom );
     // Mode d'emploi :
-    //
+    // Constructeur par defaut, à utiliser avec la methode addPoint().
     // Contrat :
-    //
+    // L’ajout de points ulterieure n’est pas vérifiée, c’est à la charge
+    // de l’utilisateur de mettre une liste de points ordonnée et donnant
+    // un polygone convexe (voir methode EstConvexe).
+    // Il est recommandé d’instancier un nom.
 
     Polygone ( const std::vector<Point> & listePoints,
                const string & nom );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+   // Contrat :
+   // Constructeur prenant une liste de Points et appelant le constructeur
+   // équivalent de ObjetSimple.
 
     virtual ~Polygone ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
-//----------------------------------------------------- Attributs protégés
-
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
+    // Affiche les appels au destructeur de Polygone.
 
 };
-
-//----------------------------------------- Types dépendants de <Polygone>
 
 #endif // POLYGONE_H

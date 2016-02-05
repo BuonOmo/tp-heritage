@@ -11,21 +11,12 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Polygone.h"
 
-//------------------------------------------------------------- Constantes
-
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
 bool Polygone::Contient ( const Point & p ) const
@@ -35,18 +26,17 @@ bool Polygone::Contient ( const Point & p ) const
 // ce produit vectoriel est constant alors p est contenu dans le polygone.
 {
 #ifdef MAP
-    cout << "Appel à la méthode Contient de <Polygone>" << endl;
+    cout << "#Appel à la méthode Contient de <Polygone>" << endl;
 #endif
     unsigned int it = 0;
     // Recherche d’une valeur initiale non nulle pour commencer le calcul.
-    // Si tout les points d’un polygone sont identiques cela peut causé une
-    // erreure.
+    // Si tout les points d’un polygone sont identiques cela peut causer
+    // une erreur.
     int val;
     val = (points.back() - p)^(points.front() - points.back());
     for (;val == 0;val = (points[it] - p)^(points[it+1] - points[it]),it++ )
     {
         // atteinte du maximum
-        // TODO optimisable en sortant ceci de la boucle
         if (it>=points.size()-2)
         {
             return true;
@@ -70,22 +60,27 @@ bool Polygone::Contient ( const Point & p ) const
 Objet * Polygone::Copier ( ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode Copier de <Polygone>" << endl;
+    cout << "#Appel à la méthode Copier de <Polygone>" << endl;
 #endif
     return new Polygone(*this);
 } //----- Fin de Copier
 
-bool Polygone::EstConvexe ( std::vector<Point> & pts )
+bool Polygone::EstConvexe ( const std::vector<Point> & pts )
+// Algorithme :
+// Effectue les produits vectoriels deux à deux de chaque cotés (orientés)
+// du polygone. Si il y a changement de signe entre deux produits
+// vectoriels successifs alors le Polygone crée par ces points ne sera pas
+// convexe.
 {
 #ifdef MAP
-    cout << "Appel à la méthode EstConvexe de <Polygone>" << endl;
+    cout << "#Appel à la méthode EstConvexe de <Polygone>" << endl;
 #endif
     Point precedent = pts.back();
     Point anteprecedent = pts[pts.size()-2];
     Point v1, v2;
     float vect = 0;
     float vectprec = vect;
-    for (Point p : pts)
+    for (const Point p : pts)
     {
         v1 = p-precedent;
         v2 = precedent - anteprecedent;
@@ -107,7 +102,7 @@ bool Polygone::EstConvexe ( std::vector<Point> & pts )
 string Polygone::ToString ( ) const
 {
 #ifdef MAP
-    cout << "Appel à la méthode ToString de <Polygone>" << endl;
+    cout << "#Appel à la méthode ToString de <Polygone>" << endl;
 #endif
     string toReturn = "PC "+nom + " " + to_string(points.size());
     for (Point p : points)
@@ -117,27 +112,20 @@ string Polygone::ToString ( ) const
     return toReturn;
 } //----- Fin de ToString
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
 //-------------------------------------------- Constructeurs - destructeur
 Polygone::Polygone ( const Polygone & unPolygone )
     : ObjetSimple(unPolygone)
-// Algorithme :
-//
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Polygone>" << endl;
+    cout << "#Appel au constructeur de copie de <Polygone>" << endl;
 #endif
 } //----- Fin de Polygone (constructeur de copie)
 
 Polygone::Polygone ( const string & nom )
     : ObjetSimple(nom)
-// Algorithme :
-//
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Polygone>" << endl;
+    cout << "#Appel au constructeur de <Polygone>" << endl;
 #endif
 } //----- Fin de Polygone (string nom)
 
@@ -145,27 +133,16 @@ Polygone::Polygone ( const string & nom )
 Polygone::Polygone ( const std::vector<Point> & listePoints,
                      const string & nom )
                      : ObjetSimple(listePoints, nom)
-// Algorithme :
-//
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Polygone>" << endl;
+    cout << "#Appel au constructeur de <Polygone>" << endl;
 #endif
 } //----- Fin de Polygone
 
 
 Polygone::~Polygone ( )
-// Algorithme :
-//
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Polygone>" << endl;
+    cout << "#Appel au destructeur de <Polygone>" << endl;
 #endif
 } //----- Fin de ~Polygone
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées

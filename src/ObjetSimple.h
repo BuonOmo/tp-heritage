@@ -69,7 +69,8 @@ public:
     // Constructeur utilisé pour les polygones convexe.
     // Contrat :
     // Crée un objet simple à partir d’une liste de points, en faisant
-    // appel au constructeur d’Objet pour le nom.
+    // appel au constructeur d’Objet pour le nom. Il est recommandé
+    // d’instancier un nom.
 
     ObjetSimple ( const string & nom,
                   const Point & p1,
