@@ -12,14 +12,9 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "ObjetComplexe.h"
 #include "Point.h"
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Intersection>
-//
-//
+// Permet de gerer une intersection d’objets.
 //------------------------------------------------------------------------
 
 class Intersection : public ObjetComplexe
@@ -40,51 +35,22 @@ public:
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
 //-------------------------------------------- Constructeurs - destructeur
     Intersection ( const Intersection & unIntersection );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Constructeur de copie basé sur la surcharge d’operateur = de
+    // ObjetComplexe.
 
-    Intersection ( const string & unNom = "",
-                   const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>));
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    Intersection ( const string & unNom,
+                   const std::vector<Objet *> &desObjets);
+   // Contrat :
+   // Crée une intersection à partir d’une liste d’objets, en appelant le
+   // constructeur idoine de ObjetComplexe.
 
     virtual ~Intersection ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
-//----------------------------------------------------- Attributs protégés
-
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
+    // Affiche les appels au destructeur de Intersection.
 
 };
-
-//------------------------------------- Types dépendants de <Intersection>
 
 #endif // INTERSECTION_H

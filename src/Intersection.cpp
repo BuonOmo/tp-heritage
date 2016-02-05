@@ -16,24 +16,20 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Intersection.h"
 
-//------------------------------------------------------------- Constantes
-
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
 
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
 bool Intersection::Contient (const Point & p) const
+// Algorithme :
+// Recherche si un des objet de objets contient p. Si c’est le cas un
+// booleen (premier) devient vrai, et si un autre objet est contenu, la
+// méthode renvoi vrai.
 {
 #ifdef MAP
-    cout << "Appel à la méthode Contient de <Intersection>" << endl;
+    cout << "#Appel à la méthode Contient de <Intersection>" << endl;
 #endif
-    bool premier (false); // si un premier objet contient le point on en
-                          // cherche un second.
+    bool premier (false);
     for (Objet * obj : objets )
     {
         if ( obj -> Contient(p) )
@@ -62,13 +58,7 @@ string Intersection::ToString ( ) const
     cout << "#Appel à la méthode ToString de <Intersection>" << endl;
 #endif
     string toReturn = "OI "+nom;
-    /*for (Objet * o : objets)
-    {
-        toReturn+= " "+o -> GetNom();
-    }*/
-    //toReturn+="\n";
     toReturn+=" " + to_string(objets.size());
-    // nombre de lignes suivantes occupées par l’union en question
     for (Objet * o : objets)
     {
         toReturn+= " " + o -> ToString();
@@ -81,8 +71,6 @@ string Intersection::ToString ( ) const
 //-------------------------------------------- Constructeurs - destructeur
 Intersection::Intersection ( const Intersection & unIntersection )
     : ObjetComplexe(unIntersection)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "#Appel au constructeur de copie de <Intersection>" << endl;
@@ -101,18 +89,9 @@ Intersection::Intersection ( const string & unNom ,
 
 
 Intersection::~Intersection ( )
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "#Appel au destructeur de <Intersection>" << endl;
 #endif
-    
+
 } //----- Fin de ~Intersection
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées

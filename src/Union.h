@@ -12,14 +12,9 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "ObjetComplexe.h"
 #include "Point.h"
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Union>
-//
-//
+// Permet de gerer une union d’objets.
 //------------------------------------------------------------------------
 
 class Union : public ObjetComplexe
@@ -40,51 +35,23 @@ public:
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 
-//------------------------------------------------- Surcharge d'opérateurs
-
 
 //-------------------------------------------- Constructeurs - destructeur
     Union ( const Union & unUnion );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Constructeur de copie basé sur la surcharge d’operateur = de
+    // ObjetComplexe.
 
-    Union ( const string & unNom = "",
-            const std::vector<Objet *> &desObjets = *(new std::vector<Objet *>));
-    // Mode d'emploi :
-    //
+    Union ( const string & unNom,
+            const std::vector<Objet *> &desObjets);
     // Contrat :
-    //
+    // Crée une union à partir d’une liste d’objets, en appelant le
+    // constructeur idoine de ObjetComplexe.
 
     virtual ~Union ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
-//----------------------------------------------------- Attributs protégés
-
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
+    // Affiche les appels au destructeur de Union.
 
 };
-
-//-------------------------------------------- Types dépendants de <Union>
 
 #endif // UNION_H
