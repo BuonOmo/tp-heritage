@@ -12,14 +12,11 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "ObjetSimple.h"
 #include "Point.h"
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Segment>
-//
-//
+// Classe permettant d’utiliser l’objet Segment :
+// permet principalement de vérifier si un point est sur le segment et de
+// deplacer le segment dans l’espace.
 //------------------------------------------------------------------------
 
 class Segment : public ObjetSimple
@@ -40,58 +37,30 @@ public:
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 
-//------------------------------------------------- Surcharge d'opérateurs
 
 
 //-------------------------------------------- Constructeurs - destructeur
     Segment ( const Segment & unSegment );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Constructeur de copie basé sur la surcharge d’operateur = de
+    // ObjetSimple.
 
-    Segment ( const string & nom );
+    Segment ( const string & nom = "" );
     // Mode d'emploi :
-    //
+    // Constructeur par defaut, à utiliser avec la methode addPoint().
     // Contrat :
-    //
+    // L’ajout de points ulterieure n’est pas vérifiée, c’est à la charge
+    // de l’utilisateur d’en mettre deux.
 
     Segment ( const string & unNom,
               const Point & p1,
               const Point & p2);
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // Constructeur prenant deux Points et appelant le constructeur
+    // équivalent de ObjetSimple.
 
     virtual ~Segment ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
-//----------------------------------------------------- Attributs protégés
-
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
 
 };
-
-//----------------------------------------- Types dépendants de <Segment>
 
 #endif // SEGMENT_H

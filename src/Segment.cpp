@@ -16,15 +16,7 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "Segment.h"
 
-//------------------------------------------------------------- Constantes
-
-//---------------------------------------------------- Variables de classe
-
-//----------------------------------------------------------- Types privés
-
-
 //----------------------------------------------------------------- PUBLIC
-//-------------------------------------------------------- Fonctions amies
 
 //----------------------------------------------------- Méthodes publiques
 bool Segment::Contient ( const Point & p ) const
@@ -58,13 +50,8 @@ string Segment::ToString ( ) const
     return toReturn;
 } //----- Fin de ToString
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
 //-------------------------------------------- Constructeurs - destructeur
 Segment::Segment ( const Segment & unSegment ) : ObjetSimple(unSegment)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "#Appel au constructeur de copie de <Segment>" << endl;
@@ -72,8 +59,6 @@ Segment::Segment ( const Segment & unSegment ) : ObjetSimple(unSegment)
 } //----- Fin de Segment (constructeur de copie)
 
 Segment::Segment ( const string & nom ) : ObjetSimple(nom)
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "#Appel au constructeur de <Segment>" << endl;
@@ -84,8 +69,6 @@ Segment::Segment ( const string & unNom,
                    const Point & p1,
                    const Point & p2)
     : ObjetSimple( unNom, p1, p2 )
-// Algorithme :
-//
 {
 
 #ifdef MAP
@@ -95,18 +78,9 @@ Segment::Segment ( const string & unNom,
 
 
 Segment::~Segment ( )
-// Algorithme :
-//
 {
 
 #ifdef MAP
     cout << "#Appel au destructeur de <Segment>" << endl;
 #endif
 } //----- Fin de ~Segment
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- Méthodes protégées
-
-//------------------------------------------------------- Méthodes privées
