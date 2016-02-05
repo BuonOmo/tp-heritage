@@ -8,6 +8,7 @@ if(len(sys.argv) == 2):
 	fichier = open("std.in", "w")
 	nbRectangle = 0
 	nbSegment = 0
+	nbPolygone = 0
 	nbUnion = 0
 	nbIntersection = 0
 
@@ -25,7 +26,17 @@ if(len(sys.argv) == 2):
 			stringTest = "S seg" + str(nbSegment) + " " + str(x1) + " " + str(y1) + " " + str(x2) + " " + str(y2) + "\n"
 			nbSegment = nbSegment + 1
 		fichier.write(stringTest)
-	#Génération d'ensemble
+	#Génération de polygones
+	for i in range(1,length/10):
+		stringTest = "PC pol" + str(nbPolygone)
+		for i in range(1,random.randint(4,7)):
+			x = random.randint(-1000,1000)
+			y = random.randint(-1000,1000)
+			stringTest += " " + str(x) + " " + str(y)
+		stringTest += "\n"
+		nbPolygone = nbPolygone + 1
+		fichier.write(stringTest)
+	#Génération d'ensembles
 	for i in range(1,length/10):
 		choice = random.randint(1,2)
 		if(choice == 1):
@@ -35,7 +46,7 @@ if(len(sys.argv) == 2):
 			stringTest = "OI intersection" + str(nbIntersection) + " rec" + str(random.randint(1,nbRectangle)-1) + " seg" + str(random.randint(1,nbSegment)-1) + " rec" + str(random.randint(1,nbRectangle)-1) + " seg" + str(random.randint(1,nbSegment)-1) + "\n"
 			nbIntersection = nbIntersection + 1
 		fichier.write(stringTest)
-	#Génération de test d'appartenance
+	#Génération de tests d'appartenance
 	for i in range(1,length/10):
 		x1 = random.randint(-1000,1000)
 		y1 = random.randint(-1000,1000)
@@ -44,7 +55,7 @@ if(len(sys.argv) == 2):
 		stringTest +="HIT " + "union" + str(random.randint(1,nbUnion)-1) + " " + str(x1) + " " + str(y1) + "\n"
 		stringTest +="HIT " + "intersection" + str(random.randint(1,nbIntersection)-1) + " " + str(x1) + " " + str(y1) + "\n"
 		fichier.write(stringTest)
-	#Génération de déplacement
+	#Génération de déplacements
 	for i in range(1,length/10):
 		x1 = random.randint(-1000,1000)
 		y1 = random.randint(-1000,1000)
