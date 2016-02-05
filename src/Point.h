@@ -11,14 +11,10 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <iostream>
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Point>
-//
-//
+// Permet de gerer des vecteurs : 2 entiers avec possibilité de faire un
+// produit vectoriel, une addition, un produit scalaire, etc
 //------------------------------------------------------------------------
 
 class Point
@@ -55,6 +51,9 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
     Point & operator = ( const Point & unPoint );
+    // Contrat :
+    // Copie les deux entiers en utilisant les constructeurs de copie
+    // d’entier par defaut.
 
     friend std::ostream & operator << ( std::ostream & os, const Point & unPoint);
     // Contrat :
@@ -79,47 +78,24 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Point ( const Point & aPoint );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Constructeur de copie utilisant la surcharge de l’operateur =.
 
     Point ( int aX = 0, int aY = 0 );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // aX définira l’abscisse, et aY l’ordonnée.
 
     virtual ~Point ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // Affiche les appels au destructeur de Point.
 
 //------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
-//----------------------------------------------------- Attributs protégés
 
 private:
 //------------------------------------------------------- Attributs privés
     int x;
     int y;
 
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
-
 };
-
-//----------------------------------------- Types dépendants de <Point>
 
 #endif // POINT_H
