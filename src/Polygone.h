@@ -37,7 +37,7 @@ public:
     // Contrat :
     // Renvoi un pointeur vers une copie de l’objet.
 
-    static bool EstConvexe (std::vector<Point> & pts );
+    static bool EstConvexe ( std::vector<Point> & pts );
     // Contrat :
     // Renvoi vrai si la liste ordonnée de points donne un polygone
     // convexe.

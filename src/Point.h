@@ -60,11 +60,11 @@ public:
     // Contrat :
     // Affiche ( x : y )
 
-    Point & operator + ( const Point & unPoint ) const;
+    Point operator + ( const Point & unPoint ) const;
     // Contrat :
     // Ajoute les x et les y separement et renvoi le résultat
 
-    Point & operator - ( const Point & unPoint ) const;
+    Point operator - ( const Point & unPoint ) const;
     // Contrat :
     // Effectue les soustractions des x et des y separement et renvoi le
     // résultat
