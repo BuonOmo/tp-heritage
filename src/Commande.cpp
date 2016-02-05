@@ -36,7 +36,11 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 
 bool Commande::execute (const vector<string> requete, bool undo, bool redo)
-// Algorithme :
+// Algorithme : Effectue un traitement spécial correspondant à la requête en paramètre, 
+// si la taille du vector est superieur à 1 alors on effectue un traitement spéciale qui 
+// puisque cela veut dire que c'est une liste de description. Les booleens undo et redo
+// indiquent si l'execution correspond éventuellement à un UNDO ou à un REDO, par défaut
+// ils sont à false.
 //
 {
 	if(requete.size() <= 1)
