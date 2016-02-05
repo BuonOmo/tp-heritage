@@ -50,7 +50,8 @@ public:
     // Constructeur par defaut, à utiliser avec la methode addPoint().
     // Contrat :
     // L’ajout de points ulterieure n’est pas vérifiée, c’est à la charge
-    // de l’utilisateur d’en mettre deux.
+    // de l’utilisateur d’en mettre deux. Il est recommandé d’instancié
+    // un nom.
 
     Segment ( const string & unNom,
               const Point & p1,
@@ -60,6 +61,8 @@ public:
     // équivalent de ObjetSimple.
 
     virtual ~Segment ( );
+    // Contrat :
+    // Affiche les appels au destructeur de Segment.
 
 };
 

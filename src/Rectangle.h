@@ -12,14 +12,11 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "ObjetSimple.h"
 #include "Point.h"
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Rectangle>
-//
-//
+// Classe permettant d’utiliser l’objet Rectangle :
+// permet principalement de vérifier si un point est sur le rectangle et
+// de deplacer le rectangle dans l’espace.
 //------------------------------------------------------------------------
 
 class Rectangle : public ObjetSimple
@@ -40,58 +37,30 @@ public:
     // Contrat :
     // Renvoi la ligne de commande correspondant à la création de l’objet.
 
-//------------------------------------------------- Surcharge d'opérateurs
-
-
 //-------------------------------------------- Constructeurs - destructeur
     Rectangle ( const Rectangle & unRectangle );
-    // Mode d'emploi (constructeur de copie) :
-    //
     // Contrat :
-    //
+    // Constructeur de copie basé sur la surcharge d’operateur = de
+    // ObjetSimple.
 
-    Rectangle ( const string & nom );
+    Rectangle ( const string & nom = "" );
     // Mode d'emploi :
-    //
+    // Constructeur par defaut, à utiliser avec la methode addPoint().
     // Contrat :
-    //
+    // L’ajout de points ulterieure n’est pas vérifiée, c’est à la charge
+    // de l’utilisateur d’en mettre deux. Il est recommandé d’instancié
+    // un nom.
 
     Rectangle ( const string & unNom,
                 const Point & p1,
                 const Point & p2);
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
+    // Constructeur prenant deux Points et appelant le constructeur
+    // équivalent de ObjetSimple.
 
     virtual ~Rectangle ( );
-    // Mode d'emploi :
-    //
     // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- Méthodes protégées
-
-private:
-//------------------------------------------------------- Méthodes privées
-
-protected:
-//----------------------------------------------------- Attributs protégés
-
-private:
-//------------------------------------------------------- Attributs privés
-
-//---------------------------------------------------------- Classes amies
-
-//-------------------------------------------------------- Classes privées
-
-//----------------------------------------------------------- Types privés
+    // Affiche les appels au destructeur de Rectangle.
 
 };
-
-//---------------------------------------- Types dépendants de <Rectangle>
-
 #endif // RECTANGLE_H

@@ -68,7 +68,7 @@ public:
 
     virtual ~Objet ( );
     // Contrat :
-    // -
+    // Affiche les appels au destructeur de Objet.
 
 //------------------------------------------------------------------ PRIVE
 

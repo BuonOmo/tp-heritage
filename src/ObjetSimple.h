@@ -81,6 +81,8 @@ public:
     // constructeur d’Objet pour le nom.
 
     virtual ~ObjetSimple ( );
+    // Contrat :
+    // Affiche les appels au destructeur de ObjetSimple.
 
 //------------------------------------------------------------------ PRIVE
 
