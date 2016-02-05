@@ -117,12 +117,20 @@ vector<string> Dessin::Load(string filename)
     Clear();
     ifstream fichier(filename.c_str());
     vector<string> vecCom;
-    while(fichier)
+    if(!fichier.is_open())
     {
-        string ligne;
-        getline(fichier, ligne);
-        vecCom.push_back(ligne);
+        vecCom.push_back("ERR3");    
     }
+        
+    else
+    {
+        while(fichier)
+        {
+            string ligne;
+            getline(fichier, ligne);
+            vecCom.push_back(ligne);
+        } 
+    }   
     return vecCom;
 }
 

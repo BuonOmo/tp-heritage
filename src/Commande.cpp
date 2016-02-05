@@ -477,7 +477,10 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				for(string com : loadCommandes)
 				{
 					if(com == "ERR3")
+					{
 						fichierPresent = false;
+						break;
+					}
 					loadObjet(com);
 				}
 				if(fichierPresent)
