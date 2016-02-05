@@ -41,15 +41,6 @@ public:
     // Contrat :
     // Ajoute l'objet au dessin si celui-ci n'existe pas déjà sur la figure.
 
-    void AjouterObjetsComplexes (string name, vector<string> names, int type);
-    // Mode d'emploi :
-    // Ajout d'un objet complexe qui sera soit une union (type 1) ou alors
-    // une intersection (type 2). Ces objets sont construits à partir d'une liste d'objets
-    // existants.
-    //
-    // Contrat :
-    // Ajoute l'objet au dessin si celui-ci n'existe pas déjà sur la figure.
-
     bool verifObjetsPresents (vector<string> names);
     // Mode d'emploi :
     // Vérifie que tout les objets passés en paramètre sont dans le dessin.
@@ -84,20 +75,6 @@ public:
     //
     // Contrat :
     // Vérifie pour l'objet si le point est contenu dedans ou non.
-
-    void Undo();
-    // Mode d'emploi :
-    // Annule l'action de modification précédente.
-    //
-    // Contrat :
-    // Annule l'action de modification précédente.
-    
-    void Redo();
-    // Mode d'emploi :
-    // Annule le undo précédent si il n'y a eu aucune modification entre.
-    //
-    // Contrat :
-    // Annule le undo précédent si il n'y a eu aucune modification entre.
 
     void Afficher();
     // Mode d'emploi :

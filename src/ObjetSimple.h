@@ -73,12 +73,18 @@ public:
     // Contrat :
     //
 
-    ObjetSimple ( const vector<Point> & desPoints = *(new vector<Point>),
+    ObjetSimple ( const vector<Point> & desPoints,
                   const string & nom = "");
     // Mode d'emploi :
     //
     // Contrat :
     //
+/*
+    ObjetSimple ( const string & nom = "");
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //*/
 
     ObjetSimple ( const string & nom,
                   const Point & p1,

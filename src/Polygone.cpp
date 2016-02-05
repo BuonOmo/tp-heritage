@@ -109,7 +109,7 @@ string Polygone::ToString ( ) const
 #ifdef MAP
     cout << "Appel à la méthode ToString de <Polygone>" << endl;
 #endif
-    string toReturn = "PC "+nom;
+    string toReturn = "PC "+nom + " " + to_string(points.size());    
     for (Point p : points)
     {
         toReturn+=" "+p.ToString();

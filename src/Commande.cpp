@@ -637,8 +637,8 @@ bool Commande::loadObjet (string description)
     if(tokens[0] == "S")
     {
         Segment * seg = new Segment(nom);
-        seg->AddPoint(Point(atoi(tokens[3].c_str()), atoi(tokens[4].c_str())));
-        seg->AddPoint(Point(atoi(tokens[5].c_str()), atoi(tokens[6].c_str())));
+        seg->AddPoint(Point(atoi(tokens[2].c_str()), atoi(tokens[3].c_str())));
+        seg->AddPoint(Point(atoi(tokens[4].c_str()), atoi(tokens[5].c_str())));
         if (dessin->isObjetPresent(nom))
         {
             return false;
@@ -648,8 +648,8 @@ bool Commande::loadObjet (string description)
     else if(tokens[0] == "R")
     {
         Rectangle * rect = new Rectangle(nom);
-        rect->AddPoint(Point(atoi(tokens[3].c_str()), atoi(tokens[4].c_str())));
-        rect->AddPoint(Point(atoi(tokens[5].c_str()), atoi(tokens[6].c_str())));
+        rect->AddPoint(Point(atoi(tokens[2].c_str()), atoi(tokens[3].c_str())));
+        rect->AddPoint(Point(atoi(tokens[4].c_str()), atoi(tokens[5].c_str())));
         if (dessin->isObjetPresent(nom))
         {
             return false;
@@ -659,9 +659,9 @@ bool Commande::loadObjet (string description)
     else if(tokens[0] == "PC")
     {
         Polygone * pol = new Polygone(nom);
-        for(int i = 3; i < atoi(tokens[2].c_str())*2; i += 2)
+        for(int i = 3; i < atoi(tokens[2].c_str())*2+3; i += 2)
         {
-            pol->AddPoint(Point(atoi(tokens[i].c_str()), atoi(tokens[i+1].c_str())));
+        	pol->AddPoint(Point(atoi(tokens[i].c_str()), atoi(tokens[i+1].c_str())));
         }
         if (dessin->isObjetPresent(nom))
         {
@@ -707,23 +707,23 @@ int Commande::loadObjetIntoObjetComplexe (ObjetComplexe * objComp, const vector<
     if(tokens[pos] == "S")
     {
     	Segment * seg = new Segment(nomObj);
-        seg->AddPoint(Point(atoi(tokens[pos+3].c_str()), atoi(tokens[pos+4].c_str())));
-        seg->AddPoint(Point(atoi(tokens[pos+5].c_str()), atoi(tokens[pos+6].c_str())));
+        seg->AddPoint(Point(atoi(tokens[pos+2].c_str()), atoi(tokens[pos+3].c_str())));
+        seg->AddPoint(Point(atoi(tokens[pos+4].c_str()), atoi(tokens[pos+5].c_str())));
         objComp->AddObjet(seg);
-        return pos + 3 + atoi(tokens[pos + 2].c_str())*2;
+        return pos + 6;
     }
     else if(tokens[pos] == "R")
     {
         Rectangle * rect = new Rectangle(nomObj);
-        rect->AddPoint(Point(atoi(tokens[pos+3].c_str()), atoi(tokens[pos+4].c_str())));
-        rect->AddPoint(Point(atoi(tokens[pos+5].c_str()), atoi(tokens[pos+6].c_str())));
+        rect->AddPoint(Point(atoi(tokens[pos+2].c_str()), atoi(tokens[pos+3].c_str())));
+        rect->AddPoint(Point(atoi(tokens[pos+4].c_str()), atoi(tokens[pos+5].c_str())));
         objComp->AddObjet(rect);
-        return pos + 3 + atoi(tokens[pos + 2].c_str())*2;
+        return pos + 6;
     }
     else if(tokens[pos] == "PC")
     {
         Polygone * pol = new Polygone(nomObj);
-        for(int i = pos+3; i < atoi(tokens[pos+2].c_str())*2; i += 2)
+        for(int i = pos+3; i < atoi(tokens[pos+2].c_str())*2+pos+3; i += 2)
         {
             pol->AddPoint(Point(atoi(tokens[i].c_str()), atoi(tokens[i+1].c_str())));
         }

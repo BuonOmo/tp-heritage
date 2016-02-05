@@ -1,6 +1,6 @@
 OK
 OK
-PC pol 10 10 10 110 60 60
+PC pol 3 10 10 10 110 60 60
 YES
 YES
 YES
@@ -17,7 +17,7 @@ NO
 NO
 NO
 OK
-PC pol 0 0 0 100 50 50
+PC pol 3 0 0 0 100 50 50
 YES
 YES
 YES

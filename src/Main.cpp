@@ -21,7 +21,8 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "Commande.h"
-
+#include <cstdio>
+#include <ctime>
 //------------------------------------------------------------- Constantes
 
 //---------------------------------------------------- Variables de classe
@@ -38,7 +39,7 @@ int main () {
 
 	string entreeClavier;
 	Commande *commande = new Commande();
-
+	
 	while(true) {
 		getline(cin, entreeClavier);
 		vector<string> requetes;

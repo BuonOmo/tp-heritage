@@ -37,7 +37,7 @@ void ObjetComplexe::Deplacer ( const Point & p )
 
 void ObjetComplexe::AddObjet (Objet * o) 
 {
-    objets.push_back(o->Copier());
+    objets.push_back(o);
 }
 
 

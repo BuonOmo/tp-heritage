@@ -35,51 +35,9 @@ void Dessin::AjouterObjet (string name, Objet* o)
 // Algorithme :
 //
 {
-    /*if(etatPrecedent->size() == 10) 
-    {
-        etatPrecedent->pop_front();
-                 
-    }
-    etatPrecedent->push_back(*objets);*/
     objets->insert(pair<string,Objet*>(name,o));
-    /*histoCommande.add()
-    viderEtatSuivants();*/
 }
 
-void Dessin::AjouterObjetsComplexes (string name, vector<string> names, int type)
-// Algorithme :
-//
-{
-    bool trouve = true;
-    vector<Objet *> desObjets;
-    for(string nameObj : names)
-    {
-        if(!isObjetPresent(nameObj))
-        {
-            cout << "ERR" << endl;
-            cout << "#Il y a un objet qui n'existe pas !";
-            cout << endl;
-            trouve = false;
-            break;
-        }
-        desObjets.push_back(objets->at(nameObj));
-    }
-    if (trouve)
-    {
-        if(type == 1)
-        {
-            AjouterObjet(name,new Union(name, desObjets));
-            cout  << "OK" << endl;
-            cout << "#Union "+name+" crée" << endl;
-        }
-        else
-        {
-            AjouterObjet(name,new Intersection(name, desObjets));
-            cout  << "OK" << endl;
-            cout << "#Intersection "+name+" crée" << endl;
-        }
-    }
-}
 
 bool Dessin::Contient(string name, Point p)
 // Algorithme :
@@ -123,50 +81,6 @@ void Dessin::DeplacerObjet (string name, Point p)
 //
 {
     objets->at(name)->Deplacer(p);    
-}
-
-void Dessin::Undo()
-// Algorithme :
-//
-{
-    /*if(etatPrecedent->size() == 0) 
-    {
-        cout << "ERR" << endl
-             << "#Il n'y a pas de commandes à annuler" << endl;
-                 
-    }
-    else
-    {
-        cout << "OK" << endl;
-        if(etatSuivant->size() == 10)
-            etatSuivant->pop_front();
-        etatSuivant->push_back(*objets);
-        *objets = etatPrecedent->back();
-        etatPrecedent->pop_back();
-
-    }*/
-}
-
-void Dessin::Redo()
-// Algorithme :
-//
-{
-    /*if(etatSuivant->size() == 0) 
-    {
-        cout << "ERR" << endl
-             << "#Il n'y a pas de commandes annulée qui doit être refaite" << endl;
-                 
-    }
-    else
-    {
-        cout << "OK" << endl;
-        /*if(etatPrecedent->size() == 10)
-            etatPrecedent->pop_front();
-        etatPrecedent->push_back(*objets);
-        *objets = etatSuivant->back();
-        etatSuivant->pop_back();
-
-    }*/
 }
 
 void Dessin::Afficher() 
