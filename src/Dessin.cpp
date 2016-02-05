@@ -35,10 +35,10 @@ void Dessin::AjouterObjet (string name, Objet* o)
 // Algorithme :
 //
 {
-    /*if(etatPrecedent->size() == 10) 
+    /*if(etatPrecedent->size() == 10)
     {
         etatPrecedent->pop_front();
-                 
+
     }
     etatPrecedent->push_back(*objets);*/
     objets->insert(pair<string,Objet*>(name,o));
@@ -115,25 +115,25 @@ void Dessin::Delete(vector<string> names)
     {
         delete objets->at(name);
         objets->erase(name);
-    }        
+    }
 }
 
 void Dessin::DeplacerObjet (string name, Point p)
 // Algorithme :
 //
 {
-    objets->at(name)->Deplacer(p);    
+    objets->at(name)->Deplacer(p);
 }
 
 void Dessin::Undo()
 // Algorithme :
 //
 {
-    /*if(etatPrecedent->size() == 0) 
+    /*if(etatPrecedent->size() == 0)
     {
         cout << "ERR" << endl
              << "#Il n'y a pas de commandes à annuler" << endl;
-                 
+
     }
     else
     {
@@ -151,11 +151,11 @@ void Dessin::Redo()
 // Algorithme :
 //
 {
-    /*if(etatSuivant->size() == 0) 
+    /*if(etatSuivant->size() == 0)
     {
         cout << "ERR" << endl
              << "#Il n'y a pas de commandes annulée qui doit être refaite" << endl;
-                 
+
     }
     else
     {
@@ -169,7 +169,7 @@ void Dessin::Redo()
     }*/
 }
 
-void Dessin::Afficher() 
+void Dessin::Afficher()
 // Algorithme :
 //
 {
@@ -180,12 +180,12 @@ void Dessin::Afficher()
         for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
         {
             cout << it->second -> ToString() << endl;
-        } 
+        }
     }
-    
+
 }
 
-void Dessin::Save(string filename) 
+void Dessin::Save(string filename)
 // Algorithme :
 //
 {
@@ -196,7 +196,7 @@ void Dessin::Save(string filename)
     }
 }
 
-vector<string> Dessin::Load(string filename) 
+vector<string> Dessin::Load(string filename)
 // Algorithme :
 //
 {
@@ -217,10 +217,10 @@ void Dessin::Clear()
 //
 {
     for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
-    {        
-        delete it->second;        
+    {
+        delete it->second;
     }
-    objets->clear();   
+    objets->clear();
 }
 
 Objet* Dessin::getObjet(string name)
@@ -243,8 +243,8 @@ vector<string> Dessin::getDescriptions()
 {
     vector<string> desc;
     for(map<string,Objet*>::iterator it=objets->begin(); it!=objets->end(); ++it)
-    {        
-        desc.push_back(it->second->ToString());        
+    {
+        desc.push_back(it->second->ToString());
     }
     return desc;
 }
@@ -257,12 +257,12 @@ Dessin::Dessin ()
 //
 {
 
-    objets = new map<string,Objet*>();    
+    objets = new map<string,Objet*>();
 #ifdef MAP
     cout << "#Appel au constructeur de copie de <Dessin>" << endl;
     cout << "#Nombre de réferences : " << c << endl << endl;
 #endif
-    
+
 } //----- Fin de Dessin (constructeur de copie)
 
 
