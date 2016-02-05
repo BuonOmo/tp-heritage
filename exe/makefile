@@ -19,7 +19,7 @@ ECHO  = @echo
 EXE   = Heritage
 CLEAN = clean
 #.SILENT:
-.PHONY: $(CLEAN)
+.PHONY: $(CLEAN) tests
 
 $(EXE) : $(OBJ)
 	$(EDL) $(OUTPUT) $(EXE) $(OBJ)

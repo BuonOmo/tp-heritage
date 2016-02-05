@@ -13,7 +13,7 @@
 #include <iostream>
 #include <deque>
 #include <iomanip>
-#include <vector>   
+#include <vector>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -47,13 +47,13 @@ public:
     //
     // Contrat :
     //
-    
+
     vector<string> getCommandeUndo ();
     // Mode d'emploi :
     //
     // Contrat :
     //
-    
+
     vector<string> getCommandeRedo ();
     // Mode d'emploi :
     //
@@ -70,7 +70,7 @@ public:
     // Contrat :
     //
 
-    
+
     virtual ~Historique ( );
     // Mode d'emploi :
     //
@@ -87,10 +87,9 @@ private:
 
 protected:
 //----------------------------------------------------- Attributs protégés
-    
+
 private:
 //------------------------------------------------------- Attributs privés
-    //std::deque<string> commandes;
     std::deque<vector<string>> commandesUndo;
     std::deque<vector<string>> commandesRedo;
 
