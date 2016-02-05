@@ -57,7 +57,9 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			int Y2;
 			if ((!(iss >> X1 && iss >> Y1 && iss >> X2 && iss >> Y2) || name == "") || !iss.eof())
 			{
-				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5) !" << endl;
+				cout << "ERR" << endl
+					 << "#Arguments invalides ou nombre d'arguments pas bon (5) !"
+					 << endl;
 			}
 			else
 			{
@@ -65,7 +67,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
-					cout << "OK" << endl << "#Segment " + name + " créé" << endl;
+					cout << "OK" << endl
+						 << "#Segment " + name + " créé" << endl;
 					dessin->AjouterObjet(name,new Segment(name, p1, p2));
 					commandeUndo = "DELETE " + name;
 					commandesAUndo.push_back(commandeUndo);
@@ -80,7 +83,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				}
 				else
 				{
-					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
+					cout << "ERR" << endl
+						 << "#L'objet "<< name <<" existe déjà" << endl;
 				}
 			}
 
@@ -95,7 +99,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			int X2;
 			int Y2;
 			if ((!(iss >> X1 && iss >> Y1 && iss >> X2 && iss >> Y2) || name == "") || !iss.eof() ) {
-				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
+				cout << "ERR" << endl
+					 << "#Arguments invalides ou nombre d'arguments pas bon (5)!" << endl;
 
 			}
 			else
@@ -104,7 +109,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				{
 					Point p1 (X1,Y1);
 					Point p2 (X2,Y2);
-					cout << "OK" << endl << "#Rectangle " + name + " créé" << endl;
+					cout << "OK" << endl
+						 << "#Rectangle " + name + " créé" << endl;
 					dessin->AjouterObjet(name,new Rectangle(name, p1, p2));
 					commandeUndo = "DELETE " + name;
 					commandesAUndo.push_back(commandeUndo);
@@ -119,7 +125,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				}
 				else
 				{
-					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
+					cout << "ERR" << endl
+						 << "#L'objet "<<name<<" existe déjà" << endl;
 				}
 
 			}
@@ -145,7 +152,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 		    }
 
 			if (!coordOk || points.size() < 6 || name == "" || !(points.size()%2 == 0)) {
-				cout << "ERR" << endl << "#Arguments invalides ou nombre d'arguments pas bon !" << endl;
+				cout << "ERR" << endl
+					 << "#Arguments invalides ou nombre d'arguments pas bon !" << endl;
 
 			}
 			else
@@ -162,7 +170,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 					if (Polygone::EstConvexe(listPoints))
 					{
 
-						cout << "OK" << endl << "#Polygone " + name + " créé" << endl;
+						cout << "OK" << endl
+							 << "#Polygone " + name + " créé" << endl;
 						dessin->AjouterObjet(name,new Polygone(listPoints, name));
 						commandeUndo = "DELETE " + name;
 						commandesAUndo.push_back(commandeUndo);
@@ -177,12 +186,14 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 					}
 					else
 					{
-						cout << "ERR" << endl << "#Polygone non convexe" << endl;
+						cout << "ERR" << endl
+							 << "#Le Polygone "<<name<<" est non convexe" << endl;
 					}
 				}
 				else
 				{
-					cout << "ERR" << endl << "#L'objet existe déjà" << endl;
+					cout << "ERR" << endl
+						 << "#L’objet "<<name<<" existe déjà" << endl;
 				}
 
 			}
@@ -212,7 +223,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			else if (dessin->isObjetPresent(name))
 			{
 				cout << "ERR" << endl
-					 << "#Le nom existe déjà" << endl;
+					 << "#L’objet "<<name<<" existe déjà" << endl;
 			}
 			else
 			{
@@ -223,7 +234,9 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			        if(!dessin->isObjetPresent(nameObj))
 			        {
 			            cout << "ERR" << endl;
-			            cout << "#Il y a un objet qui n'existe pas !";
+			            cout << "#L’objet "+nameObj+" n'existe pas !";
+						cout << endl;
+						cout << "#Impossible de créer l’union.";
 			            cout << endl;
 			            trouve = false;
 			            break;
@@ -273,7 +286,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			else if (dessin->isObjetPresent(name))
 			{
 				cout << "ERR" << endl
-					 << "#Le nom existe déjà" << endl;
+					 << "#L’objet "+name+" existe déjà" << endl;
 			}
 			else
 			{
@@ -283,8 +296,10 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			    {
 			        if(!dessin->isObjetPresent(nameObj))
 			        {
-			            cout << "ERR" << endl;
-			            cout << "#Il y a un objet qui n'existe pas !";
+						cout << "ERR" << endl;
+			            cout << "#L’objet "+nameObj+" n'existe pas !";
+						cout << endl;
+						cout << "#Impossible de créer l’intersection.";
 			            cout << endl;
 			            trouve = false;
 			            break;
@@ -325,7 +340,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			else if (!dessin->isObjetPresent(name))
 			{
 				cout << "ERR" << endl;
-				cout << "#Objet inexistant" << endl;
+				cout << "#Objet "+name+" inexistant" << endl;
 			}
 			else
 			{
@@ -333,14 +348,14 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 				if (dessin->Contient(name,p))
 				{
 					cout << "YES" << endl;
-					cout << "#Le point " << p.ToString();
-					cout << "est contenu dans " << name << endl;
+					cout << "#Le point " << p;
+					cout << " est contenu dans " << name << endl;
 				}
 				else
 				{
 					cout << "NO" << endl;
-					cout << "#Le point " << p.ToString();
-					cout << "n’est pas contenu dans " << name << endl;
+					cout << "#Le point " << p;
+					cout << " n’est pas contenu dans " << name << endl;
 				}
 			}
 
@@ -373,7 +388,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			}
 			else
 			{
-				cout << "ERR" << endl << "#Un ou des objets n'existent pas !" << endl;
+				cout << "ERR" << endl
+					 << "#Un ou des objets n'existent pas !" << endl;
 			}
 		}
 
@@ -393,7 +409,7 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			else if (!dessin->isObjetPresent(name))
 			{
 				cout << "ERR" << endl;
-				cout << "#Objet inexistant" << endl;
+				cout << "#Objet "+name+" inexistant" << endl;
 			}
 			else
 			{
@@ -420,7 +436,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 		{
 			if(!iss.eof())
 			{
-				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste LIST." << endl;
+				cout << "ERR" << endl
+					 << "#Il n'y a pas d'argument, la commande est juste LIST." << endl;
 			}
 			else
 			{
@@ -432,7 +449,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 		{
 			if(!iss.eof())
 			{
-				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste UNDO." << endl;
+				cout << "ERR" << endl
+					 << "#Il n'y a pas d'argument, la commande est juste UNDO." << endl;
 			}
 			else
 			{
@@ -444,7 +462,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 		{
 			if(!iss.eof())
 			{
-				cout << "ERR" << endl << "#Il n'y a pas d'argument, la commande est juste REDO." << endl;
+				cout << "ERR" << endl
+					 << "#Il n'y a pas d'argument, la commande est juste REDO." << endl;
 			}
 			else
 			{
@@ -458,7 +477,8 @@ bool Commande::execute (const vector<string> requete, bool undo, bool redo)
 			iss >> filename;
 			if(!iss.eof() || filename == "")
 			{
-				cout << "ERR" << endl << "#Pas le bon nombre d'arguments." << endl;
+				cout << "ERR" << endl
+					 << "#Pas le bon nombre d'arguments." << endl;
 			}
 			else
 			{
